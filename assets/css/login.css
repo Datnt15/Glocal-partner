@@ -1,0 +1,56 @@
+.page-header {
+    background-image: url('../img/bg9.jpg'); 
+    background-size: cover; 
+    background-position: top center;
+    color: #fff;
+    font-size: 16px;
+}
+
+.signup-page .page-header {
+    background-image: url('../img/bg8.jpg'); 
+}
+
+
+.page-header .input-group-addon, 
+.page-header .checkbox label, 
+.card-description, 
+.description, 
+.footer-big p, 
+.form-control, 
+.card-title,
+.info p{
+    color: #fff;
+}
+
+.card{
+    background-color: rgba(204, 204, 204, 0.38);
+}
+.card img{
+    max-height: 50px;
+    height: auto;
+    width: auto;
+    max-width: 100%;
+}
+
+input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #cecece !important;
+}
+input::-moz-placeholder { /* Firefox 19+ */
+    color: #cecece !important;
+}
+input:-ms-input-placeholder { /* IE 10+ */
+    color: #cecece !important;
+}
+input:-moz-placeholder, .info .info-title { /* Firefox 18- */
+    color: #cecece !important;
+}
+
+
+
+.login-page .page-header .container, .signup-page .page-header .container {
+    padding-top: 10vh;
+}
+
+@media screen and (max-width: 768px) {
+
+}
