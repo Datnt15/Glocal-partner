@@ -84,7 +84,7 @@ endif;?>
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="assets/glocal-admin/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
-<!-- <script src="assets/glocal-admin/layouts/layout/scripts/demo.min.js" type="text/javascript"></script> -->
+<script src="assets/glocal-admin/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
 <script src="assets/glocal-admin/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
 <script src="assets/glocal-admin/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
