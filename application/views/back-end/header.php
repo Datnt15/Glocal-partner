@@ -6,39 +6,38 @@
         <title><?= isset($title) ? $title . ' | ' : '' ?>Glocal Partner</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <meta content="Preview page of Metronic Admin Theme #1 for blank page layout" name="description" />
-        <meta content="" name="author" />
+        <meta content="" name="description" />
+        <meta content="Nguyễn Tiến Đạt" name="author" />
         <base href="<?= base_url() ?>">
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
         <link href="assets/glocal-admin/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/glocal-admin/global/plugins/bootstrap-toastr/toastr.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/glocal-admin/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/glocal-admin/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/glocal-admin/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
-        <!-- BEGIN THEME GLOBAL STYLES -->
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
         <?php if (isset($page)) :
             switch ($page) {
                 case 'all-homestay':
                     echo '<link href="assets/glocal-admin/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
-                    <link href="assets/glocal-admin/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />';
+                    <link href="assets/glocal-admin/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+                    <link href="assets/glocal-admin/global/plugins/bootstrap-editable/bootstrap-editable/css/bootstrap-editable.css" rel="stylesheet" type="text/css" />
+                    <link href="assets/glocal-admin/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />';
                     break;
                 case 'add-new-home':
                     echo ' <link href="assets/glocal-admin/global/plugins/jstree/dist/themes/default/style.min.css" rel="stylesheet" type="text/css" />
                     <link href="assets/glocal-admin/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet" type="text/css" />
-                    <link href="assets/glocal-admin/global/plugins/jquery-file-upload/blueimp-gallery/blueimp-gallery.min.css" rel="stylesheet" type="text/css" />
-                    <link href="assets/glocal-admin/global/plugins/jquery-file-upload/css/jquery.fileupload.css" rel="stylesheet" type="text/css" />
-                    <link href="assets/glocal-admin/global/plugins/jquery-file-upload/css/jquery.fileupload-ui.css" rel="stylesheet" type="text/css" />';
-                    break;
-                case 'categories':
-                    echo ' <link href="assets/glocal-admin/global/plugins/jstree/dist/themes/default/style.min.css" rel="stylesheet" type="text/css" />';
+                    <link href="assets/glocal-admin/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />';
                     break;
                 default:
                     
                     break;
             } 
         endif;?>
-        
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="assets/glocal-admin/global/css/components.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/glocal-admin/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
         <!-- END THEME GLOBAL STYLES -->
@@ -49,7 +48,7 @@
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="assets/img/favicon.png" /> 
     </head>
-    <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
+    <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white <?= isset($page) && $page == 'all-homestay' ? 'page-sidebar-closed' : '' ?>">
         <div class="page-wrapper">
             <!-- BEGIN HEADER -->
             <div class="page-header navbar navbar-fixed-top">
@@ -57,7 +56,7 @@
                 <div class="page-header-inner ">
                     <!-- BEGIN LOGO -->
                     <div class="page-logo">
-                        <a href="index.html">
+                        <a href="">
                             <img src="assets/img/logowhite.png" alt="logo" class="logo-default" height="20px" /> 
                         </a>
                         <div class="menu-toggler sidebar-toggler">
@@ -183,14 +182,14 @@
                                     <li class="external">
                                         <h3>You have
                                             <span class="bold">7 New</span> Messages</h3>
-                                        <a href="app_inbox.html">view all</a>
+                                        <a href="#">view all</a>
                                     </li>
                                     <li>
                                         <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
                                             <li>
                                                 <a href="#">
                                                     <span class="photo">
-                                                        <img src="assets/glocal-admin/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
+                                                        <img src="assets/img/placeholder.jpg" class="img-circle" alt=""> </span>
                                                     <span class="subject">
                                                         <span class="from"> Lisa Wong </span>
                                                         <span class="time">Just Now </span>
@@ -201,7 +200,7 @@
                                             <li>
                                                 <a href="#">
                                                     <span class="photo">
-                                                        <img src="assets/glocal-admin/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span>
+                                                        <img src="assets/img/placeholder.jpg" class="img-circle" alt=""> </span>
                                                     <span class="subject">
                                                         <span class="from"> Richard Doe </span>
                                                         <span class="time">16 mins </span>
@@ -212,7 +211,7 @@
                                             <li>
                                                 <a href="#">
                                                     <span class="photo">
-                                                        <img src="assets/glocal-admin/layouts/layout3/img/avatar1.jpg" class="img-circle" alt=""> </span>
+                                                        <img src="assets/img/placeholder.jpg" class="img-circle" alt=""> </span>
                                                     <span class="subject">
                                                         <span class="from"> Bob Nilson </span>
                                                         <span class="time">2 hrs </span>
@@ -223,7 +222,7 @@
                                             <li>
                                                 <a href="#">
                                                     <span class="photo">
-                                                        <img src="assets/glocal-admin/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
+                                                        <img src="assets/img/placeholder.jpg" class="img-circle" alt=""> </span>
                                                     <span class="subject">
                                                         <span class="from"> Lisa Wong </span>
                                                         <span class="time">40 mins </span>
@@ -234,7 +233,7 @@
                                             <li>
                                                 <a href="#">
                                                     <span class="photo">
-                                                        <img src="assets/glocal-admin/layouts/layout3/img/avatar3.jpg" class="img-circle" alt=""> </span>
+                                                        <img src="assets/img/placeholder.jpg" class="img-circle" alt=""> </span>
                                                     <span class="subject">
                                                         <span class="from"> Richard Doe </span>
                                                         <span class="time">46 mins </span>
@@ -250,8 +249,8 @@
                             <!-- BEGIN USER LOGIN DROPDOWN -->
                             <li class="dropdown dropdown-user">
                                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                    <img alt="" class="img-circle" src="assets/img/placeholder.jpg" />
-                                    <span class="username username-hide-on-mobile"> John </span>
+                                    <img alt="" class="img-circle" src="<?= ($user['avatar'] == '') ? 'assets/img/placeholder.jpg' : $user['avatar'] ?>" />
+                                    <span class="username username-hide-on-mobile"> <?= $user['username'] ?> </span>
                                     <i class="fa fa-angle-down"></i>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-default">

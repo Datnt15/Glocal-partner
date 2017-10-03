@@ -1,5 +1,5 @@
-{
-  "HANOI": {
+[
+  {
     "name": "Hà Nội",
     "cities": {
       "QUANBADINH": "Quận Ba Đình",
@@ -30,11 +30,10 @@
       "HUYENUNGHOA": "Huyện Ứng Hoà",
       "HUYENTHUONGTIN": "Huyện Thường Tín",
       "HUYENPHUXUYEN": "Huyện Phú Xuyên",
-      "HUYENMELINH": "Huyện Mê Linh",
-      "HANOIKHAC": "Quận/Huyện khác"
+      "HUYENMELINH": "Huyện Mê Linh"
     }
   },
-  "HOCHIMINH": {
+  {
     "name": "THÀNH PHỐ HỒ CHÍ MINH",
     "cities": {
       "QUAN1": "Quận 1",
@@ -60,11 +59,10 @@
       "HUYENCUCHI": "Huyện Củ Chi",
       "HUYENHOCMON": "Huyện Hóc Môn",
       "HUYENNHABE": "Huyện Nhà Bè",
-      "HUYENCANGIO": "Huyện Cần Giờ",
-      "HOCHIMINHKHAC": "Quận/Huyện khác"
+      "HUYENCANGIO": "Huyện Cần Giờ"
     }
   },
-  "HAIPHONG": {
+  {
     "name": "Thành phố Hải Phòng",
     "cities": {
       "QUANHONGBANG": "Quận Hồng Bàng",
@@ -81,11 +79,10 @@
       "HUYENVINHBAO": "Huyện Vĩnh Bảo",
       "HUYENCATHAI": "Huyện Cát Hải",
       "HUYENBACHLONGVI": "Huyện Bạch Long Vĩ",
-      "QUANDUONGKINH": "Quận Dương Kinh",
-      "HAIPHONGKHAC": "Quận/Huyện khác"
+      "QUANDUONGKINH": "Quận Dương Kinh"
     }
   },
-  "DANANG": {
+  {
     "name": "Thành Phố Đà Nẵng",
     "cities": {
       "QUANHAICHAU": "Quận Hải Châu",
@@ -94,11 +91,10 @@
       "QUANNGUHANHSON": "Quận Ngũ Hành Sơn",
       "QUANLIENCHIEU": "Quận Liên Chiểu",
       "HUYENHOAVANG": "Huyện Hoà Vang",
-      "QUANCAMLE": "Quận Cẩm Lệ",
-      "DANANGKHAC": "Quận/Huyện khác"
+      "QUANCAMLE": "Quận Cẩm Lệ"
     }
   },
-  "HAGIANG": {
+  {
     "name": "Tỉnh Hà Giang",
     "cities": {
       "THANHPHOHAGIANG": "Thành phố Hà Giang",
@@ -111,11 +107,10 @@
       "HUYENHOANGSUPHI": "Huyện Hoàng Su Phì",
       "HUYENXINMAN": "Huyện Xín Mần",
       "HUYENBACQUANG": "Huyện Bắc Quang",
-      "HUYENQUANGBINH": "Huyện Quang Bình",
-      "HAGIANGKHAC": "Quận/Huyện khác"
+      "HUYENQUANGBINH": "Huyện Quang Bình"
     }
   },
-  "CAOBANG": {
+  {
     "name": "Tỉnh Cao Bằng",
     "cities": {
       "THANHPHOCAOBANG": "Thành phố Cao Bằng",
@@ -130,11 +125,10 @@
       "HUYENTHACHAN": "Huyện Thạch An",
       "HUYENHALANG": "Huyện Hạ Lang",
       "HUYENBAOLAM": "Huyện Bảo Lâm",
-      "HUYENPHUCHOA": "Huyện Phục Hoà",
-      "CAOBANGKHAC": "Quận/Huyện khác"
+      "HUYENPHUCHOA": "Huyện Phục Hoà"
     }
   },
-  "LAICHAU": {
+  {
     "name": "Tỉnh Lai Châu",
     "cities": {
       "THANHPHOLAICHAU": "Thành Phố Lai Châu",
@@ -144,11 +138,10 @@
       "HUYENMUONGTE": "Huyện Mường Tè",
       "HUYENTHANUYEN": "Huyện Than Uyên",
       "HUYENTANUYEN": "Huyện Tân Uyên",
-      "HUYENNAMNHUM": "Huyện Nậm Nhùm",
-      "LAICHAUKHAC": "Quận/Huyện khác"
+      "HUYENNAMNHUM": "Huyện Nậm Nhùm"
     }
   },
-  "LAOCAI": {
+  {
     "name": "Tỉnh Lào Cai",
     "cities": {
       "THANHPHOLAOCAI": "Thành phố Lào Cai",
@@ -159,11 +152,10 @@
       "HUYENVANBAN": "Huyện Văn Bàn",
       "HUYENBAOYEN": "Huyện Bảo Yên",
       "HUYENBACHA": "Huyện Bắc Hà",
-      "HUYENMUONGKHUONG": "Huyện Mường Khương",
-      "LAOCAIKHAC": "Quận/Huyện khác"
+      "HUYENMUONGKHUONG": "Huyện Mường Khương"
     }
   },
-  "TUYENQUANG": {
+  {
     "name": "Tỉnh Tuyên Quang",
     "cities": {
       "TH.PHOTUYENQUANG": "Th. phố Tuyên Quang",
@@ -172,11 +164,10 @@
       "HUYENCHIEMHOA": "Huyện Chiêm Hoá",
       "HUYENHAMYEN": "Huyện Hàm Yên",
       "HUYENYENSON": "Huyện Yên Sơn",
-      "HUYENSONDUONG": "Huyện Sơn Dương",
-      "TUYENQUANGKHAC": "Quận/Huyện khác"
+      "HUYENSONDUONG": "Huyện Sơn Dương"
     }
   },
-  "LANGSON": {
+  {
     "name": "Tỉnh Lạng Sơn",
     "cities": {
       "THANHPHOLANGSON": "Thành phố Lạng Sơn",
@@ -189,11 +180,10 @@
       "HUYENLOCBINH": "Huyện Lộc Bình",
       "HUYENCHILANG": "Huyện Chi Lăng",
       "HUYENDINHLAP": "Huyện Đình Lập",
-      "HUYENHUULUNG": "Huyện Hữu Lũng",
-      "LANGSONKHAC": "Quận/Huyện khác"
+      "HUYENHUULUNG": "Huyện Hữu Lũng"
     }
   },
-  "BACKAN": {
+  {
     "name": "Tỉnh Bắc Kạn",
     "cities": {
       "THIXABACKAN": "Thị xã Bắc Kạn",
@@ -203,11 +193,10 @@
       "HUYENNGANSON": "Huyện Ngân Sơn",
       "HUYENBABE": "Huyện Ba Bể",
       "HUYENCHOMOI": "Huyện Chợ Mới",
-      "HUYENPACNAM": "Huyện Pác Nặm",
-      "BACKANKHAC": "Quận/Huyện khác"
+      "HUYENPACNAM": "Huyện Pác Nặm"
     }
   },
-  "THAINGUYEN": {
+  {
     "name": "Tỉnh Thái Nguyên",
     "cities": {
       "THANHPHOTHAINGUYEN": "Thành phố Thái Nguyên",
@@ -218,11 +207,10 @@
       "HUYENDAITU": "Huyện Đại Từ",
       "HUYENDONGHY": "Huyện Đồng Hỷ",
       "HUYENPHUBINH": "Huyện Phú Bình",
-      "HUYENPHOYEN": "Huyện Phổ Yên",
-      "THAINGUYENKHAC": "Quận/Huyện khác"
+      "HUYENPHOYEN": "Huyện Phổ Yên"
     }
   },
-  "YENBAI": {
+  {
     "name": "Tỉnh Yên Bái",
     "cities": {
       "THANHPHOYENBAI": "Thành phố Yên Bái",
@@ -233,11 +221,10 @@
       "HUYENVANCHAN": "Huyện Văn Chấn",
       "HUYENTRANYEN": "Huyện Trấn Yên",
       "HUYENTRAMTAU": "Huyện Trạm Tấu",
-      "HUYENLUCYEN": "Huyện Lục Yên",
-      "YENBAIKHAC": "Quận/Huyện khác"
+      "HUYENLUCYEN": "Huyện Lục Yên"
     }
   },
-  "SONLA": {
+  {
     "name": "Tỉnh Sơn La",
     "cities": {
       "THANHPHOSONLA": "Thành phố Sơn La",
@@ -251,11 +238,10 @@
       "HUYENSONGMA": "Huyện Sông Mã",
       "HUYENMOCCHAU": "Huyện Mộc Châu",
       "HUYENSOPCOP": "huyện Sốp Cộp",
-      "HUYENVANHO": "Huyện Vân Hồ",
-      "SONLAKHAC": "Quận/Huyện khác"
+      "HUYENVANHO": "Huyện Vân Hồ"
     }
   },
-  "PHUTHO": {
+  {
     "name": "Tỉnh Phú Thọ",
     "cities": {
       "THANHPHOVIETTRI": "Thành phố Việt Trì",
@@ -270,11 +256,10 @@
       "HUYENLAMTHAO": "Huyện Lâm Thao",
       "HUYENTAMNONG": "Huyện Tam Nông",
       "HUYENTHANHTHUY": "Huyện Thanh Thủy",
-      "HUYENTANSON": "Huyện Tân Sơn",
-      "PHUTHOKHAC": "Quận/Huyện khác"
+      "HUYENTANSON": "Huyện Tân Sơn"
     }
   },
-  "VINHPHUC": {
+  {
     "name": "Tỉnh Vĩnh Phúc",
     "cities": {
       "THANHPHOVINHYEN": "Thành phố Vĩnh Yên",
@@ -285,11 +270,10 @@
       "HUYENBINHXUYEN": "Huyện Bình Xuyên",
       "HUYENSONGLO": "Huyện Sông Lô",
       "THIXAPHUCYEN": "Thị xã Phúc Yên",
-      "HUYENTAMDAO": "Huyện Tam Đảo",
-      "VINHPHUCKHAC": "Quận/Huyện khác"
+      "HUYENTAMDAO": "Huyện Tam Đảo"
     }
   },
-  "QUANGNINH": {
+  {
     "name": "Tỉnh Quảng Ninh",
     "cities": {
       "THANHPHOHALONG": "Thành phố Hạ Long",
@@ -305,11 +289,10 @@
       "THIXAQUANGYEN": "Thị xã Quảng Yên",
       "HUYENHOANHBO": "Huyện Hoành Bồ",
       "HUYENVANDON": "Huyện Vân Đồn",
-      "HUYENCOTO": "Huyện Cô Tô",
-      "QUANGNINHKHAC": "Quận/Huyện khác"
+      "HUYENCOTO": "Huyện Cô Tô"
     }
   },
-  "BACGIANG": {
+  {
     "name": "Tỉnh Bắc Giang",
     "cities": {
       "THANHPHOBACGIANG": "Thành phố Bắc Giang",
@@ -321,11 +304,10 @@
       "HUYENHIEPHOA": "Huyện Hiệp Hoà",
       "HUYENLANGGIANG": "Huyện Lạng Giang",
       "HUYENVIETYEN": "Huyện Việt Yên",
-      "HUYENYENDUNG": "Huyện Yên Dũng",
-      "BACGIANGKHAC": "Quận/Huyện khác"
+      "HUYENYENDUNG": "Huyện Yên Dũng"
     }
   },
-  "BACNINH": {
+  {
     "name": "Tỉnh Bắc Ninh",
     "cities": {
       "THANHPHOBACNINH": "Thành phố Bắc Ninh",
@@ -335,11 +317,10 @@
       "THIXATUSON": "Thị xã Từ Sơn",
       "HUYENTHUANTHANH": "Huyện Thuận Thành",
       "HUYENGIABINH": "Huyện Gia Bình",
-      "HUYENLUONGTAI": "Huyện Lương Tài",
-      "BACNINHKHAC": "Quận/Huyện khác"
+      "HUYENLUONGTAI": "Huyện Lương Tài"
     }
   },
-  "HAIDUONG": {
+  {
     "name": "Tỉnh Hải Dương",
     "cities": {
       "THANHPHOHAIDUONG": "Thành phố Hải Dương",
@@ -353,11 +334,10 @@
       "HUYENCAMGIANG": "Huyện Cẩm Giàng",
       "HUYENTHANHHA": "Huyện Thanh Hà",
       "HUYENKIMTHANH": "Huyện Kim Thành",
-      "HUYENBINHGIANG": "Huyện Bình Giang",
-      "HAIDUONGKHAC": "Quận/Huyện khác"
+      "HUYENBINHGIANG": "Huyện Bình Giang"
     }
   },
-  "HUNGYEN": {
+  {
     "name": "Tỉnh Hưng Yên",
     "cities": {
       "THANHPHOHUNGYEN": "Thành phố Hưng Yên",
@@ -369,11 +349,10 @@
       "HUYENPHUCU": "Huyện Phù Cừ",
       "HUYENMYHAO": "Huyện Mỹ Hào",
       "HUYENVANLAM": "Huyện Văn Lâm",
-      "HUYENVANGIANG": "Huyện Văn Giang",
-      "HUNGYENKHAC": "Quận/Huyện khác"
+      "HUYENVANGIANG": "Huyện Văn Giang"
     }
   },
-  "HOABINH": {
+  {
     "name": "Tỉnh Hòa Bình",
     "cities": {
       "THANHPHOHOABINH": "Thành phố Hoà Bình",
@@ -386,11 +365,10 @@
       "HUYENKIMBOI": "Huyện Kim Bôi",
       "HUYENLACTHUY": "Huyện Lạc Thuỷ",
       "HUYENYENTHUY": "Huyện Yên Thuỷ",
-      "HUYENCAOPHONG": "Huyện Cao Phong",
-      "HOABINHKHAC": "Quận/Huyện khác"
+      "HUYENCAOPHONG": "Huyện Cao Phong"
     }
   },
-  "HANAM": {
+  {
     "name": "TỈNH HÀ NAM",
     "cities": {
       "THANHPHOPHULY": "Thành phố Phủ Lý",
@@ -398,11 +376,10 @@
       "HUYENKIMBANG": "Huyện Kim Bảng",
       "HUYENLYNHAN": "Huyện Lý Nhân",
       "HUYENTHANHLIEM": "Huyện Thanh Liêm",
-      "HUYENBINHLUC": "Huyện Bình Lục",
-      "HANAMKHAC": "Quận/Huyện khác"
+      "HUYENBINHLUC": "Huyện Bình Lục"
     }
   },
-  "NAMDINH": {
+  {
     "name": "Tỉnh Nam Định",
     "cities": {
       "THANHPHONAMDINH": "Thành phố Nam Định",
@@ -414,11 +391,10 @@
       "HUYENNAMTRUC": "Huyện Nam Trực",
       "HUYENTRUCNINH": "Huyện Trực Ninh",
       "HUYENNGHIAHUNG": "Huyện Nghĩa Hưng",
-      "HUYENHAIHAU": "Huyện Hải Hậu",
-      "NAMDINHKHAC": "Quận/Huyện khác"
+      "HUYENHAIHAU": "Huyện Hải Hậu"
     }
   },
-  "THAIBINH": {
+  {
     "name": "Tỉnh Thái Bình",
     "cities": {
       "THANHPHOTHAIBINH": "Thành phố Thái Bình",
@@ -428,11 +404,10 @@
       "HUYENVUTHU": "Huyện Vũ Thư",
       "HUYENKIENXUONG": "Huyện Kiến Xương",
       "HUYENTIENHAI": "Huyện Tiền Hải",
-      "HUYENTHAITHUY": "Huyện Thái Thuỵ",
-      "THAIBINHKHAC": "Quận/Huyện khác"
+      "HUYENTHAITHUY": "Huyện Thái Thuỵ"
     }
   },
-  "NINHBINH": {
+  {
     "name": "Tỉnh Ninh Bình",
     "cities": {
       "THANHPHONINHBINH": "Thành phố Ninh Bình",
@@ -442,11 +417,10 @@
       "HUYENHOALU": "Huyện Hoa Lư",
       "HUYENYENMO": "Huyện Yên Mô",
       "HUYENKIMSON": "Huyện Kim Sơn",
-      "HUYENYENKHANH": "Huyện Yên Khánh",
-      "NINHBINHKHAC": "Quận/Huyện khác"
+      "HUYENYENKHANH": "Huyện Yên Khánh"
     }
   },
-  "THANHHOA": {
+  {
     "name": "Tỉnh Thanh Hóa",
     "cities": {
       "THANHPHOTHANHHOA": "Thành phố Thanh Hoá",
@@ -475,11 +449,10 @@
       "HUYENHAULOC": "Huyện Hậu Lộc",
       "HUYENQUANGXUONG": "Huyện Quảng Xương",
       "HUYENTINHGIA": "Huyện Tĩnh Gia",
-      "HUYENYENDINH": "Huyện Yên Định",
-      "THANHHOAKHAC": "Quận/Huyện khác"
+      "HUYENYENDINH": "Huyện Yên Định"
     }
   },
-  "NGHEAN": {
+  {
     "name": "Tỉnh Nghệ An",
     "cities": {
       "THANHPHOVINH": "Thành phố Vinh",
@@ -502,11 +475,10 @@
       "HUYENHUNGNGUYEN": "Huyện Hưng Nguyên",
       "HUYENQUEPHONG": "Huyện Quế Phong",
       "THIXATHAIHOA": "Thị Xã Thái Hòa",
-      "THIXAHOANGMAI": "Thị Xã Hoàng Mai",
-      "NGHEANKHAC": "Quận/Huyện khác"
+      "THIXAHOANGMAI": "Thị Xã Hoàng Mai"
     }
   },
-  "HATINH": {
+  {
     "name": "Tỉnh Hà Tĩnh",
     "cities": {
       "THANHPHOHATINH": "Thành phố Hà Tĩnh",
@@ -520,11 +492,10 @@
       "HUYENCAMXUYEN": "Huyện Cẩm Xuyên",
       "HUYENKYANH": "Huyện Kỳ Anh",
       "HUYENVUQUANG": "Huyện Vũ Quang",
-      "HUYENLOCHA": "Huyện Lộc Hà",
-      "HATINHKHAC": "Quận/Huyện khác"
+      "HUYENLOCHA": "Huyện Lộc Hà"
     }
   },
-  "QUANGBINH": {
+  {
     "name": "Tỉnh Quảng Bình",
     "cities": {
       "THANHPHODONGHOI": "Thành phố Đồng Hới",
@@ -533,11 +504,10 @@
       "HUYENQUANGTRACH": "Huyện Quảng Trạch",
       "HUYENBOTRACH": "Huyện Bố Trạch",
       "HUYENQUANGNINH": "Huyện Quảng Ninh",
-      "HUYENLETHUY": "Huyện Lệ Thuỷ",
-      "QUANGBINHKHAC": "Quận/Huyện khác"
+      "HUYENLETHUY": "Huyện Lệ Thuỷ"
     }
   },
-  "QUANGTRI": {
+  {
     "name": "Tỉnh Quảng Trị",
     "cities": {
       "THANHPHODONGHA": "Thành phố Đông Hà",
@@ -549,11 +519,10 @@
       "HUYENHAILANG": "Huyện Hải Lăng",
       "HUYENHUONGHOA": "Huyện Hướng Hóa",
       "HUYENDAKRONG": "Huyện Đăk Rông",
-      "HUYENDAOCONCO": "Huyện đảo Cồn Cỏ",
-      "QUANGTRIKHAC": "Quận/Huyện khác"
+      "HUYENDAOCONCO": "Huyện đảo Cồn Cỏ"
     }
   },
-  "THUATHIENHUE": {
+  {
     "name": "Tỉnh Thừa Thiên Huế",
     "cities": {
       "THANHPHOHUE": "Thành phố Huế",
@@ -564,11 +533,10 @@
       "THIXAHUONGTHUY": "Thị xã Hương Thủy",
       "HUYENPHULOC": "Huyện Phú Lộc",
       "HUYENNAMDONG": "Huyện Nam Đông",
-      "HUYENALUOI": "Huyện A Lưới",
-      "THUATHIENHUEKHAC": "Quận/Huyện khác"
+      "HUYENALUOI": "Huyện A Lưới"
     }
   },
-  "QUANGNAM": {
+  {
     "name": "Tỉnh Quảng Nam",
     "cities": {
       "THANHPHOTAMKY": "Thành phố Tam Kỳ",
@@ -588,11 +556,10 @@
       "HUYENNAMTRAMY": "Huyện Nam Trà My",
       "HUYENTAYGIANG": "Huyện Tây Giang",
       "HUYENPHUNINH": "Huyện Phú Ninh",
-      "HUYENNONGSON": "Huyện Nông Sơn",
-      "QUANGNAMKHAC": "Quận/Huyện khác"
+      "HUYENNONGSON": "Huyện Nông Sơn"
     }
   },
-  "QUANGNGAI": {
+  {
     "name": "Tỉnh Quảng Ngãi",
     "cities": {
       "THANHPHOQUANGNGAI": "Thành phố Quảng Ngãi",
@@ -608,11 +575,10 @@
       "HUYENDUCPHO": "Huyện Đức Phổ",
       "HUYENBATO": "Huyện Ba Tơ",
       "HUYENSONTAY": "Huyện Sơn Tây",
-      "HUYENTAYTRA": "Huyện Tây Trà",
-      "QUANGNGAIKHAC": "Quận/Huyện khác"
+      "HUYENTAYTRA": "Huyện Tây Trà"
     }
   },
-  "KONTUM": {
+  {
     "name": "Tỉnh Kon Tum",
     "cities": {
       "THANHPHOKONTUM": "Thành phố Kon Tum",
@@ -623,11 +589,10 @@
       "HUYENKONPLONG": "Huyện Kon Plông",
       "HUYENDAKHA": "Huyện Đăk Hà",
       "HUYENKONRAY": "Huyện Kon Rẫy",
-      "HUYENTUMORONG": "Huyện Tu Mơ Rông",
-      "KONTUMKHAC": "Quận/Huyện khác"
+      "HUYENTUMORONG": "Huyện Tu Mơ Rông"
     }
   },
-  "BINHDINH": {
+  {
     "name": "Tỉnh Bình Định",
     "cities": {
       "THANHPHOQUYNHON": "Thành phố Quy Nhơn",
@@ -640,11 +605,10 @@
       "HUYENTAYSON": "Huyện Tây Sơn",
       "HUYENVANCANH": "Huyện Vân Canh",
       "THIXAANNHON": "Thị xã An Nhơn",
-      "HUYENTUYPHUOC": "Huyện Tuy Phước",
-      "BINHDINHKHAC": "Quận/Huyện khác"
+      "HUYENTUYPHUOC": "Huyện Tuy Phước"
     }
   },
-  "GIALAI": {
+  {
     "name": "Tỉnh Gia Lai",
     "cities": {
       "THANHPHOPLEIKU": "Thành phố Pleiku",
@@ -663,11 +627,10 @@
       "HUYENIAPA": "Huyện Ia Pa",
       "HUYENDAKPO": "Huyện Đak Pơ",
       "HUYENPHUTHIEN": "Huyện Phú Thiện",
-      "HUYENCHUPUH": "Huyện Chư Pưh",
-      "GIALAIKHAC": "Quận/Huyện khác"
+      "HUYENCHUPUH": "Huyện Chư Pưh"
     }
   },
-  "PHUYEN": {
+  {
     "name": "Tỉnh Phú Yên",
     "cities": {
       "THANHPHOTUYHOA": "Thành phố Tuy Hòa",
@@ -678,11 +641,10 @@
       "HUYENSONGHINH": "Huyện Sông Hinh",
       "HUYENDONGHOA": "Huyện Đông Hòa",
       "HUYENPHUHOA": "Huyện Phú Hòa",
-      "HUYENTAYHOA": "Huyện Tây Hòa",
-      "PHUYENKHAC": "Quận/Huyện khác"
+      "HUYENTAYHOA": "Huyện Tây Hòa"
     }
   },
-  "DAKLAK": {
+  {
     "name": "Tỉnh Đăk Lăk",
     "cities": {
       "THANHPHOBUONMATHUOT": "Thành phố Buôn Ma Thuột",
@@ -699,11 +661,10 @@
       "HUYENLAK": "Huyện Lăk",
       "HUYENBUONDON": "Huyện Buôn Đôn",
       "HUYENCUKUIN": "Huyện Cư Kuin",
-      "THIXABUONHO": "Thị Xã Buôn Hồ",
-      "DAKLAKKHAC": "Quận/Huyện khác"
+      "THIXABUONHO": "Thị Xã Buôn Hồ"
     }
   },
-  "KHANHHOA": {
+  {
     "name": "Tỉnh Khánh Hòa",
     "cities": {
       "THANHPHONHATRANG": "Thành phố Nha Trang",
@@ -714,11 +675,10 @@
       "THIXACAMRANH": "Thị xã Cam Ranh",
       "HUYENKHANHSON": "Huyện Khánh Sơn",
       "HUYENDAOTRUONGSA": "Huyện đảo Trường Sa",
-      "HUYENCAMLAM": "Huyện Cam Lâm",
-      "KHANHHOAKHAC": "Quận/Huyện khác"
+      "HUYENCAMLAM": "Huyện Cam Lâm"
     }
   },
-  "LAMDONG": {
+  {
     "name": "Tỉnh Lâm Đồng",
     "cities": {
       "THANHPHODALAT": "Thành phố Đà Lạt",
@@ -732,11 +692,10 @@
       "HUYENCATTIEN": "Huyện Cát Tiên",
       "HUYENLAMHA": "Huyện Lâm Hà",
       "HUYENBAOLAM": "Huyện Bảo Lâm",
-      "HUYENDAMRONG": "Huyện Đam Rông",
-      "LAMDONGKHAC": "Quận/Huyện khác"
+      "HUYENDAMRONG": "Huyện Đam Rông"
     }
   },
-  "BINHPHUOC": {
+  {
     "name": "Bình Phước",
     "cities": {
       "THIXADONGXOAI": "Thị xã Đồng Xoài",
@@ -748,11 +707,10 @@
       "HUYENPHUOCLONG": "Huyện Phước Long",
       "HUYENBUDANG": "Huyện Bù Đăng",
       "HUYENHONQUAN": "Huyện Hớn Quản",
-      "HUYENBUGIAMAP": "Huyện Bù Gia Mập",
-      "BINHPHUOCKHAC": "Quận/Huyện khác"
+      "HUYENBUGIAMAP": "Huyện Bù Gia Mập"
     }
   },
-  "BINHDUONG": {
+  {
     "name": "Tỉnh Bình Dương",
     "cities": {
       "THPHOTHUDAUMOT": "Th. phố Thủ Dầu Một",
@@ -761,11 +719,10 @@
       "THIXATHUANAN": "Thị xã Thuận An",
       "THIXADIAN": "Thị xã Dĩ An",
       "HUYENPHUGIAO": "Huyện Phú Giáo",
-      "HUYENDAUTIENG": "Huyện Dầu Tiếng",
-      "BINHDUONGKHAC": "Quận/Huyện khác"
+      "HUYENDAUTIENG": "Huyện Dầu Tiếng"
     }
   },
-  "NINHTHUAN": {
+  {
     "name": "Tỉnh Ninh Thuận",
     "cities": {
       "THANHPHOPHANRANGTHAPCHAM": "Thành phố Phan Rang -Tháp Chàm",
@@ -774,11 +731,10 @@
       "HUYENNINHPHUOC": "Huyện Ninh Phước",
       "HUYENBACAI": "Huyện Bác Ái",
       "HUYENTHUANBAC": "Huyện Thuận Bắc",
-      "HUYENTHUANNAM": "Huyện Thuận Nam",
-      "NINHTHUANKHAC": "Quận/Huyện khác"
+      "HUYENTHUANNAM": "Huyện Thuận Nam"
     }
   },
-  "TAYNINH": {
+  {
     "name": "Tỉnh Tây Ninh",
     "cities": {
       "THIXATAYNINH": "Thị xã Tây Ninh",
@@ -789,11 +745,10 @@
       "HUYENHOATHANH": "Huyện Hòa Thành",
       "HUYENBENCAU": "Huyện Bến Cầu",
       "HUYENGODAU": "Huyện Gò Dầu",
-      "HUYENTRANGBANG": "Huyện Trảng Bàng",
-      "TAYNINHKHAC": "Quận/Huyện khác"
+      "HUYENTRANGBANG": "Huyện Trảng Bàng"
     }
   },
-  "BINHTHUAN": {
+  {
     "name": "Tỉnh Bình Thuận",
     "cities": {
       "THANHPHOPHANTHIET": "Thành phố Phan Thiết",
@@ -805,11 +760,10 @@
       "HUYENDUCLINH": "Huyện Đức Linh",
       "HUYENTANHLINH": "Huyện Tánh Linh",
       "HUYENDAOPHUQUY": "Huyện đảo Phú Quý",
-      "THIXALAGI": "Thị xã La Gi",
-      "BINHTHUANKHAC": "Quận/Huyện khác"
+      "THIXALAGI": "Thị xã La Gi"
     }
   },
-  "DONGNAI": {
+  {
     "name": "Tỉnh Đồng Nai",
     "cities": {
       "THANHPHOBIENHOA": "Thành phố Biên Hoà",
@@ -822,11 +776,10 @@
       "HUYENLONGTHANH": "Huyện Long Thành",
       "HUYENNHONTRACH": "Huyện Nhơn Trạch",
       "HUYENTRANGBOM": "Huyện Trảng Bom",
-      "HUYENCAMMY": "Huyện Cẩm Mỹ",
-      "DONGNAIKHAC": "Quận/Huyện khác"
+      "HUYENCAMMY": "Huyện Cẩm Mỹ"
     }
   },
-  "LONGAN": {
+  {
     "name": "Tỉnh Long An",
     "cities": {
       "THANHPHOTANAN": "Thành phố Tân An",
@@ -843,11 +796,10 @@
       "HUYENCANDUOC": "Huyện Cần Đước",
       "HUYENCANGIUOC": "Huyện Cần Giuộc",
       "HUYENTANHUNG": "Huyện Tân Hưng",
-      "THIXAKIENTUONG": "Thị xã Kiến Tường",
-      "LONGANKHAC": "Quận/Huyện khác"
+      "THIXAKIENTUONG": "Thị xã Kiến Tường"
     }
   },
-  "DONGTHAP": {
+  {
     "name": "Tỉnh Đồng Tháp",
     "cities": {
       "THANHPHOCAOLANH": "Thành phố Cao Lãnh",
@@ -861,11 +813,10 @@
       "HUYENTHAPMUOI": "Huyện Tháp Mười",
       "HUYENLAIVUNG": "Huyện Lai Vung",
       "HUYENCHAUTHANH": "Huyện Châu Thành",
-      "THIXAHONGNGU": "Thị Xã Hồng Ngự",
-      "DONGTHAPKHAC": "Quận/Huyện khác"
+      "THIXAHONGNGU": "Thị Xã Hồng Ngự"
     }
   },
-  "ANGIANG": {
+  {
     "name": "Tỉnh An Giang",
     "cities": {
       "THANHPHOLONGXUYEN": "Thành phố Long Xuyên",
@@ -878,11 +829,10 @@
       "HUYENCHAUPHU": "Huyện Châu Phú",
       "HUYENCHOMOI": "Huyện Chợ Mới",
       "HUYENCHAUTHANH": "Huyện Châu Thành",
-      "HUYENTHOAISON": "Huyện Thoại Sơn",
-      "ANGIANGKHAC": "Quận/Huyện khác"
+      "HUYENTHOAISON": "Huyện Thoại Sơn"
     }
   },
-  "BARIAVUNGTAU": {
+  {
     "name": "Tỉnh Bà Rịa Vũng Tàu",
     "cities": {
       "THANHPHOVUNGTAU": "Thành phố Vũng Tàu",
@@ -892,11 +842,10 @@
       "HUYENCONDAO": "Huyện Côn Đảo",
       "HUYENTANTHANH": "Huyện Tân Thành",
       "HUYENCHAUDUC": "Huyện Châu Đức",
-      "HUYENDATDO": "Huyện Đất Đỏ",
-      "BARIAVUNGTAUKHAC": "Quận/Huyện khác"
+      "HUYENDATDO": "Huyện Đất Đỏ"
     }
   },
-  "TIENGIANG": {
+  {
     "name": "Tỉnh Tiền Giang",
     "cities": {
       "THANHPHOMYTHO": "Thành phố Mỹ Tho",
@@ -908,11 +857,10 @@
       "HUYENGOCONGTAY": "Huyện Gò Công Tây",
       "HUYENGOCONGDONG": "Huyện Gò Công Đông",
       "HUYENTANPHUOC": "Huyện Tân Phước",
-      "HUYENTANPHUDONG": "Huyện Tân Phú Đông",
-      "TIENGIANGKHAC": "Quận/Huyện khác"
+      "HUYENTANPHUDONG": "Huyện Tân Phú Đông"
     }
   },
-  "KIENGIANG": {
+  {
     "name": "Tỉnh Kiên Giang",
     "cities": {
       "THANHPHORACHGIA": "Thành phố Rạch Giá",
@@ -929,11 +877,10 @@
       "HUYENPHUQUOC": "Huyện Phú Quốc",
       "HUYENKIENHAI": "Huyện Kiên Hải",
       "HUYENUMINHTHUONG": "Huyện U Minh Thượng",
-      "HUYENGIANGTHANH": "Huyện Giang Thành",
-      "KIENGIANGKHAC": "Quận/Huyện khác"
+      "HUYENGIANGTHANH": "Huyện Giang Thành"
     }
   },
-  "TRAVINH": {
+  {
     "name": "Tỉnh Trà Vinh",
     "cities": {
       "THANHPHOTRAVINH": "Thành phố Trà Vinh",
@@ -943,11 +890,10 @@
       "HUYENCHAUTHANH": "Huyện Châu Thành",
       "HUYENTRACU": "Huyện Trà Cú",
       "HUYENCAUNGANG": "Huyện Cầu Ngang",
-      "HUYENDUYENHAI": "Huyện Duyên Hải",
-      "TRAVINHKHAC": "Quận/Huyện khác"
+      "HUYENDUYENHAI": "Huyện Duyên Hải"
     }
   },
-  "BENTRE": {
+  {
     "name": "Tỉnh Bến Tre",
     "cities": {
       "THANHPHOBENTRE": "Thành phố Bến Tre",
@@ -958,11 +904,10 @@
       "HUYENBINHDAI": "Huyện Bình Đại",
       "HUYENBATRI": "Huyện Ba Tri",
       "HUYENTHANHPHU": "Huyện Thạnh Phú",
-      "HUYENMOCAYNAM": "Huyện Mỏ Cày Nam",
-      "BENTREKHAC": "Quận/Huyện khác"
+      "HUYENMOCAYNAM": "Huyện Mỏ Cày Nam"
     }
   },
-  "VINHLONG": {
+  {
     "name": "Tỉnh Vĩnh Long",
     "cities": {
       "THANHPHOVINHLONG": "Thành phố Vĩnh Long",
@@ -972,11 +917,10 @@
       "HUYENTAMBINH": "Huyện Tam Bình",
       "HUYENTRAON": "Huyện Trà Ôn",
       "HUYENVUNGLIEM": "Huyện Vũng Liêm",
-      "HUYENBINHTAN": "Huyện Bình Tân",
-      "VINHLONGKHAC": "Quận/Huyện khác"
+      "HUYENBINHTAN": "Huyện Bình Tân"
     }
   },
-  "SOCTRANG": {
+  {
     "name": "Tỉnh Sóc Trăng",
     "cities": {
       "THANHPHOSOCTRANG": "Thành phố Sóc Trăng",
@@ -989,11 +933,10 @@
       "HUYENCULAODUNG": "Huyện Cù Lao Dung",
       "HUYENNGANAM": "Huyện Ngã Năm",
       "HUYENCHAUTHANH": "Huyện Châu Thành",
-      "HUYENTRANDE": "Huyện Trần Đề",
-      "SOCTRANGKHAC": "Quận/Huyện khác"
+      "HUYENTRANDE": "Huyện Trần Đề"
     }
   },
-  "BACLIEU": {
+  {
     "name": "Tỉnh Bạc Liêu",
     "cities": {
       "THANHPHOBACLIEU": "Thành phố Bạc Liêu",
@@ -1002,11 +945,10 @@
       "HUYENGIARAI": "Huyện Giá Rai",
       "HUYENPHUOCLONG": "Huyện Phước Long",
       "HUYENDONGHAI": "Huyện Đông Hải",
-      "HUYENHOABINH": "Huyện Hoà Bình",
-      "BACLIEUKHAC": "Quận/Huyện khác"
+      "HUYENHOABINH": "Huyện Hoà Bình"
     }
   },
-  "CAMAU": {
+  {
     "name": "Tỉnh Cà Mau",
     "cities": {
       "THANHPHOCAMAU": "Thành phố Cà Mau",
@@ -1017,11 +959,10 @@
       "HUYENDAMDOI": "Huyện Đầm Dơi",
       "HUYENNGOCHIEN": "Huyện Ngọc Hiển",
       "HUYENNAMCAN": "Huyện Năm Căn",
-      "HUYENPHUTAN": "Huyện Phú Tân",
-      "CAMAUKHAC": "Quận/Huyện khác"
+      "HUYENPHUTAN": "Huyện Phú Tân"
     }
   },
-  "DIENBIEN": {
+  {
     "name": "Tỉnh Điện Biên",
     "cities": {
       "TP.DIENBIENPHU": "TP. Điện Biên Phủ",
@@ -1032,11 +973,10 @@
       "HUYENTUACHUA": "Huyện Tủa Chùa",
       "HUYENDIENBIENDONG": "Huyện Điện Biên Đông",
       "HUYENMUONGNHE": "Huyện Mường Nhé",
-      "HUYENMUONGANG": "Huyện Mường Ảng",
-      "DIENBIENKHAC": "Quận/Huyện khác"
+      "HUYENMUONGANG": "Huyện Mường Ảng"
     }
   },
-  "DAKNONG": {
+  {
     "name": "Tỉnh Đắk Nông",
     "cities": {
       "THIXAGIANGHIA": "Thị xã Gia Nghĩa",
@@ -1046,11 +986,10 @@
       "HUYENDAKSONG": "Huyện Đăk Song",
       "HUYENKRONGNO": "Huyện Krông Nô",
       "HUYENDAKGLONG": "Huyện Đăk GLong",
-      "HUYENTUYDUC": "Huyện Tuy Đức",
-      "DAKNONGKHAC": "Quận/Huyện khác"
+      "HUYENTUYDUC": "Huyện Tuy Đức"
     }
   },
-  "HAUGIANG": {
+  {
     "name": "Tỉnh Hậu Giang",
     "cities": {
       "THANHPHOVITHANH": "Thành phố Vị Thanh",
@@ -1059,8 +998,7 @@
       "HUYENPHUNGHIEP": "Huyện Phụng Hiệp",
       "HUYENCHAUTHANH": "Huyện Châu Thành",
       "HUYENCHAUTHANHA": "Huyện Châu Thành A",
-      "THIXANGABAY": "Thị xã Ngã Bảy",
-      "HAUGIANGKHAC": "Quận/Huyện khác"
+      "THIXANGABAY": "Thị xã Ngã Bảy"
     }
   }
-}
+]

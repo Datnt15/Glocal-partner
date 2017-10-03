@@ -39,6 +39,28 @@
 <script src="assets/glocal-admin/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
 <script src="assets/glocal-admin/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
 <script src="assets/glocal-admin/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+<script src="assets/glocal-admin/global/plugins/bootstrap-toastr/toastr.min.js" type="text/javascript"></script>
+<?php if ($this->session->flashdata('type')): ?>
+<script type="text/javascript">
+jQuery(document).ready(function() {   
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "positionClass": "toast-top-right",
+        "onclick": null,
+        "showDuration": "1000",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
+    toastr['<?= $this->session->flashdata('type') ?>']('<?= $this->session->flashdata('msg'); ?>', '<?= $this->session->flashdata('title') ?>');
+});
+</script>
+<?php endif ?>
 <!-- END CORE PLUGINS -->
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
 <?php if (isset($page)) :
@@ -46,34 +68,20 @@
         case 'all-homestay':
             echo '<script src="assets/glocal-admin/global/scripts/datatable.js" type="text/javascript"></script>
             <script src="assets/glocal-admin/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
+            <script src="assets/glocal-admin/global/plugins/bootstrap-editable/bootstrap-editable/js/bootstrap-editable.js" type="text/javascript"></script>
             <script src="assets/glocal-admin/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
-            <script src="assets/glocal-admin/pages/scripts/table-datatables-buttons.min.js" type="text/javascript"></script>';
+            <script src="assets/glocal-admin/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js" type="text/javascript"></script>
+            <script src="assets/glocal-admin/pages/scripts/all-home.js" type="text/javascript"></script>';
             break;
         case 'add-new-home';
             echo '<script src="assets/glocal-admin/global/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
+            <script src="assets/glocal-admin/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js" type="text/javascript"></script>
             <script src="assets/glocal-admin/global/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
-            <script src="assets/glocal-admin/global/plugins/plupload/js/plupload.full.min.js" type="text/javascript"></script>
-            <script src="assets/glocal-admin/pages/scripts/home-edit.js" type="text/javascript"></script>
+            <script src="assets/glocal-admin/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+            
             <script src="assets/glocal-admin/global/plugins/jstree/dist/jstree.min.js" type="text/javascript"></script>
             <script src="assets/glocal-admin/pages/scripts/ui-tree.js" type="text/javascript"></script>
-                <script src="assets/glocal-admin/global/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
-            <script src="assets/glocal-admin/global/plugins/jquery-file-upload/js/vendor/jquery.ui.widget.js" type="text/javascript"></script>
-            <script src="assets/glocal-admin/global/plugins/jquery-file-upload/js/vendor/tmpl.min.js" type="text/javascript"></script>
-            <script src="assets/glocal-admin/global/plugins/jquery-file-upload/js/vendor/load-image.min.js" type="text/javascript"></script>
-            <script src="assets/glocal-admin/global/plugins/jquery-file-upload/js/vendor/canvas-to-blob.min.js" type="text/javascript"></script>
-            <script src="assets/glocal-admin/global/plugins/jquery-file-upload/blueimp-gallery/jquery.blueimp-gallery.min.js" type="text/javascript"></script>
-            <script src="assets/glocal-admin/global/plugins/jquery-file-upload/js/jquery.iframe-transport.js" type="text/javascript"></script>
-            <script src="assets/glocal-admin/global/plugins/jquery-file-upload/js/jquery.fileupload.js" type="text/javascript"></script>
-            <script src="assets/glocal-admin/global/plugins/jquery-file-upload/js/jquery.fileupload-process.js" type="text/javascript"></script>
-            <script src="assets/glocal-admin/global/plugins/jquery-file-upload/js/jquery.fileupload-image.js" type="text/javascript"></script>
-            <script src="assets/glocal-admin/global/plugins/jquery-file-upload/js/jquery.fileupload-validate.js" type="text/javascript"></script>
-            <script src="assets/glocal-admin/global/plugins/jquery-file-upload/js/jquery.fileupload-ui.js" type="text/javascript"></script>
-            <script src="assets/glocal-admin/pages/scripts/form-fileupload.js" type="text/javascript"></script>
             <script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyCBERPYtfHY9yx-gQoLMbEN5PeuLHcKChU&libraries=places&callback=initAutocomplete" async defer></script>';
-            break;
-        case 'categories';
-            echo '<script src="assets/glocal-admin/global/plugins/jstree/dist/jstree.min.js" type="text/javascript"></script>
-            <script src="assets/glocal-admin/pages/scripts/ui-tree.js" type="text/javascript"></script>';
             break;
         default:
             
@@ -81,12 +89,12 @@
     } 
 endif;?>
 <script src="assets/glocal-admin/global/scripts/app.min.js" type="text/javascript"></script>
+<?php if (isset($page) && $page == 'add-new-home'): ?>
+    <script src="assets/glocal-admin/pages/scripts/home-edit.js" type="text/javascript"></script>
+<?php endif; ?>
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
-<script src="assets/glocal-admin/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
-<script src="assets/glocal-admin/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
-<script src="assets/glocal-admin/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
-<script src="assets/glocal-admin/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
+<script src="assets/glocal-admin/layouts/layout/scripts/layout.js" type="text/javascript"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
 </body>
 

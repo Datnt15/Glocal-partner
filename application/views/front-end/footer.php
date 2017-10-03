@@ -100,62 +100,26 @@
 	</footer>
 </body>
 
-	<!--   Core JS Files   -->
-	<script src="assets/js/jquery.min.js" type="text/javascript"></script>
-	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="assets/js/material.min.js"></script>
-	<script src="assets/js/bootstrap-tagsinput.js"></script>
-	<script src="assets/js/moment.min.js"></script>
-	<script src="assets/js/bootstrap-selectpicker.js" type="text/javascript"></script>
-	<script src="assets/js/bootstrap-datetimepicker.js" type="text/javascript"></script>
-	<script src="assets/js/nouislider.min.js" type="text/javascript"></script>
-	<script src="assets/js/jquery.flexisel.js"></script>
-	<script src="assets/js/atv-img-animation.js" type="text/javascript"></script>
-	<script src="assets/js/material-kit.min.js" type="text/javascript"></script>
+<!--   Core JS Files   -->
+<script src="assets/js/jquery.min.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/js/material.min.js"></script>
+<script src="assets/js/bootstrap-tagsinput.js"></script>
+<script src="assets/js/moment.min.js"></script>
+<script src="assets/js/bootstrap-selectpicker.js" type="text/javascript"></script>
+<script src="assets/js/bootstrap-datetimepicker.js" type="text/javascript"></script>
+<script src="assets/js/nouislider.min.js" type="text/javascript"></script>
+<script src="assets/js/toastr.min.js" type="text/javascript"></script>
+<script src="assets/js/atv-img-animation.js" type="text/javascript"></script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="assets/js/material-kit.min.js" type="text/javascript"></script>
+<?php if ($this->session->flashdata('type')): ?>
 	<script type="text/javascript">
-		jQuery(document).ready(function($) {
-			materialKit.initFormExtendedDatetimepickers();
-			var slider2 = document.getElementById('sliderRefine');
-
-			noUiSlider.create(slider2, {
-				start: [42, 880],
-				connect: true,
-				range: {
-				   'min': [30],
-				   'max': [900]
-				}
-			});
-
-			var limitFieldMin = document.getElementById('price-left');
-			var limitFieldMax = document.getElementById('price-right');
-
-			slider2.noUiSlider.on('update', function( values, handle ){
-				if (handle){
-					limitFieldMax.innerHTML= $('#price-right').data('currency') + Math.round(values[handle]);
-				} else {
-					limitFieldMin.innerHTML= $('#price-left').data('currency') + Math.round(values[handle]);
-				}
-			});
-			// $("#flexiselDemo1").flexisel({
-			// 	visibleItems: 4,
-	  //   		itemsToScroll: 1,
-	  //   		animationSpeed: 400,
-	  //           enableResponsiveBreakpoints: true,
-	  //           responsiveBreakpoints: {
-	  //               portrait: {
-	  //                   changePoint:480,
-	  //                   visibleItems: 3
-	  //               },
-	  //               landscape: {
-	  //                   changePoint:640,
-	  //                   visibleItems: 3
-	  //               },
-	  //               tablet: {
-	  //                   changePoint:768,
-	  //                   visibleItems: 3
-	  //               }
-	  //           }
-	  //       });
+		jQuery(document).ready(function() {   
+		    toastr['<?= $this->session->flashdata('type') ?>']('<?= $this->session->flashdata('msg'); ?>', '<?= $this->session->flashdata('title') ?>');
 		});
 	</script>
+<?php endif ?>
+
 </html>

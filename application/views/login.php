@@ -27,30 +27,39 @@
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 					<div class="card card-signup animated zoomIn">
+						
+						<h4 class="card-title text-center animated bounceInDown">
+                            <a href="<?= base_url(); ?>"><img src="assets/img/logo.png" alt="page logo"> </a>
+                            SIGN IN
+                        </h4>
+                        <div class="social-line animated fadeInUp">
+							<button class="btn btn-just-icon btn-round btn-twitter">
+                                <i class="fa fa-twitter"></i>
+                            </button>
+                            <button class="btn btn-just-icon btn-round btn-google google-login">
+                                <i class="fa fa-google"></i>
+                            </button>
+                            <button class="btn btn-just-icon btn-round btn-facebook facebook-login">
+                                <i class="fa fa-facebook"> </i>
+                            </button>
+						</div>
+						<p class="description text-center">Or Be Classical</p>
+						<?php if ($this->session->flashdata('type')): ?>
+							<div class="alert alert-<?php echo $this->session->flashdata('type');?> no-margin">
+	                            <?php echo $this->session->flashdata('msg'); ?>
+	                        </div>
+						<?php endif ?>
+						<?php echo validation_errors('<div class="alert alert-danger">', '</div>'); ?>
 						<form class="form" method="POST" action="">
-							<h4 class="card-title text-center animated bounceInDown">
-                                <img src="assets/img/logo.png" alt="page logo"> SIGN IN
-                            </h4>
-                            <div class="social-line animated fadeInUp">
-								<button class="btn btn-just-icon btn-round btn-twitter">
-                                    <i class="fa fa-twitter"></i>
-                                </button>
-                                <button class="btn btn-just-icon btn-round btn-dribbble">
-                                    <i class="fa fa-dribbble"></i>
-                                </button>
-                                <button class="btn btn-just-icon btn-round btn-facebook">
-                                    <i class="fa fa-facebook"> </i>
-                                </button>
-							</div>
-							<p class="description text-center">Or Be Classical</p>
 							<div class="card-content animated bounceInUp">
-
 								<div class="input-group">
 									<span class="input-group-addon">
 										<i class="material-icons">face</i>
 									</span>
 									<input type="text" class="form-control" name="username" placeholder="Enter your username..." required>
 								</div>
+								
+								<input type="hidden" name="access_token" value="<?= $ci_nonce; ?>">
 
 								<div class="input-group">
 									<span class="input-group-addon">
@@ -90,7 +99,12 @@
 </body>
 	<!--   Core JS Files   -->
 	<script src="assets/js/jquery.min.js" type="text/javascript"></script>
+	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="assets/js/material.min.js"></script>
+	<script src="assets/js/bootstrap-tagsinput.js"></script>
 	<script src="assets/js/atv-img-animation.js" type="text/javascript"></script>
+	<script src="assets/js/toastr.min.js" type="text/javascript"></script>
 	<script src="assets/js/material-kit.min.js" type="text/javascript"></script>
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+	<script src="assets/js/login.js" type="text/javascript"></script>
 </html>

@@ -78,15 +78,15 @@
 				<?= $filter; ?>
 			</div>
 			<div class="col-md-9">
-		    	<?php for ($i = 0; $i < 6; $i++): ?>
+		    	<?php foreach ($rooms as $room): ?>
 		    		<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
 						<div class="card card-product  card-rotate">
 							<div class="rotating-card-container">
 								<div class="card-image">
 									<div class="front">
-										<img class="img" src="assets/img/examples/dolce.jpg"/>
+										<img class="img" src="<?= $room['room_thumbnail'] ?>"/>
 										<div class="price-container">
-		                                   	<span class="price price-new"> $43</span>
+		                                   	<span class="price price-new"> $<?= $room['weekly_rate'] ?></span>
 										</div>
 									</div>
 
@@ -107,13 +107,13 @@
 											<p class="card-description">
 												Share with your friends...
 											</p>
-											<a href="#" class="btn btn-just-icon btn-round btn-white btn-twitter">
+											<a href="http://twitter.com/share?url=<?= base_url() ?>room/<?= $room['room_id'] ?>" target="_blank" class="btn btn-just-icon btn-round btn-white btn-twitter twitter-share">
 												<i class="fa fa-twitter"></i>
 											</a>
-											<a href="#" class="btn btn-just-icon btn-round btn-white btn-pinterest">
-												<i class="fa fa-pinterest"></i>
+											<a href="<?= base_url() ?>room/<?= $room['room_id'] ?>" class="btn btn-just-icon btn-round btn-white btn-google google-share">
+												<i class="fa fa-google"></i>
 											</a>
-											<a href="#" class="btn btn-just-icon btn-round btn-white btn-facebook">
+											<a href="<?= base_url() ?>room/<?= $room['room_id'] ?>" class="btn btn-just-icon btn-round btn-white btn-facebook facebook-share">
 												<i class="fa fa-facebook"></i>
 											</a>
 										</div>
@@ -123,24 +123,24 @@
 
 							<div class="card-content">
 								<h4 class="card-title">
-									<h4 class="card-title">Dolce & Gabbana</h4>
+									<a href="room/<?= $room['room_id'] ?>"><?= $room['name'] ?></a>
 								</h4>
 								<div class="card-description">
-									<i class="fa fa-map-marker"></i> Hoan Kiem - Ha Noi
+									<i class="fa fa-map-marker"></i> <?= $room['local'] ?>
 								</div>
 								<div class="footer">
 									<div class="row">
 										<div class="col-xs-4 mt-10">
-											<img src="assets/img/icon/bathroom.png" alt="" class="img-responsive img-20">
-											<span class="badge alert-info">2</span>
+											<img src="assets/img/icon/guest.png" alt="" class="img-responsive img-20">
+											<span class="badge alert-info"><?= $room['number_of_guests'] ?></span>
 										</div>
 										<div class="col-xs-4 mt-10">
-											<img src="assets/img/icon/tv.png" alt="" class="img-responsive img-20">
-											<span class="badge alert-info">2</span>
+											<img src="assets/img/icon/bathroom.png" alt="" class="img-responsive img-20">
+											<span class="badge alert-info"><?= $room['number_of_bathroom'] ?></span>
 										</div>
 										<div class="col-xs-4 mt-10">
 											<img src="assets/img/icon/bed.png" alt="" class="img-responsive img-20">
-											<span class="badge alert-info">2</span>
+											<span class="badge alert-info"><?= $room['number_of_guests'] ?></span>
 										</div>
 										<div class="col-xs-4 mt-10">
 											<img src="assets/img/icon/fridge.png" alt="" class="img-responsive img-20">
@@ -160,61 +160,8 @@
 							</div>
 						</div>
 					</div>
-				<?php endfor;?>
-				<?php for ($i = 0; $i < 3; $i++): ?>
-					<div class="card card-plain card-blog">
-						<div class="row">
-							<div class="col-md-5">
-								<div class="card-image">
-									<img class="img img-raised" src="assets/img/examples/dolce.jpg" />
-								</div>
-							</div>
-							<div class="col-md-7">
-								
-								<h3 class="card-title">
-									<a href="#">Autodesk looks to future of 3D printing</a>
-								</h3>
-								<div class="card-description">
-									Like so many organizations these days, Autodesk is a company in transition. It was until recently … <a href="#"> Read More </a>
-								</div>
-								<div><small>From</small> <strong  class="category text-info h3">$43</strong>/night</div>
-								<div class="card-description">
-									<i class="fa fa-map-marker"></i> Hoan Kiem - Ha Noi
-								</div>
-								<div class="footer">
-									<div class="row">
-										<div class="col-xs-4 col-sm-3 col-md-2 mt-10">
-											<img src="assets/img/icon/bathroom.png" alt="" class="img-responsive img-20">
-											<span class="badge alert-info">2</span>
-										</div>
-										<div class="col-xs-4 col-sm-3 col-md-2 mt-10">
-											<img src="assets/img/icon/tv.png" alt="" class="img-responsive img-20">
-											<span class="badge alert-info">2</span>
-										</div>
-										<div class="col-xs-4 col-sm-3 col-md-2 mt-10">
-											<img src="assets/img/icon/bed.png" alt="" class="img-responsive img-20">
-											<span class="badge alert-info">2</span>
-										</div>
-										<div class="col-xs-4 col-sm-3 col-md-2 mt-10">
-											<img src="assets/img/icon/fridge.png" alt="" class="img-responsive img-20">
-											<span class="badge alert-info">1</span>
-										</div>
-										<div class="col-xs-4 col-sm-3 col-md-2 mt-10">
-											<img src="assets/img/icon/toilet.png" alt="" class="img-responsive img-20">
-											<span class="badge alert-info">2</span>
-										</div>
-										<div class="col-xs-4 col-sm-3 col-md-2 mt-10">
-											<img src="assets/img/icon/ac.png" alt="" class="img-responsive img-20">
-											<span class="badge alert-info">2</span>
-										</div>
-									</div>
-									
-	                            </div>
-							</div>
-						</div>
-					</div>
-				<?php endfor; ?>
-				<div class="col-xs-12 text-right">
+				<?php endforeach;?>
+				<!-- <div class="col-xs-12 text-right">
 					<ul class="pagination pagination-info">
 						<li><a href="javascript:void(0);"> prev</a></li>
 						<li><a href="javascript:void(0);">1</a></li>
@@ -224,7 +171,7 @@
 						<li><a href="javascript:void(0);">5</a></li>
 						<li><a href="javascript:void(0);">next </a></li>
                     </ul>
-				</div>
+				</div> -->
 			</div>
 	    </div>
 

@@ -84,30 +84,38 @@ defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
-// Table Name
-define('USER_TABLE', '_ci_94_user');
-define('ROOM_TABLE', '_ci_94_room');
-define('ROOM_META_TABLE', '_ci_94_room_meta');
-define('RESERVATION_TABLE', '_ci_94_reservation');
-define('ROOM_CAT_TABLE', '_ci_94_room_categories');
-define('ROOM_TAG_TABLE', '_ci_94_room_tags');
-define('POST_TABLE', '_ci_94_post');
-define('POST_CAT_TABLE', '_ci_94_post_categories');
-define('POST_TAG_TABLE', '_ci_94_post_tags');
-
+// Table
+define('ROOM_TABLE', 'glocal_94_room');
+define('ROOM_META_TABLE', 'glocal_94_room_meta');
+define('USER_TABLE', 'glocal_94_user');
+define('BOOK_TABLE', 'glocal_94_book');
+define('LOCATION_TABLE', 'glocal_94_location');
 
 // User type
-define('USER_TYPE', '1');
-define('HOST_TYPE', '2');
-define('ADMIN_TYPE', '3');
-define('NOT_REGISTERED_TYPE', '4');
+define('USER_TYPE', 1);
+define('HOST_TYPE', 2);
+define('ADMIN_TYPE', 3);
+define('NOT_REGISTERED_TYPE', 4);
+
+// Payment Method
+define('CREDIT_CARD', 1);
+define('BANK_TRANFER', 2);
+
+// Booking states
+define('FILLED_INFO', 1);
+define('PAID', 2);
+define('DONE', 3);
+define('CANCEL', 4);
 
 // Room type
-define('HOUSE', '1');
-define('APARTMENT', '2');
-define('VILLA', '3');
-define('HOTEL', '4');
-define('STUDIO', '5');
+define('HOUSE', 1);
+define('APARTMENT', 2);
+define('VILLA', 3);
+define('HOTEL', 4);
+define('STUDIO', 5);
+
+// Real Host
+define('GLOCALHOME_URL', 'http://duanoceangatenhatrang.com/glocalhome/');
 
 // SALT string
 define('SALT_STRING', 'safewrv3728fds');

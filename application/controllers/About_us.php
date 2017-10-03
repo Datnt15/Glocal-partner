@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class About_us extends CI_Controller {
+class About_us extends Front_base {
 
 	public function index()
 	{

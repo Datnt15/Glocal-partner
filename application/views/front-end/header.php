@@ -16,6 +16,8 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/material-kit.min.css" rel="stylesheet"/>
     <link href="assets/css/vertical-nav.css" rel="stylesheet" />
+    <link href="assets/css/toastr.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 
 <body>
@@ -61,41 +63,20 @@
 						</ul>
 					</li>
 
-					<li class="button-container">
-						<a href="login" class="btn btn-info btn-round">
-							<i class="material-icons">fingerprint</i> Login
-						</a>
-					</li>
+					<?php if (count($user)): ?>
+						<li class="button-container">
+							<a href="<?= base_url() ?>logout" class="btn btn-info btn-round">
+								<i class="material-icons">exit_to_app</i> Log Out
+							</a>
+						</li>
+					<?php else: ?>
+						<li class="button-container">
+							<a href="<?= base_url() ?>login" class="btn btn-info btn-round">
+								<i class="material-icons">fingerprint</i> Login
+							</a>
+						</li>
+					<?php endif ?>
         		</ul>
-        	</div>
-    	</div>
-    </nav>
-    <nav class="navbar navbar-transparent navbar-absolute navbar-margin-top-50">
-    	<div class="container">
-
-        	<div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-center">
-                    <li>
-                        <a href="sections.html#pablo">
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="sections.html#pablo">
-                            About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="sections.html#pablo">
-                            Products
-                        </a>
-                    </li>
-                    <li>
-                        <a href="sections.html#pablo">
-                            Contact Us
-                        </a>
-                    </li>
-                </ul>
         	</div>
     	</div>
     </nav>

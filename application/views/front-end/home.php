@@ -16,7 +16,7 @@
 								<i class="fa fa-map-marker fa-lg"></i>
 							</span>
 							<div class="form-group">
-								<input class="form-control" placeholder="Where do you want to be at?" type="text">
+								<input class="form-control" placeholder="Where do you want to be at?" type="text" required>
 							</div>
 						</div>
 					</div>
@@ -45,7 +45,7 @@
 							<span class="input-group-addon">
 								<i class="fa fa-users fa-lg" style="margin-top: 10px;"></i>
 							</span>
-							<select class="selectpicker form-control" data-style="form-control" title="Number of guests?" data-size="2">
+							<select class="selectpicker form-control" data-style="form-control" title="Guests?" data-size="2">
 								<?php for ($i = 0; $i < 10; $i++): ?>
 			                    	<option value="<?= $i ?>"><?= $i ?></option>
 			                    <?php endfor; ?>
@@ -74,8 +74,8 @@
 		<div class="features-2">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center">
-					<h2 class="title">Why our product is the best</h2>
-					<h5 class="description">This is the paragraph where you can write more details about your product. Keep you user engaged by providing meaningful information.</h5>
+					<h2 class="title">Glocal Home</h2>
+					<h5 class="description">Affordable apartment complex in 98 To Ngoc Van</h5>
 				</div>
 			</div>
 
@@ -83,12 +83,12 @@
 				<div class="col-md-4">
 		           	<div class="info info-horizontal">
 						<div class="icon icon-info">
-							<i class="material-icons">group_work</i>
+							<i class="fa fa-cogs"></i>
 						</div>
 						<div class="description">
-							<h4 class="info-title">Collaborate</h4>
-							<p>The moment you use Material Kit, you know you’ve never felt anything like it. With a single use, this powerfull UI Kit lets you do more than ever before. </p>
-							<a href="sections.html#pablo">Find more...</a>
+							<h4 class="info-title">Custom your room</h4>
+							<p>Since Glocalhome is in structural renovation phase, we even offer total room redesign, if you pre-book now and choose to stay with us from 6 months and above.</p>
+							<a href="<?= GLOCALHOME_URL ?>" class="btn btn-round btn-info">Find more...</a>
 						</div>
 		        	</div>
 
@@ -97,12 +97,12 @@
 				<div class="col-md-4">
 					<div class="info info-horizontal">
 						<div class="icon icon-danger">
-							<i class="material-icons">airplay</i>
+							<i class="fa fa-cutlery"></i>
 						</div>
 						<div class="description">
-							<h4 class="info-title">Airplay</h4>
-							<p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
-							<a href="sections.html#pablo">Find more...</a>
+							<h4 class="info-title">Unique Benefits</h4>
+							<p>Equipped with rich experience in project development ranging from domestic housing, smart-designed apartments to hotels and resorts, we are building Glocalhome apartment complex as a new option for expats and locals working in Westlake area.</p>
+							<a href="<?= GLOCALHOME_URL ?>" class="btn btn-round btn-info">Find more...</a>
 						</div>
 					</div>
 				</div>
@@ -110,12 +110,12 @@
 				<div class="col-md-4">
 					<div class="info info-horizontal">
 						<div class="icon icon-success">
-							<i class="material-icons">location_on</i>
+							<i class="fa fa-bell"></i>
 						</div>
 						<div class="description">
-							<h4 class="info-title">Location Integrated</h4>
-							<p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
-							<a href="sections.html#pablo">Find more...</a>
+							<h4 class="info-title">Services</h4>
+							<p>Combining modern designs, ideal location and full service, Glocalhome offers a wide range of rooms that suit travelers, business trip, and long-term stays. Glocalhome apartments give you flexible choices and professional service</p>
+							<a href="<?= GLOCALHOME_URL ?>" class="btn btn-round btn-info">Find more...</a>
 						</div>
 					</div>
 				</div>
@@ -173,179 +173,314 @@
 	    </div>
 		
 		<!-- Homestay -->
-	    <h2 class="section-title text-center">Finest Homestay</h2>
+	    <h2 class="section-title text-center">Glocal Partner Location</h2>
 	    <div class="row">
-	    	<?php for ($i = 0; $i < 4; $i++): ?>
-	    		<div class="col-md-4 col-lg-3 col-sm-6 col-xs-12">
-					<div class="card card-product  card-rotate">
-						<div class="rotating-card-container">
-							<div class="card-image">
-								<div class="front">
-									<img class="img" src="assets/img/examples/dolce.jpg"/>
-									<div class="price-container">
-	                                   	<span class="price price-new"> $43</span>
-									</div>
-								</div>
+	    	<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+				<div class="card card-product  card-rotate">
+					<div class="rotating-card-container">
+						<div class="card-image">
+							<div class="front">
+								<img class="img" src="uploads/file00184.jpg"/>
+							</div>
 
-								<div class="back back-background">
-									<div class="card-content">
-										<!-- <h5 class="card-title">
-											Quick Actions...
-										</h5> -->
-										<div class="footer text-center">
-											<a href="#" class="btn btn-sm btn-round btn-white">
-												<i class="fa fa-home"></i> View
-											</a>
-											<a href="#" class="btn btn-sm btn-round btn-rose">
-												<i class="fa fa-calendar-check-o"></i> Book
-											</a>
-										</div>
-										<hr/>
-										<p class="card-description">
-											Share with your friends...
-										</p>
-										<a href="#" class="btn btn-just-icon btn-round btn-white btn-twitter">
-											<i class="fa fa-twitter"></i>
+							<div class="back back-background">
+								<div class="card-content">
+									<h5 class="card-title">
+										Quick Actions...
+									</h5>
+									<div class="footer text-center">
+										<a href="location/128-au-co" class="btn btn-sm btn-round btn-white">
+											<i class="fa fa-home"></i> View
 										</a>
-										<a href="#" class="btn btn-just-icon btn-round btn-white btn-pinterest">
-											<i class="fa fa-pinterest"></i>
-										</a>
-										<a href="#" class="btn btn-just-icon btn-round btn-white btn-facebook">
-											<i class="fa fa-facebook"></i>
+										<a href="#" class="btn btn-sm btn-round btn-rose">
+											<i class="fa fa-calendar-check-o"></i> Book
 										</a>
 									</div>
+									<hr/>
+									<p class="card-description">
+										Share with your friends...
+									</p>
+									<a href="http://twitter.com/share?url=<?= base_url() ?>location/128-au-co" target="_blank" class="btn btn-just-icon btn-round btn-white btn-twitter twitter-share">
+										<i class="fa fa-twitter"></i>
+									</a>
+									<a href="<?= base_url() ?>location/128-au-co" class="btn btn-just-icon btn-round btn-white btn-google google-share">
+										<i class="fa fa-google"></i>
+									</a>
+									<a href="<?= base_url() ?>location/128-au-co" class="btn btn-just-icon btn-round btn-white btn-facebook facebook-share">
+										<i class="fa fa-facebook"></i>
+									</a>
 								</div>
 							</div>
 						</div>
+					</div>
 
-						<div class="card-content">
-							<h4 class="card-title">
-								<h4 class="card-title">Dolce & Gabbana</h4>
-							</h4>
-							<div class="card-description">
-								<i class="fa fa-map-marker"></i> Hoan Kiem - Ha Noi
-							</div>
-							<div class="footer">
-								<div class="row">
-									<div class="col-xs-4 mt-10">
-										<img src="assets/img/icon/bathroom.png" alt="" class="img-responsive img-20">
-										<span class="badge alert-info">2</span>
-									</div>
-									<div class="col-xs-4 mt-10">
-										<img src="assets/img/icon/tv.png" alt="" class="img-responsive img-20">
-										<span class="badge alert-info">2</span>
-									</div>
-									<div class="col-xs-4 mt-10">
-										<img src="assets/img/icon/bed.png" alt="" class="img-responsive img-20">
-										<span class="badge alert-info">2</span>
-									</div>
-									<div class="col-xs-4 mt-10">
-										<img src="assets/img/icon/fridge.png" alt="" class="img-responsive img-20">
-										<span class="badge alert-info">1</span>
-									</div>
-									<div class="col-xs-4 mt-10">
-										<img src="assets/img/icon/toilet.png" alt="" class="img-responsive img-20">
-										<span class="badge alert-info">2</span>
-									</div>
-									<div class="col-xs-4 mt-10">
-										<img src="assets/img/icon/ac.png" alt="" class="img-responsive img-20">
-										<span class="badge alert-info">2</span>
-									</div>
-								</div>
-								
-                            </div>
+					<div class="card-content">
+						<h4 class="card-title">
+							<h4 class="card-title"><a href="location/128-au-co" title="124 Âu cơ">124 Âu cơ</a></h4>
+						</h4>
+						<div class="card-description">
+							<i class="fa fa-map-marker"></i> Quận Tây Hồ - Hà Nội
 						</div>
 					</div>
 				</div>
-			<?php endfor;?>
-	    </div>
+			</div>
+	    	<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+				<div class="card card-product  card-rotate">
+					<div class="rotating-card-container">
+						<div class="card-image">
+							<div class="front">
+								<img class="img" src="assets/img/room-1.jpg"/>
+							</div>
 
-	    <!-- Highlight of the week -->
-
-	    <h2 class="section-title text-center">Best highlight of this week</h2>
-	    <div class="row">
-	    	<?php for ($i = 0; $i < 4; $i++): ?>
-	    		<div class="col-md-4 col-lg-3 col-sm-6 col-xs-12">
-					<div class="card card-product  card-rotate">
-						<div class="rotating-card-container">
-							<div class="card-image">
-								<div class="front">
-									<img class="img" src="assets/img/examples/dolce.jpg"/>
-									<div class="price-container">
-	                                   	<span class="price price-new"> $43</span>
-									</div>
-								</div>
-
-								<div class="back back-background">
-									<div class="card-content">
-										<!-- <h5 class="card-title">
-											Quick Actions...
-										</h5> -->
-										<div class="footer text-center">
-											<a href="#" class="btn btn-sm btn-round btn-white">
-												<i class="fa fa-home"></i> View
-											</a>
-											<a href="#" class="btn btn-sm btn-round btn-rose">
-												<i class="fa fa-calendar-check-o"></i> Book
-											</a>
-										</div>
-										<hr/>
-										<p class="card-description">
-											Share with your friends...
-										</p>
-										<a href="#" class="btn btn-just-icon btn-round btn-white btn-twitter">
-											<i class="fa fa-twitter"></i>
+							<div class="back back-background">
+								<div class="card-content">
+									<h5 class="card-title">
+										Quick Actions...
+									</h5>
+									<div class="footer text-center">
+										<a href="location/88-to-ngoc-van" class="btn btn-sm btn-round btn-white">
+											<i class="fa fa-home"></i> View
 										</a>
-										<a href="#" class="btn btn-just-icon btn-round btn-white btn-pinterest">
-											<i class="fa fa-pinterest"></i>
-										</a>
-										<a href="#" class="btn btn-just-icon btn-round btn-white btn-facebook">
-											<i class="fa fa-facebook"></i>
+										<a href="#" class="btn btn-sm btn-round btn-rose">
+											<i class="fa fa-calendar-check-o"></i> Book
 										</a>
 									</div>
+									<hr/>
+									<p class="card-description">
+										Share with your friends...
+									</p>
+									<a href="http://twitter.com/share?url=<?= base_url() ?>location/88-to-ngoc-van" target="_blank" class="btn btn-just-icon btn-round btn-white btn-twitter twitter-share">
+										<i class="fa fa-twitter"></i>
+									</a>
+									<a href="<?= base_url() ?>location/88-to-ngoc-van" class="btn btn-just-icon btn-round btn-white btn-google google-share">
+										<i class="fa fa-google"></i>
+									</a>
+									<a href="<?= base_url() ?>location/88-to-ngoc-van" class="btn btn-just-icon btn-round btn-white btn-facebook facebook-share">
+										<i class="fa fa-facebook"></i>
+									</a>
 								</div>
 							</div>
 						</div>
+					</div>
 
-						<div class="card-content">
-							<h4 class="card-title">
-								<h4 class="card-title">Dolce & Gabbana</h4>
-							</h4>
-							<div class="card-description">
-								<i class="fa fa-map-marker"></i> Hoan Kiem - Ha Noi
-							</div>
-							<div class="footer">
-								<div class="row text-center">
-									<div class="col-xs-4 mt-10">
-										<img src="assets/img/icon/bathroom.png" alt="" class="img-responsive img-20">
-										<span class="badge alert-info">2</span>
-									</div>
-									<div class="col-xs-4 mt-10">
-										<img src="assets/img/icon/tv.png" alt="" class="img-responsive img-20">
-										<span class="badge alert-info">2</span>
-									</div>
-									<div class="col-xs-4 mt-10">
-										<img src="assets/img/icon/bed.png" alt="" class="img-responsive img-20">
-										<span class="badge alert-info">2</span>
-									</div>
-									<div class="col-xs-4 mt-10">
-										<img src="assets/img/icon/fridge.png" alt="" class="img-responsive img-20">
-										<span class="badge alert-info">1</span>
-									</div>
-									<div class="col-xs-4 mt-10">
-										<img src="assets/img/icon/toilet.png" alt="" class="img-responsive img-20">
-										<span class="badge alert-info">2</span>
-									</div>
-									<div class="col-xs-4 mt-10">
-										<img src="assets/img/icon/ac.png" alt="" class="img-responsive img-20">
-										<span class="badge alert-info">2</span>
-									</div>
-								</div>
-                            </div>
+					<div class="card-content">
+						<h4 class="card-title">
+							<h4 class="card-title"><a href="location/88-to-ngoc-van" title="88 Tô Ngọc Vân">88 Tô Ngọc Vân</a></h4>
+						</h4>
+						<div class="card-description">
+							<i class="fa fa-map-marker"></i> Quận Tây Hồ - Hà Nội
 						</div>
 					</div>
 				</div>
-			<?php endfor;?>
+			</div>
+	    	<div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+				<div class="card card-product  card-rotate">
+					<div class="rotating-card-container">
+						<div class="card-image">
+							<div class="front">
+								<img class="img" src="uploads/file00157.jpg"/>
+							</div>
+
+							<div class="back back-background">
+								<div class="card-content">
+									<h5 class="card-title">
+										Quick Actions...
+									</h5>
+									<div class="footer text-center">
+										<a href="location/88-tu-hoa" class="btn btn-sm btn-round btn-white">
+											<i class="fa fa-home"></i> View
+										</a>
+										<a href="#" class="btn btn-sm btn-round btn-rose">
+											<i class="fa fa-calendar-check-o"></i> Book
+										</a>
+									</div>
+									<hr/>
+									<p class="card-description">
+										Share with your friends...
+									</p>
+									<a href="http://twitter.com/share?url=<?= base_url() ?>location/88-tu-hoa" target="_blank" class="btn btn-just-icon btn-round btn-white btn-twitter twitter-share">
+										<i class="fa fa-twitter"></i>
+									</a>
+									<a href="<?= base_url() ?>location/88-tu-hoa" class="btn btn-just-icon btn-round btn-white btn-google google-share">
+										<i class="fa fa-google"></i>
+									</a>
+									<a href="<?= base_url() ?>location/88-tu-hoa" class="btn btn-just-icon btn-round btn-white btn-facebook facebook-share">
+										<i class="fa fa-facebook"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="card-content">
+						<h4 class="card-title">
+							<h4 class="card-title"><a href="location/88-tu-hoa" title="126 Từ Hoa">126 Từ Hoa</a></h4>
+						</h4>
+						<div class="card-description">
+							<i class="fa fa-map-marker"></i> Quận Tây Hồ - Hà Nội
+						</div>
+					</div>
+				</div>
+			</div>
 	    </div>
+		<!--     *********    BLOG CARDS     *********      -->
+		<div class="cards">
+
+			<div class="container">
+    			<h2 class="section-title text-center">Hostest News</h2>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="card card-blog">
+							<div class="card-image">
+								<a href="index.html#pablo">
+									<img class="img" src="assets/img/examples/card-blog1.jpg" />
+									<div class="card-title">
+										This Summer Will be Awesome
+									</div>
+								</a>
+							</div>
+
+							<div class="card-content">
+								<h6 class="category text-info">Fashion</h6>
+								<p class="card-description">
+									Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+								</p>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-content content-info">
+								<h5 class="category-social">
+									<i class="fa fa-twitter"></i> Twitter
+								</h5>
+								<h4 class="card-title">
+									<a href="index.html#pablo">"You Don't Have to Sacrifice Joy to Build a Fabulous Business and Life"</a>
+								</h4>
+								<div class="footer">
+	                                <div class="author">
+	                                    <a href="index.html#pablo">
+	                                       <img src="assets/img/faces/avatar.jpg" alt="..." class="avatar img-raised">
+	                                       <span>Tania Andrew</span>
+	                                    </a>
+	                                </div>
+	                               <div class="stats">
+	                                    <i class="material-icons">favorite</i> 2.4K &middot;
+										<i class="material-icons">share</i> 45
+	                                </div>
+	                            </div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col-md-4">
+						<div class="card">
+							<div class="card-content">
+								<h6 class="category text-danger">
+									<i class="material-icons">trending_up</i> Trending
+								</h6>
+								<h4 class="card-title">
+									<a href="index.html#pablo">To Grow Your Business Start Focusing on Your Employees</a>
+								</h4>
+								<div class="footer">
+	                                <div class="author">
+	                                    <a href="index.html#pablo">
+	                                       <img src="assets/img/faces/christian.jpg" alt="..." class="avatar img-raised">
+	                                       <span>Lord Alex</span>
+	                                    </a>
+	                                </div>
+	                               <div class="stats">
+	                                    <i class="material-icons">favorite</i> 342 &middot;
+										<i class="material-icons">chat_bubble</i> 45
+	                                </div>
+	                            </div>
+							</div>
+
+						</div>
+
+
+						<div class="card card-blog">
+							<div class="card-image">
+								<a href="index.html#pablo">
+									<img class="img" src="assets/img/examples/card-blog2.jpg" />
+								</a>
+							</div>
+
+							<div class="card-content">
+								<h6 class="category text-success">Legal</h6>
+
+								<h4 class="card-title">
+									<a href="index.html#pablo">5 Common Legal Mistakes That Can Trip-Up Your Startup</a>
+								</h4>
+								<p class="card-description">
+									Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+								</p>
+								<div class="footer">
+	                                <div class="author">
+	                                    <a href="index.html#pablo">
+	                                       <img src="assets/img/faces/marc.jpg" alt="..." class="avatar img-raised">
+	                                       <span>Mike John</span>
+	                                    </a>
+	                                </div>
+	                               <div class="stats">
+	                                    <i class="material-icons">schedule</i> 5 min read
+	                                </div>
+	                            </div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="col-md-4">
+						<div class="card card-blog">
+							<div class="card-image">
+								<a href="index.html#pablo">
+									<img class="img" src="assets/img/examples/blog8.jpg" />
+								</a>
+							</div>
+							<div class="card-content">
+								<h6 class="category text-danger">
+									<i class="material-icons">trending_up</i> Trending
+								</h6>
+								<h4 class="card-title">
+									<a href="index.html#pablo">To Grow Your Business Start Focusing on Your Employees</a>
+								</h4>
+								<div class="footer">
+	                                <div class="author">
+	                                    <a href="index.html#pablo">
+	                                       <img src="assets/img/faces/marc.jpg" alt="..." class="avatar img-raised">
+	                                       <span>Mike John</span>
+	                                    </a>
+	                                </div>
+	                               <div class="stats">
+	                                    <i class="material-icons">schedule</i> 5 min read
+	                                </div>
+	                            </div>
+							</div>
+						</div>
+
+						<div class="card">
+							<div class="card-content content-success">
+								<h5 class="category-social">
+									<i class="fa fa-newspaper-o"></i> TechCrunch
+								</h5>
+								<h4 class="card-title">
+									<a href="index.html#pablo">"Focus on Your Employees"</a>
+								</h4>
+								<p class="card-description">
+									Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+								</p>
+								<div class="footer text-center">
+	                                <a href="index.html#pablo" class="btn btn-white btn-round">Read Article</a>
+	                            </div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!--     *********    END BLOG CARDS      *********      -->
 	</div>
 </div>

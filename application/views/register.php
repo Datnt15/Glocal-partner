@@ -4,7 +4,7 @@
 	<meta charset="utf-8" />
     <link rel="icon" type="image/png" href="assets/img/favicon.png">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <base href="<?= base_url(); ?>">
+    <base href="<?= base_url() ?>">
 	<title>Register Page</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
@@ -75,43 +75,43 @@
                                     <button class="btn btn-just-icon btn-round btn-twitter">
                                         <i class="fa fa-twitter"></i>
                                     </button>
-                                    <button class="btn btn-just-icon btn-round btn-dribbble">
-                                        <i class="fa fa-dribbble"></i>
+                                    <button class="btn btn-just-icon btn-round btn-google google-login">
+                                        <i class="fa fa-google"></i>
                                     </button>
-                                    <button class="btn btn-just-icon btn-round btn-facebook">
+                                    <button class="btn btn-just-icon btn-round btn-facebook facebook-login">
                                         <i class="fa fa-facebook"> </i>
                                     </button>
                                     <h4 class="description"> or be classical </h4>
                                 </div>
-
+                                <?php echo validation_errors('<div class="alert alert-danger">', '</div>'); ?>
 								<form class="form" method="POST" action="">
 									<div class="card-content">
 										<div class="input-group">
 											<span class="input-group-addon">
 												<i class="material-icons">face</i>
 											</span>
-											<input type="text" class="form-control" placeholder="Username...">
+											<input type="text" class="form-control" name="username" placeholder="Username..." required="">
 										</div>
-
+                                        <input type="hidden" name="access_token" value="<?= $ci_nonce; ?>">
 										<div class="input-group">
 											<span class="input-group-addon">
 												<i class="material-icons">email</i>
 											</span>
-											<input type="text" class="form-control" placeholder="Email...">
+											<input type="email" class="form-control" name="email" placeholder="Email..." required="">
 										</div>
 
 										<div class="input-group">
 											<span class="input-group-addon">
 												<i class="material-icons">lock_outline</i>
 											</span>
-											<input type="password" placeholder="Password..." class="form-control" />
+											<input type="password" name="password" placeholder="Password..." class="form-control" required="" />
 										</div>
 
 										<!-- If you want to add a checkbox to this form, uncomment this code -->
 
 										<div class="checkbox">
 											<label>
-												<input type="checkbox" name="optionsCheckboxes" checked>
+												<input type="checkbox" name="optionsCheckboxes" checked required="">
 												I agree to the <a href="#">terms and conditions</a>.
 											</label>
 										</div>
@@ -141,9 +141,10 @@
 	<script src="assets/js/jquery.min.js" type="text/javascript"></script>
 	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="assets/js/material.min.js"></script>
-
+    <script src="assets/js/bootstrap-tagsinput.js"></script>
 	<script src="assets/js/atv-img-animation.js" type="text/javascript"></script>
-
-	<!--    Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc    -->
+    <script src="assets/js/toastr.min.js" type="text/javascript"></script>
 	<script src="assets/js/material-kit.min.js" type="text/javascript"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="assets/js/login.js" type="text/javascript"></script>
 </html>
