@@ -9,15 +9,19 @@
 			</div>
 			<div class="clearfix"></div>
 			<div class="search search-form">
-				<form class="form" action="search" method="POST" class="form">
+				<form class="form" action="search" method="GET" class="form">
 					<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
 						<div class="input-group">
 							<span class="input-group-addon">
 								<i class="fa fa-map-marker fa-lg"></i>
 							</span>
-							<div class="form-group">
-								<input class="form-control" placeholder="Where do you want to be at?" type="text" required>
-							</div>
+							<select class="selectpicker form-control" data-style="form-control" title="Where do you want to be at?" data-size="3" name="location">
+								<?php foreach ($locations as $location): ?>
+									<option value="<?php echo $location['location_id'] ?>">
+										<?php echo $location['location_name'] ?>
+									</option>
+								<?php endforeach ?>
+			                </select>
 						</div>
 					</div>
 					<div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
@@ -26,7 +30,7 @@
 								<i class="fa fa-calendar-check-o fa-lg"></i>
 							</span>
 							<div class="form-group">
-								<input class="form-control datepicker" placeholder="Check In" type="text">
+								<input class="form-control datepicker" name="check_in" placeholder="Check In" type="text">
 							</div>
 						</div>
 					</div>
@@ -36,7 +40,7 @@
 								<i class="fa fa-calendar-times-o fa-lg"></i>
 							</span>
 							<div class="form-group">
-								<input class="form-control datepicker" placeholder="Check Out" type="text">
+								<input class="form-control datepicker" name="check_out" placeholder="Check Out" type="text">
 							</div>
 						</div>
 					</div>
@@ -45,7 +49,7 @@
 							<span class="input-group-addon">
 								<i class="fa fa-users fa-lg" style="margin-top: 10px;"></i>
 							</span>
-							<select class="selectpicker form-control" data-style="form-control" title="Guests?" data-size="2">
+							<select class="selectpicker form-control" name="number_of_guest" data-style="form-control" title="Guests?" data-size="3">
 								<?php for ($i = 0; $i < 10; $i++): ?>
 			                    	<option value="<?= $i ?>"><?= $i ?></option>
 			                    <?php endfor; ?>

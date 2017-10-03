@@ -8,11 +8,7 @@ class Room extends CI_Model {
 	}
 
 	public function get_all_rooms(){
-		return $this->get_cities($this->db->get(ROOM_TABLE)->result_array());
-	}
-
-	public function get_specifix_room($where){
-		return $this->get_cities($this->db->where($where)->get(ROOM_TABLE)->result_array());
+		return $this->db->get(ROOM_TABLE)->result_array();
 	}
 
 	public function get_room_gallery($room_id){

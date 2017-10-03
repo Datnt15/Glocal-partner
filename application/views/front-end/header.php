@@ -32,7 +32,7 @@
 		            <span class="icon-bar"></span>
         		</button>
         		<a class="navbar-brand" href="">
-        			<img src="assets/img/logo.png" alt="page logo" class="img-responsive">
+        			<img src="assets/img/logo-white.png" alt="page logo" class="img-responsive">
         		</a>
         	</div>
 
@@ -71,7 +71,7 @@
 						</li>
 					<?php else: ?>
 						<li class="button-container">
-							<a href="<?= base_url() ?>login" class="btn btn-info btn-round">
+							<a href="<?php echo base_url(); ?>login" class="btn btn-info btn-round">
 								<i class="material-icons">fingerprint</i> Login
 							</a>
 						</li>
