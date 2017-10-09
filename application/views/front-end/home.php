@@ -184,7 +184,8 @@
 					<div class="rotating-card-container">
 						<div class="card-image">
 							<div class="front">
-								<img class="img" src="uploads/file00184.jpg"/>
+								<img class="img" src="assets/img/test.png"/>
+								<!-- <img class="img" src="uploads/file00184.jpg"/> -->
 							</div>
 
 							<div class="back back-background">
@@ -327,7 +328,7 @@
 				</div>
 			</div>
 	    </div>
-		<!--     *********    BLOG CARDS     *********      -->
+		<!--     *********    BLOG CARDS     *********  
 		<div class="cards">
 
 			<div class="container">
@@ -485,6 +486,6 @@
 			</div>
 
 		</div>
-		<!--     *********    END BLOG CARDS      *********      -->
+		 *********    END BLOG CARDS      *********      -->
 	</div>
 </div>

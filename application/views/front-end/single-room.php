@@ -643,5 +643,6 @@ $meta = $room['meta'];
 	});
 	circle.bindTo('center', marker, 'position');
 }
+
+initAutocomplete();
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyCBERPYtfHY9yx-gQoLMbEN5PeuLHcKChU&libraries=places&callback=initAutocomplete" async defer></script>

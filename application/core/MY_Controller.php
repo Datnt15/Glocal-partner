@@ -53,6 +53,41 @@ class MY_Controller extends CI_Controller {
 
 	}
 
+
+    // protected function cleanString($text, $remove_space = true, $word = '') {
+    //     $text = str_replace('/', '-', $text);
+    //     $text = str_replace('"', '', $text);
+    //     $utf8 = array(
+    //         '/[áàâãªäăạảắẳẵằặấầẩẫậ]/u' => 'a',
+    //         '/[ÁÀÂÃÄĂẠẢẴẮẲẶẰẦẤẬẨ]/u'   => 'a',
+    //         '/[ÍÌÎÏỊĨỈ]/u'             => 'i',
+    //         '/[íìîïịĩỉ]/u'             => 'i',
+    //         '/[éèêëẹẽếềễệẻể]/u'        => 'e',
+    //         '/[ÉÈÊËẸẼẺẾỀỂỄỆ]/u'        => 'e',
+    //         '/[óòôõºöọỏơờởớợỡồổốộ]/u'  => 'o',
+    //         '/[ÓÒÔÕÖỎỌƠỞỢỚỜỠỒỔỐỖỘ]/u'  => 'o',
+    //         '/[úùûüũụủưứừửữự]/u'       => 'u',
+    //         '/[ÚÙÛÜŨỤỦƯỨỪỬỮỰ]/u'       => 'u',
+    //         '/[Đđ]/u'                  => 'd',
+    //         '/ç/'                      => 'c',
+    //         '/Ç/'                      => 'c',
+    //         '/ñ/'                      => 'n',
+    //         '/Ñ/'                      => 'n',
+    //         '/–/'                      => '-', // UTF-8 hyphen to "normal" hyphen
+    //         '/[’‘‹›‚]/u'               => '', // Literally a single quote
+    //         '/[“”«»„]/u'               => '' // Double quote
+            
+    //     );
+    //     if ($remove_space) {
+    //         $utf8['/ /'] = '-';
+    //     }
+    //     if ($word != '') {
+    //         $utf8[$word] = '';
+    //     }
+
+    //     return preg_replace(array_keys($utf8), array_values($utf8), $text);
+    // }
+
 }
 
 class Front_base extends CI_Controller {
@@ -80,6 +115,40 @@ class Front_base extends CI_Controller {
         if ($this->session->userdata("is_logged_in")) {
             $this->user_data = $this->user->get_user(['uid' => $this->session->uid, 'type' => $this->session->user_type])[0];
         }
+    }
+
+    protected function cleanString($text, $remove_space = true, $word = '') {
+        $text = str_replace('/', '-', $text);
+        $text = str_replace('"', '', $text);
+        $utf8 = array(
+            '/[áàâãªäăạảắẳẵằặấầẩẫậ]/u' => 'a',
+            '/[ÁÀÂÃÄĂẠẢẴẮẲẶẰẦẤẬẨ]/u'   => 'a',
+            '/[ÍÌÎÏỊĨỈ]/u'             => 'i',
+            '/[íìîïịĩỉ]/u'             => 'i',
+            '/[éèêëẹẽếềễệẻể]/u'        => 'e',
+            '/[ÉÈÊËẸẼẺẾỀỂỄỆ]/u'        => 'e',
+            '/[óòôõºöọỏơờởớợỡồổốộ]/u'  => 'o',
+            '/[ÓÒÔÕÖỎỌƠỞỢỚỜỠỒỔỐỖỘ]/u'  => 'o',
+            '/[úùûüũụủưứừửữự]/u'       => 'u',
+            '/[ÚÙÛÜŨỤỦƯỨỪỬỮỰ]/u'       => 'u',
+            '/[Đđ]/u'                  => 'd',
+            '/ç/'                      => 'c',
+            '/Ç/'                      => 'c',
+            '/ñ/'                      => 'n',
+            '/Ñ/'                      => 'n',
+            '/–/'                      => '-', // UTF-8 hyphen to "normal" hyphen
+            '/[’‘‹›‚]/u'               => '', // Literally a single quote
+            '/[“”«»„]/u'               => '' // Double quote
+            
+        );
+        if ($remove_space) {
+            $utf8['/ /'] = '-';
+        }
+        if ($word != '') {
+            $utf8['/'.$word.'/'] = '';
+        }
+
+        return preg_replace(array_keys($utf8), array_values($utf8), $text);
     }
 
 }

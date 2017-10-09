@@ -25,8 +25,8 @@ class Booking extends CI_Model {
 	}
 
 	public function get_related_rooms($room){
-		$relateds = $this->get_room('weekly_rate>' . (intval($room['weekly_rate']) - 20) . ' AND weekly_rate<' . (intval($room['weekly_rate']) + 20) . ' AND room_id<>' .$room['room_id']. ' OR location=' . $room['location'] . " AND room_id<>" .$room['room_id'], 4);
-		return count($relateds) ? $relateds : $this->get_room('room_id<>' .$room['room_id'], 4) ;
+		$relateds = $this->get_room('room_monthly_tax>' . (intval($room['room_monthly_tax']) - 20) . ' AND room_monthly_tax<' . (intval($room['room_monthly_tax']) + 20) . ' AND id<>' .$room['id']. ' OR location=' . $room['location'] . " AND id<>" .$room['id'], 4);
+		return count($relateds) ? $relateds : $this->get_room('id<>' .$room['id'], 4) ;
 	}
 
 	public function get_room_meta($where){

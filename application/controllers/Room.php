@@ -10,12 +10,12 @@ class Room extends Front_base {
 
 	public function index($room_id){
 
-		$room = $this->booking->get_room(['room_id' => $room_id ]);
+		$room = $this->booking->get_room(['id' => $room_id ]);
 		if (count($room)) {
-			$room = $this->booking->get_cities($room[0]);
-			$room['meta'] = $this->booking->get_room_meta(['room_id' => $room_id ]);
+			$room = $room[0];
+			$room['meta'] = $this->booking->get_room_meta(['id' => $room_id ]);
 			$data = [
-				'title' 		=> $room['name'].' - Detail Informations',
+				'title' 		=> $room['room_no'].' - Detail Informations',
 				'user' 			=> $this->user_data,
 				'room'		 	=> $room,
 				'room_code' 	=> $this->encrypt->encode($room_id),

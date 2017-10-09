@@ -1,5 +1,6 @@
 <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
 	<div class="card card-product  card-rotate">
+		<div class="clearfix"></div>
 		<div class="rotating-card-container">
 			<div class="card-image">
 				<div class="front">
@@ -11,9 +12,6 @@
 
 				<div class="back back-background">
 					<div class="card-content">
-						<!-- <h5 class="card-title">
-							Quick Actions...
-						</h5> -->
 						<div class="footer text-center">
 							<a href="#" class="btn btn-sm btn-round btn-white">
 								<i class="fa fa-home"></i> View
@@ -45,10 +43,9 @@
 				<a href="room/<?= $room['id'] ?>"><?= $room['room_no'] ?></a>
 			</h4>
 			<div class="card-description">
-				<i class="fa fa-map-marker"></i> <?= $room['location'] ?>
+				<i class="fa fa-map-marker"></i> <?= $locations[$room['location']]['location_name']; ?>
 			</div>
-			<div class="footer">
-            </div>
+
 		</div>
 	</div>
 </div>

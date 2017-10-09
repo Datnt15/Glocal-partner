@@ -38,41 +38,41 @@
 				<div class="panel-body">
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" value="" data-toggle="checkbox" checked="">
+							<input type="checkbox" name="all" value="" data-toggle="checkbox" checked="">
 							All
 						</label>
 					</div>
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" value="apartment" data-toggle="checkbox" checked="">
+							<input type="checkbox" name="room-type" value="<?php echo APARTMENT; ?>" data-toggle="checkbox">
 							Apartment
 						</label>
 					</div>
 
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" value="villa" data-toggle="checkbox">
+							<input type="checkbox" name="room-type" value="<?php echo VILLA; ?>" data-toggle="checkbox">
 							Villa
 						</label>
 					</div>
 
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" value="hotel" data-toggle="checkbox">
+							<input type="checkbox" name="room-type" value="<?php echo HOTEL; ?>" data-toggle="checkbox">
 							Hotel
 						</label>
 					</div>
 
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" value="house" data-toggle="checkbox">
+							<input type="checkbox" name="room-type" value="<?php echo HOUSE; ?>" data-toggle="checkbox">
 							Entire House
 						</label>
 					</div>
 
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" value="studio" data-toggle="checkbox">
+							<input type="checkbox" name="room-type" value="<?php echo STUDIO; ?>" data-toggle="checkbox">
 							Studio
 						</label>
 					</div>
@@ -90,30 +90,24 @@
 			</div>
 			<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 				<div class="panel-body">
+					
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" value="all" data-toggle="checkbox" checked="">
-							All
-						</label>
-					</div>
-
-					<div class="checkbox">
-						<label>
-						   	<input type="checkbox" value="" data-toggle="checkbox">
+						   	<input type="checkbox" name="family" value="family-baby" data-toggle="checkbox">
 							Babies/ Toddlers welcome
 						</label>
 					</div>
 
 					<div class="checkbox">
 						<label>
-						   <input type="checkbox" value="" data-toggle="checkbox">
+						   <input type="checkbox" name="family" value="family-extra-mattress" data-toggle="checkbox">
 						   Extra mattress
 						</label>
 					</div>
 
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" value="" data-toggle="checkbox">
+							<input type="checkbox" name="family" value="family-no-smocking" data-toggle="checkbox">
 							No Smocking
 						 </label>
 					</div>
@@ -132,37 +126,31 @@
 			</div>
 			<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
 				<div class="panel-body">
+					
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" value="" data-toggle="checkbox" checked="">
-							All
-					   	</label>
-					</div>
-
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" value="" data-toggle="checkbox">
+							<input type="checkbox" name="kitchen" value="kitchen-oven" data-toggle="checkbox">
 							Oven
 					  	</label>
 					</div>
 
 					<div class="checkbox">
 						<label>
-								<input type="checkbox" value="" data-toggle="checkbox">
-								Microwave
+							<input type="checkbox" name="kitchen" value="kitchen-microwave" data-toggle="checkbox">
+							Microwave
 						</label>
 					</div>
 
 				   <div class="checkbox">
 					    <label>
-							<input type="checkbox" value="" data-toggle="checkbox">
+							<input type="checkbox" name="kitchen" value="kitchen-fridge" data-toggle="checkbox">
 							Fridge/ Freezer
 					    </label>
 				   </div>
 
 				   <div class="checkbox">
 					    <label>
-							<input type="checkbox" value="" data-toggle="checkbox">
+							<input type="checkbox" name="kitchen" value="kitchen-stove" data-toggle="checkbox">
 							Stove
 					    </label>
 				   </div>
@@ -182,49 +170,49 @@
 				<div class="panel-body">
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" value="" data-toggle="checkbox" checked="">
+							<input type="checkbox" name="entertainment" value="entertainment-pet" data-toggle="checkbox" checked="">
 							Pets welcome
 					   	</label>
 					</div>
 
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" value="" data-toggle="checkbox">
+							<input type="checkbox" name="entertainment" value="entertainment-bbq" data-toggle="checkbox">
 							Grilling BBQ
 					  	</label>
 					</div>
 
 					<div class="checkbox">
 						<label>
-								<input type="checkbox" value="" data-toggle="checkbox">
-								Natural surround
+							<input type="checkbox" name="entertainment" value="entertainment-nature" data-toggle="checkbox">
+							Natural surround
 						</label>
 					</div>
 
 				   <div class="checkbox">
 					    <label>
-							<input type="checkbox" value="" data-toggle="checkbox">
+							<input type="checkbox" name="entertainment" value="entertainment-beach-view" data-toggle="checkbox">
 							Beach view
 					    </label>
 				   </div>
 
 				   <div class="checkbox">
 					    <label>
-							<input type="checkbox" value="" data-toggle="checkbox">
+							<input type="checkbox" name="entertainment" value="entertainment-golf" data-toggle="checkbox">
 							Golf
 					    </label>
 				   </div>
 
 				   <div class="checkbox">
 					    <label>
-							<input type="checkbox" value="" data-toggle="checkbox">
+							<input type="checkbox" name="entertainment" value="entertainment-fishing" data-toggle="checkbox">
 							Fishing
 					    </label>
 				   </div>
 
 				   <div class="checkbox">
 					    <label>
-							<input type="checkbox" value="" data-toggle="checkbox">
+							<input type="checkbox" name="entertainment" value="entertainment-pool" data-toggle="checkbox">
 							Pool
 					    </label>
 				   </div>
@@ -246,63 +234,63 @@
 				<div class="panel-body">
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" value="" data-toggle="checkbox" checked="">
+							<input type="checkbox" name="system" value="system-services-wifi" data-toggle="checkbox" checked="">
 							Wifi
 					   	</label>
 					</div>
 
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" value="" data-toggle="checkbox">
+							<input type="checkbox" name="system" value="system-services-tv" data-toggle="checkbox">
 							TV
 					  	</label>
 					</div>
 
 					<div class="checkbox">
 						<label>
-								<input type="checkbox" value="" data-toggle="checkbox">
-								Shampoo, Conditioning
+							<input type="checkbox" name="system" value="system-services-shampoo" data-toggle="checkbox">
+							Shampoo, Conditioning
 						</label>
 					</div>
 
 				   <div class="checkbox">
 					    <label>
-							<input type="checkbox" value="" data-toggle="checkbox">
+							<input type="checkbox" name="system" value="system-services-toiletries" data-toggle="checkbox">
 							Toiletries
 					    </label>
 				   </div>
 
 				   <div class="checkbox">
 					    <label>
-							<input type="checkbox" value="" data-toggle="checkbox">
+							<input type="checkbox" name="system" value="system-services-napkins" data-toggle="checkbox">
 							Napkins
 					    </label>
 				   </div>
 
 				   <div class="checkbox">
 					    <label>
-							<input type="checkbox" value="" data-toggle="checkbox">
+							<input type="checkbox" name="system" value="system-services-mineral-water" data-toggle="checkbox">
 							Mineral water
 					    </label>
 				   </div>
 
 				   <div class="checkbox">
 					    <label>
-							<input type="checkbox" value="" data-toggle="checkbox">
+							<input type="checkbox" name="system" value="system-services-towels" data-toggle="checkbox">
 							Towels
 					    </label>
 				   </div>
 
 				   <div class="checkbox">
 					    <label>
-							<input type="checkbox" value="" data-toggle="checkbox">
+							<input type="checkbox" name="system" value="system-services-toothpaste" data-toggle="checkbox">
 							Toothpaste
 					    </label>
 				   </div>
 
 				   <div class="checkbox">
 					    <label>
-							<input type="checkbox" value="" data-toggle="checkbox">
+							<input type="checkbox" name="system" value="system-services-soap" data-toggle="checkbox">
 							Soap
 					    </label>
 				   </div>
@@ -324,22 +312,22 @@
 				<div class="panel-body">
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" value="" data-toggle="checkbox" checked="">
+							<input type="checkbox" name="room-service" value="room-services-balcony" data-toggle="checkbox" checked="">
 							Balcony
 					   	</label>
 					</div>
 
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" value="" data-toggle="checkbox">
+							<input type="checkbox" name="room-service" value="room-services-ac" data-toggle="checkbox">
 							Air-conditioning
 					  	</label>
 					</div>
 
 					<div class="checkbox">
 						<label>
-								<input type="checkbox" value="" data-toggle="checkbox">
-								Washing machine
+							<input type="checkbox" name="room-service" value="room-services-washing-machine" data-toggle="checkbox">
+							Washing machine
 						</label>
 					</div>
 

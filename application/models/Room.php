@@ -8,8 +8,13 @@ class Room extends CI_Model {
 	}
 
 	public function get_all_rooms(){
-		return $this->db->get(ROOM_TABLE)->result_array();
+		return $this->db->limit(6)->get(ROOM_TABLE)->result_array();
 	}
+
+	public function get_room($where, $limit = 1){
+		return $this->db->where($where)->limit($limit)->get(ROOM_TABLE)->result_array();
+	}
+
 
 	public function get_room_gallery($room_id){
 		$metas = $this->db->where(['meta_key' => 'gallery', 'room_id' => $room_id])->get(ROOM_META_TABLE)->result_array();
@@ -20,6 +25,14 @@ class Room extends CI_Model {
 			}
 		}
 		return $result;
+	}
+
+	public function run_query($query){
+		return $this->db->query($query)->result_array();
+	}
+
+	public function count_all_results_of_query($query){
+		return $this->db->query($query)->count_all_results();
 	}
 
 	
