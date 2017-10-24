@@ -41,7 +41,7 @@ class Booking extends CI_Model {
 		return $metas;
 	}
 
-	
+
 	public function add_room_meta_data($data){
 		return $this->db->insert(ROOM_META_TABLE, $data) ? $this->db->insert_id() : 0;
 	}

@@ -11,10 +11,13 @@ class Room extends CI_Model {
 		return $this->db->limit($limit)->get(ROOM_TABLE)->result_array();
 	}
 
-	public function get_room($where, $limit = 1){
-		return $this->db->where($where)->limit($limit)->get(ROOM_TABLE)->result_array();
+	public function get_room($where, $limit = 1, $offset = 0){
+		return $this->db->where($where)->get(ROOM_TABLE, $limit, $offset)->result_array();
 	}
 
+	public function get_room_in_location($where, $limit = 1){
+		return $this->db->where($where)->limit($limit)->get(ROOM_TABLE)->result_array();
+	}
 
 	public function get_room_gallery($room_id){
 		$metas = $this->db->where(['meta_key' => 'gallery', 'room_id' => $room_id])->get(ROOM_META_TABLE)->result_array();

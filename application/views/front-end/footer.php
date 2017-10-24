@@ -257,7 +257,7 @@
 		    var marker = new google.maps.Marker({
 		        map: map,
 		        icon: 'disable',
-		        title: "<?= $room['room_no'] ?>",
+		        title: "<?= isset($room['room_no']) ? $room['room_no'] : $location['location_name']; ?>",
 		        position: {lat:<?= $lat ?>, lng: <?= $lng ?>}
 		    });
 		    var circle = new google.maps.Circle({

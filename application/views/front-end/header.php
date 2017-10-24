@@ -45,7 +45,7 @@
 						</a>
 					</li>
 
-					<li class="dropdown">
+					<!-- <li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<i class="fa fa-globe"></i> Languages
 							<b class="caret"></b>
@@ -62,7 +62,7 @@
 								</a>
 							</li>
 						</ul>
-					</li>
+					</li> -->
 
 					<?php if (count($user)): ?>
 						<li class="button-container">

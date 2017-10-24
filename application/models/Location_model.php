@@ -11,6 +11,10 @@ class Location_model extends CI_Model {
 		return $this->db->get(LOCATION_TABLE)->result_array();
 	}
 
+	public function get_all_parent_locations(){
+		return $this->db->where('parent="#"')->get(LOCATION_TABLE)->result_array();
+	}
+
 	public function get_available_location(){
 		$locations = $this->db->where_in('location_id', self::get_distinct_location_id())->get(LOCATION_TABLE)->result_array();
 		$result = array();

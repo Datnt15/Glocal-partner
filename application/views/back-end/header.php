@@ -29,6 +29,7 @@
                 case 'add-new-home':
                     echo ' <link href="assets/glocal-admin/global/plugins/jstree/dist/themes/default/style.min.css" rel="stylesheet" type="text/css" />
                     <link href="assets/glocal-admin/global/plugins/fancybox/source/jquery.fancybox.css" rel="stylesheet" type="text/css" />
+                    <link href="assets/glocal-admin/global/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
                     <link href="assets/glocal-admin/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />';
                     break;
                 default:

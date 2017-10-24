@@ -66,8 +66,7 @@ class Glocal_admin extends MY_Controller {
         );
         return preg_replace(array_keys($utf8), array_values($utf8), $text);
     }
-
-
+    
     public function chat(){
     	self::load_header('User support','chat');
 
@@ -216,8 +215,9 @@ class Glocal_admin extends MY_Controller {
 	}
 	
 	public function add_new_home(){
-		self::load_header('Admin area','Adding new Homestay');
-		$this->load->view('back-end/homestay/add-new-home');
+		self::load_header('Adding new Homestay','add-new-home');
+		$data = ['locations' => $this->location_model->get_all_parent_locations()];
+		$this->load->view('back-end/homestay/add-new-home', $data);
 		$this->check_room_adding_data();
 		$this->load->view('back-end/footer');
 	}
@@ -259,20 +259,6 @@ class Glocal_admin extends MY_Controller {
 			$this->load->view('back-end/404');
 		}
 		$this->load->view('back-end/footer');
-	}
-
-	
-	public function get_cities_json(){
-		$data = $this->cities->get_all_cities();
-		$data = array_map(function($city) {
-		    return array(
-		        'text' => $city['city_name'],
-		        'parent' => $city['parent_id'],
-		        'icon' => $city['icon'],
-		        'id' => $city['city_id']
-		    );
-		}, $data);
-		echo json_encode($data);
 	}
 
 	public function upload_room_image(){

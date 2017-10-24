@@ -80,8 +80,7 @@ jQuery(document).ready(function() {
             <script src="assets/glocal-admin/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
             <script src="assets/glocal-admin/global/plugins/plupload/js/moxie.min.js" type="text/javascript"></script>
             <script src="assets/glocal-admin/global/plugins/plupload/js/plupload.min.js" type="text/javascript"></script>
-            <script src="assets/glocal-admin/global/plugins/jstree/dist/jstree.min.js" type="text/javascript"></script>
-            <script src="assets/glocal-admin/pages/scripts/ui-tree.js" type="text/javascript"></script>
+            <script src="assets/glocal-admin/global/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
             <script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyCBERPYtfHY9yx-gQoLMbEN5PeuLHcKChU&libraries=places&callback=initAutocomplete" async defer></script>';
             break;
         case 'chat';

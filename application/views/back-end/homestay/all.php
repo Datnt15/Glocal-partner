@@ -1,6 +1,6 @@
 <!-- BEGIN PAGE TITLE-->
 <h1 class="page-title"> Homestays Management
-    <a href="/glocal_admin/add_new_home" class="btn btn-outline green">Add new homestay</a>
+    <a href="glocal-admin/add-new-home" class="btn btn-outline green">Add new homestay</a>
 </h1>
 <!-- END PAGE TITLE-->
 <!-- END PAGE HEADER-->

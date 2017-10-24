@@ -41,41 +41,37 @@
                                             <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-10">
-                                            <input type="text" class="form-control" name="home[name]" placeholder="" required=""> 
+                                            <input type="text" class="form-control" name="home[room_no]" placeholder="" required=""> 
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Description:
-                                            <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-10">
-                                            <textarea class="form-control" rows="7" name="home[description]" required=""></textarea>
+                                            <textarea class="form-control" rows="7" name="meta[description]"></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Short Description:
-                                            <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-10">
-                                            <textarea class="form-control" name="home[short_description]" required=""></textarea>
+                                            <textarea class="form-control" name="meta[short_description]" ></textarea>
                                             <span class="help-block"> Shown in home listing </span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Vietnamese Description:
-                                            <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-10">
-                                            <textarea class="form-control" rows="7" name="home[vi_des]" required=""></textarea>
+                                            <textarea class="form-control" rows="7" name="meta[vi_des]" ></textarea>
                                             <span class="help-block"> Vietnamese only </span>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Vietnamese Short Description:
-                                            <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-10">
-                                            <textarea class="form-control" name="home[vi_short_des]" required=""></textarea>
+                                            <textarea class="form-control" name="meta[vi_short_des]"></textarea>
                                             <span class="help-block"> Vietnamese only </span>
                                         </div>
                                     </div>
@@ -86,7 +82,7 @@
                                         <div class="col-md-10">
                                             <input id="pac-input" class="form-control" type="text" placeholder="Type your room address ... ">
                                             <div id="map" style="height: 300px; width: 100%"></div>
-                                            <input type="hidden" name="home[address]" id="home_address" required="">
+                                            <input type="hidden" name="meta[address]" id="home_address" required="">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -94,12 +90,15 @@
                                             <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-10">
-                                            <div class="portlet box">
-                                                <div class="portlet-body">
-                                                    <div id="tree_3" class="tree-demo"></div>
-                                                    <input type="hidden" id="home-location" name="home[location]" required>
-                                                </div>
-                                            </div>
+                                            <select class="bs-select form-control" name="home[location]" required="" data-live-search="true" data-size="8">
+                                                <option value="">Select...</option>
+                                                <?php foreach ($locations as $loca): ?>
+                                                    <option value="<?php echo $loca['location_id'] ?>">
+                                                        <?php echo $loca['location_name']; ?>
+                                                    </option>}
+                                                    option
+                                                <?php endforeach ?>
+                                            </select>
                                         </div>
                                     </div>
                                     
@@ -128,13 +127,14 @@
                                                             <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-md-8">
-                                                            <select class="table-group-action-input form-control input-medium" name="home[type]" required="">
+                                                            <select class="table-group-action-input form-control input-medium" name="home[room_type]" required="">
                                                                 <option value="">Select...</option>
                                                                 <option value="<?= HOUSE ?>">HOUSE</option>
                                                                 <option value="<?= APARTMENT ?>">APARTMENT</option>
                                                                 <option value="<?= VILLA ?>">VILLA</option>
                                                                 <option value="<?= HOTEL ?>">HOTEL</option>
                                                                 <option value="<?= STUDIO ?>">STUDIO</option>
+                                                                <option value="<?= SHARED ?>">SHARED</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -142,10 +142,9 @@
                                                     <div class="col-md-6  form-group">
                                                         <label for="" class="col-md-4 control-label">
                                                             <img src="assets/img/icon/guest.png" class="pull-left"> Guests: 
-                                                            <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-md-8">
-                                                            <input type="number" class="form-control input-medium" name="home[number_of_guests]" min="1" placeholder="Number of Guests" required>
+                                                            <input type="number" class="form-control input-medium" name="meta[number_of_guests]" min="1" placeholder="Number of Guests">
                                                         </div>
                                                     </div>
 
@@ -155,7 +154,7 @@
                                                             <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-md-8">
-                                                            <input type="number" class="form-control input-medium" name="home[number_of_bedroom]" min="1" placeholder="Number of Bedrooms" required>
+                                                            <input type="number" class="form-control input-medium" name="meta[number_of_bedroom]" min="1" placeholder="Number of Bedrooms" required>
                                                         </div>
                                                     </div>
 
@@ -165,7 +164,7 @@
                                                             <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-md-8">
-                                                            <input type="number" class="form-control input-medium" name="home[number_of_bed]" min="1" placeholder="Number of Beds" required>
+                                                            <input type="number" class="form-control input-medium" name="home[room_beds]" min="1" placeholder="Number of Beds" required>
                                                         </div>
                                                     </div>
 
@@ -175,17 +174,16 @@
                                                             <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-md-8">
-                                                            <input type="number" class="form-control input-medium" name="home[number_of_bathroom]" min="1" placeholder="Number of Bathroomsbed" required>
+                                                            <input type="number" class="form-control input-medium" name="meta[number_of_bathroom]" min="1" placeholder="Number of Bathroomsbed" required>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6  form-group">
                                                         <label for="" class="col-md-4 control-label">
                                                             <img src="assets/img/icon/checkin.png" class="pull-left"> Checkin time: 
-                                                            <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-md-8">
-                                                            <input type="text" class="form-control input-medium timepicker timepicker-no-seconds" name="home[checkin_time]" required>
+                                                            <input type="text" class="form-control input-medium timepicker timepicker-no-seconds" name="meta[checkin_time]">
                                                         </div>
                                                     </div>
 
@@ -195,32 +193,45 @@
                                                             <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-md-8">
-                                                            <input type="text" class="form-control input-medium timepicker timepicker-no-seconds" name="home[checkout_time]" required>
+                                                            <input type="text" class="form-control input-medium timepicker timepicker-no-seconds" name="meta[checkout_time]">
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6  form-group">
                                                         <label for="" class="col-md-4 control-label">
-                                                            <img src="assets/img/icon/cost.png" class="pull-left"> Weekly Rate: 
+                                                            <img src="assets/img/daily.png" class="pull-left" style="width: 20px;"> Daily Tax: 
                                                             <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-md-8">
                                                             <div class="input-icon input-icon-sm">
                                                                 <i class="fa fa-usd" style="margin-top: 11px; font-size: 17px;"></i>
-                                                                <input type="number" class="form-control input-medium" name="home[weekly_rate]" required>
+                                                                <input type="number" class="form-control input-medium" name="home[room_daily_tax]" required>
                                                             </div>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6  form-group">
                                                         <label for="" class="col-md-4 control-label">
-                                                            <img src="assets/img/icon/cost.png" class="pull-left"> Weekeen Rate: 
+                                                            <img src="assets/img/weekly.png" class="pull-left" style="width: 20px;"> Weekly Tax: 
                                                             <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-md-8">
                                                             <div class="input-icon input-icon-sm">
                                                                 <i class="fa fa-usd" style="margin-top: 11px; font-size: 17px;"></i>
-                                                                <input type="number" class="form-control input-medium" name="home[weekend_rate]" required>
+                                                                <input type="number" class="form-control input-medium" name="home[room_weekly_tax]" required>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-md-6  form-group">
+                                                        <label for="" class="col-md-4 control-label">
+                                                            <img src="assets/img/monthly.png" class="pull-left" style="width: 20px;"> Monthly Tax: 
+                                                            <span class="required"> * </span>
+                                                        </label>
+                                                        <div class="col-md-8">
+                                                            <div class="input-icon input-icon-sm">
+                                                                <i class="fa fa-usd" style="margin-top: 11px; font-size: 17px;"></i>
+                                                                <input type="number" class="form-control input-medium" name="home[room_monthly_tax]" required>
                                                             </div>
                                                         </div>
                                                     </div>

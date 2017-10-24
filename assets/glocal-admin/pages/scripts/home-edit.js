@@ -1,4 +1,4 @@
-var EcommerceProductsEdit = function () {
+var EditHome = function () {
 
     var handleImages = function() {
 
@@ -95,7 +95,8 @@ var EcommerceProductsEdit = function () {
 }();
 
 jQuery(document).ready(function() {    
-   EcommerceProductsEdit.init();
+   EditHome.init();
+   $(".bs-select").selectpicker({iconBase:"fa",tickIcon:"fa-check"});
 });
 
 function initAutocomplete() {
@@ -283,3 +284,4 @@ function initAutocomplete() {
         map.fitBounds(bounds);
     });
 }
+

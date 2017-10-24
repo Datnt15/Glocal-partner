@@ -119,6 +119,7 @@ define('APARTMENT', 2);
 define('VILLA', 3);
 define('HOTEL', 4);
 define('STUDIO', 5);
+define('SHARED', 6);
 
 // Real Host
 define('GLOCALHOME_URL', 'http://duanoceangatenhatrang.com/glocalhome/');
@@ -126,4 +127,5 @@ define('GLOCALHOME_URL', 'http://duanoceangatenhatrang.com/glocalhome/');
 // SALT string
 define('SALT_STRING', 'safewrv3728fds');
 
-
+// Per page
+define('PER_PAGE', 6);

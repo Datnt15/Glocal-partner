@@ -72,6 +72,13 @@
 
 					<div class="checkbox">
 						<label>
+							<input type="checkbox" name="room-type" value="<?php echo SHARED; ?>" data-toggle="checkbox">
+							Shared House
+						</label>
+					</div>
+
+					<div class="checkbox">
+						<label>
 							<input type="checkbox" name="room-type" value="<?php echo STUDIO; ?>" data-toggle="checkbox">
 							Studio
 						</label>
