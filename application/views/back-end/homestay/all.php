@@ -53,7 +53,7 @@
                                 
                                 <td><img src="<?= $room['room_thumbnail'] ?>" width="100"></td>
                                 <td>
-                                    <a href="javascript:;" class="text-editable" data-field="name" data-type="text" data-id="<?= $room['id'] ?>" data-original-title="Enter the homestay name">
+                                    <a href="javascript:;" class="text-editable" data-field="room_no" data-type="text" data-id="<?= $room['id'] ?>" data-original-title="Enter the homestay name">
                                         <?= $room['room_no'] ?>
                                     </a>
                                 </td>

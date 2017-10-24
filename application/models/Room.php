@@ -7,8 +7,8 @@ class Room extends CI_Model {
 		parent::__construct();
 	}
 
-	public function get_all_rooms(){
-		return $this->db->limit(6)->get(ROOM_TABLE)->result_array();
+	public function get_all_rooms($limit = 6){
+		return $this->db->limit($limit)->get(ROOM_TABLE)->result_array();
 	}
 
 	public function get_room($where, $limit = 1){
@@ -26,7 +26,7 @@ class Room extends CI_Model {
 		}
 		return $result;
 	}
-	
+
 	public function get_room_meta($where){
 		$result = $this->db->where($where)->get(ROOM_META_TABLE)->result_array();
 		$metas = [];
@@ -38,6 +38,10 @@ class Room extends CI_Model {
 			}
 		}
 		return $metas;
+	}
+
+	public function get_specifix_room($where){
+		return $this->db->where($where)->get(ROOM_TABLE)->result_array();
 	}
 
 	public function run_query($query){

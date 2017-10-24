@@ -1,5 +1,5 @@
 <?php $room = $room[0]; ?>
-<h1 class="page-title"> Editting <?= $room['name'] ?></h1>
+<h1 class="page-title"> Editting <?= $room['room_no'] ?></h1>
 <!-- END PAGE TITLE-->
 <!-- END PAGE HEADER-->
 <div class="row">
@@ -11,7 +11,7 @@
                         <button class="btn green btn-outline">
                             <i class="fa fa-check"></i> Save changes
                         </button>
-                        <a class="btn green btn-outline" href="room/<?= $room['room_id'] ?>">
+                        <a class="btn green btn-outline" href="room/<?= $room['id'] ?>">
                             <i class="fa fa-eye"></i> View Home
                         </a>
                     </div>
@@ -45,7 +45,7 @@
                                             <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-10">
-                                            <input type="text" class="form-control" name="home[name]" placeholder="" required="" value="<?= $room['name'] ?>"> 
+                                            <input type="text" class="form-control" name="home[room_no]" placeholder="" required="" value="<?= $room['room_no'] ?>"> 
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -460,12 +460,12 @@
                                                     <div class="mt-overlay no-background">
                                                         <ul class="mt-info">
                                                             <li>
-                                                                <a href="javascript:;" data-id="<?= $img['meta_id'] ?>" data-room="<?= $img['room_id'] ?>" data-value="<?= $img['meta_value'] ?>" class="btn default btn-outline tooltips set_thumbnail" data-original-title="Set as thumbnail">
+                                                                <a href="javascript:;" data-id="<?= $img['meta_id'] ?>" data-room="<?= $img['id'] ?>" data-value="<?= $img['meta_value'] ?>" class="btn default btn-outline tooltips set_thumbnail" data-original-title="Set as thumbnail">
                                                                     <i class="fa fa-image"></i>
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a href="javascript:;" data-id="<?= $img['meta_id'] ?>" data-room="<?= $img['room_id'] ?>" data-value="<?= $img['meta_value'] ?>" class="btn default btn-outline tooltips delete_image" data-original-title="Remove this Image">
+                                                                <a href="javascript:;" data-id="<?= $img['meta_id'] ?>" data-room="<?= $img['id'] ?>" data-value="<?= $img['meta_value'] ?>" class="btn default btn-outline tooltips delete_image" data-original-title="Remove this Image">
                                                                     <i class="fa fa-trash"></i>
                                                                 </a>
                                                             </li>
@@ -482,7 +482,7 @@
                                             <i class="fa fa-plus"></i>
                                             <span id="btn-text"> Add files... </span>
                                         </label>
-                                        <input class="hidden" id="file_input" data-room="<?= $room['room_id'] ?>" type="file" name="files[]" multiple=""> 
+                                        <input class="hidden" id="file_input" data-room="<?= $room['id'] ?>" type="file" name="files[]" multiple=""> 
                                     </div>
                                 </div>
                             </div>

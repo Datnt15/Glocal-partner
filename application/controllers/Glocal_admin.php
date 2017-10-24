@@ -79,7 +79,7 @@ class Glocal_admin extends MY_Controller {
     }
 
 	public function all_homestay(){
-		$rooms =  $this->room->get_all_rooms();
+		$rooms =  $this->room->get_all_rooms(100);
 		foreach ($rooms as &$room) {
 			$room['meta'] = $this->room->get_room_meta(['room_id' => $room['id']]);
 		}
@@ -105,7 +105,7 @@ class Glocal_admin extends MY_Controller {
 			elseif(
 				$post['field'] != 'delete_room' && 
 				$this->room->update_room_data(
-					['room_id' => $post['id']], 
+					['id' => $post['id']], 
 					[$post['field'] => $post['value']]
 				)
 			){
@@ -247,10 +247,10 @@ class Glocal_admin extends MY_Controller {
 		}
 
 		// Load and show data in view
-		$data['room'] = $this->room->get_specifix_room(['room_id' => $room_id]);
+		$data['room'] = $this->room->get_specifix_room(['id' => $room_id]);
 		$data['meta'] = $this->room->get_room_meta(['room_id' => $room_id]);
 		$page = count($data['room']) ? 'add-new-home' : '404';
-		$title = count($data['room']) ? "Editting " . $data['room'][0]['name'] : "404 - Nothing Found";
+		$title = count($data['room']) ? "Editting " . $data['room'][0]['room_no'] : "404 - Nothing Found";
 
 		self::load_header($title, $page);
 		if (count($data['room'])) {
