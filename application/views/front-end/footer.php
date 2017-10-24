@@ -1,3 +1,6 @@
+  
+  
+<!-- Footer -->
 <footer class="footer footer-black footer-big">
 	<div class="container">
 
@@ -98,8 +101,38 @@
 
 	</div>
 </footer>
+
+<!-- Chatbox -->
+  
+<div id="chat-circle" class="btn btn-raised">
+    <div id="chat-overlay"></div>
+    <i class="fa fa-envelope"></i>
+    <sup class="h6"></sup>
+</div>
+  
+<div class="chat-box">
+    <div class="chat-box-header">
+      	Tư vấn
+      	<span class="chat-box-toggle"><i class="fa fa-compress"></i></span>
+    </div>
+    <div class="chat-box-body">
+      	<div class="chat-box-overlay">   
+      	</div>
+
+      	<!--chat-log -->
+      	<div class="chat-logs">
+      	</div>
+    </div>
+    <div class="chat-input">      
+      	<form>
+        	<input type="text" id="chat-input" placeholder="Send a message..."/>
+      		<button type="submit" class="chat-submit" id="chat-submit"><i class="fa fa-send-o"></i></button>
+      	</form>      
+    </div>
+</div>
+  
+
 </body>
-<script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyCBERPYtfHY9yx-gQoLMbEN5PeuLHcKChU&libraries=places" async defer></script>
 <!--   Core JS Files   -->
 <script src="assets/js/jquery.min.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
@@ -111,8 +144,9 @@
 <script src="assets/js/nouislider.min.js" type="text/javascript"></script>
 <script src="assets/js/toastr.min.js" type="text/javascript"></script>
 <script src="assets/js/atv-img-animation.js" type="text/javascript"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="assets/js/jquery-ui.min.js"></script>
 <script src="assets/js/material-kit.min.js" type="text/javascript"></script>
+<script src="assets/js/chat.js" type="text/javascript"></script>
 <?php if ($this->session->flashdata('type')): ?>
 	<script type="text/javascript">
 		jQuery(document).ready(function() {   
@@ -120,5 +154,122 @@
 		});
 	</script>
 <?php endif ?>
+<?php if (isset($is_room_page)): ?>
+	<?php if (isset($meta['address'])):
+		list($lat, $lng) = explode(',', $meta['address']);
+	else:
+		list($lat, $lng) = explode(',', $location['location_address']);
+	endif; ?>
+	<script type="text/javascript">
+		function initAutocomplete() {
+		    var map = new google.maps.Map(document.getElementById('room_location'), 
+		    {
+		        center: {lat:<?= $lat ?>, lng: <?= $lng ?>}, 
+		        zoom: 15,
+		        scrollwheel: false,
+		        navigationControl: false,
+		        mapTypeControl: false,
+		        scaleControl: false,
+		        draggable: false,
+		        styles: [
+		            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+		            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+		            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+		            {
+		              featureType: 'administrative.locality',
+		              elementType: 'labels.text.fill',
+		              stylers: [{color: '#d59563'}]
+		            },
+		            {
+		              featureType: 'poi',
+		              elementType: 'labels.text.fill',
+		              stylers: [{color: '#d59563'}]
+		            },
+		            {
+		              featureType: 'poi.park',
+		              elementType: 'geometry',
+		              stylers: [{color: '#263c3f'}]
+		            },
+		            {
+		              featureType: 'poi.park',
+		              elementType: 'labels.text.fill',
+		              stylers: [{color: '#6b9a76'}]
+		            },
+		            {
+		              featureType: 'road',
+		              elementType: 'geometry',
+		              stylers: [{color: '#38414e'}]
+		            },
+		            {
+		              featureType: 'road',
+		              elementType: 'geometry.stroke',
+		              stylers: [{color: '#212a37'}]
+		            },
+		            {
+		              featureType: 'road',
+		              elementType: 'labels.text.fill',
+		              stylers: [{color: '#9ca5b3'}]
+		            },
+		            {
+		              featureType: 'road.highway',
+		              elementType: 'geometry',
+		              stylers: [{color: '#746855'}]
+		            },
+		            {
+		              featureType: 'road.highway',
+		              elementType: 'geometry.stroke',
+		              stylers: [{color: '#1f2835'}]
+		            },
+		            {
+		              featureType: 'road.highway',
+		              elementType: 'labels.text.fill',
+		              stylers: [{color: '#f3d19c'}]
+		            },
+		            {
+		              featureType: 'transit',
+		              elementType: 'geometry',
+		              stylers: [{color: '#2f3948'}]
+		            },
+		            {
+		              featureType: 'transit.station',
+		              elementType: 'labels.text.fill',
+		              stylers: [{color: '#d59563'}]
+		            },
+		            {
+		              featureType: 'water',
+		              elementType: 'geometry',
+		              stylers: [{color: '#17263c'}]
+		            },
+		            {
+		              featureType: 'water',
+		              elementType: 'labels.text.fill',
+		              stylers: [{color: '#515c6d'}]
+		            },
+		            {
+		              featureType: 'water',
+		              elementType: 'labels.text.stroke',
+		              stylers: [{color: '#17263c'}]
+		            }
+		          ]
 
+		    });
+
+		    var marker = new google.maps.Marker({
+		        map: map,
+		        icon: 'disable',
+		        title: "<?= $room['room_no'] ?>",
+		        position: {lat:<?= $lat ?>, lng: <?= $lng ?>}
+		    });
+		    var circle = new google.maps.Circle({
+			  	map: map,
+			  	radius: 200,    // 50 metres
+			  	fillColor: '#00bcd4'
+			});
+			circle.bindTo('center', marker, 'position');
+		}
+
+		initAutocomplete();
+	</script>
+
+<?php endif ?>
 </html>

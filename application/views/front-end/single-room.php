@@ -47,10 +47,10 @@ $meta = $room['meta'];
 			<?php endfor; ?>
 		</div>
 		<a class="left carousel-control" href="carousel-example-generic" data-slide="prev">
-			<i class="material-icons">keyboard_arrow_left</i>
+			<i class="fa fa-3x fa-angle-left"></i>
 		</a>
 		<a class="right carousel-control" href="carousel-example-generic" data-slide="next">
-			<i class="material-icons">keyboard_arrow_right</i>
+			<i class="fa fa-3x fa-angle-right"></i>
 		</a>
 	</div>
 </div>
@@ -60,18 +60,10 @@ $meta = $room['meta'];
 
 			<!-- Room infos -->
             <div class="col-md-8 col-sm-8">
-				<h2 class="title"> <?= $room['name'] ?> </h2>
+				<h2 class="title"> <?= $room['room_no'] ?> </h2>
 				<h4 class="main-price">
 					<i class="material-icons">add_location</i>
-					<?php if (isset($room['city'])): ?>
-						<a class="text-info" href="place/<?= $room['city']['city_slug'] ?>">
-							<?= $room['city']['city_name'] ?>
-						</a> 
-						/
-					<?php endif ?>
-					<a class="text-info" href="place/<?= $room['ville']['city_slug'] ?>">
-						<?= $room['ville']['city_name'] ?>
-					</a> 
+					<?php echo $location['location_name']; ?>
 				</h4>
 				<div id="acordeon">
                     <div class="panel-group" id="accordion">
@@ -80,13 +72,13 @@ $meta = $room['meta'];
 		                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
 		                            <h4 class="panel-title">
 		                            Description
-		                            <i class="material-icons">keyboard_arrow_down</i>
+		                            <i class="fa fa-angle-down"></i>
 		                            </h4>
 		                        </a>
 		                    </div>
 		                    <div id="collapseOne" class="panel-collapse collapse in">
 		                      <div class="panel-body">
-		                        <p><?= $room['description'] ?></p>
+		                        <p><?= (isset($meta['description'])) ? $meta['description'] : "" ?></p>
 		                      </div>
 		                    </div>
 		                </div>
@@ -95,7 +87,7 @@ $meta = $room['meta'];
 		                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-controls="collapseOne">
 		                            <h4 class="panel-title">
 		                            Amenities
-		                            <i class="material-icons">keyboard_arrow_down</i>
+		                            <i class="fa fa-angle-down"></i>
 		                            </h4>
 		                        </a>
 		                    </div>
@@ -108,31 +100,37 @@ $meta = $room['meta'];
 			                        				Bedrooms
 			                        			</td>
 			                        			<td width="80%">
-			                        				<div class="col-xs-6" style="padding-top: 5px;">
-			                        					<img src="assets/img/icon/guest.png">
-			                        					<?= $room['number_of_guests'] ?> residents
-			                        				</div>
+			                        				<?php if (isset($meta['number_of_guests'])): ?>
+				                        				<div class="col-xs-6" style="padding-top: 5px;">
+				                        					<img src="assets/img/icon/guest.png">
+				                        					<?= $meta['number_of_guests'] ?> residents
+				                        				</div>
+			                        				<?php endif ?>
 			                        				<div class="col-xs-6" style="padding-top: 5px;">
 				                        				<img src="assets/img/icon/bedroom.png">
-			                        					<?= $room['number_of_bedroom'] ?> Bedrooms 
+			                        					<?= $room['room_beds'] ?> Bedrooms 
 			                        				</div>
-			                        				<div class="col-xs-6" style="padding-top: 5px;">
-			                        					<img src="assets/img/icon/bed.png">
-			                        					<?= $room['number_of_bed'] ?> Beds 
-			                        				</div>
+			                        				<?php if (isset($meta['number_of_bed'])): ?>
+				                        				<div class="col-xs-6" style="padding-top: 5px;">
+				                        					<img src="assets/img/icon/bed.png">
+				                        					<?= $meta['number_of_bed'] ?> Beds 
+				                        				</div>
+			                        				<?php endif ?>
 			                        			</td>
 			                        		</tr>
-			                        		<tr>
-			                        			<td>
-			                        				Bathrooms
-			                        			</td>
-			                        			<td>
-			                        				<div class="col-xs-6" style="padding-top: 5px;">
-			                        					<img src="assets/img/icon/bathroom.png">
-			                        					<?= $room['number_of_bathroom'] ?> Bathrooms
-			                        				</div>
-			                        			</td>
-			                        		</tr>
+			                        		<?php if (isset($meta['number_of_bathroom'])): ?>
+				                        		<tr>
+				                        			<td>
+				                        				Bathrooms
+				                        			</td>
+				                        			<td>
+				                        				<div class="col-xs-6" style="padding-top: 5px;">
+				                        					<img src="assets/img/icon/bathroom.png">
+				                        					<?= $meta['number_of_bathroom'] ?> Bathrooms
+				                        				</div>
+				                        			</td>
+				                        		</tr>
+			                        		<?php endif ?>
 			                        		<tr>
 			                        			<td>
 			                        				Families 
@@ -359,7 +357,7 @@ $meta = $room['meta'];
 		                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-controls="collapseOne">
 		                            <h4 class="panel-title">
 		                            Availability
-		                            <i class="material-icons">keyboard_arrow_down</i>
+		                            <i class="fa fa-angle-down"></i>
 		                            </h4>
 		                        </a>
 		                    </div>
@@ -381,7 +379,7 @@ $meta = $room['meta'];
 					<input type="hidden" name="room_code" value="<?= $room_code ?>" id="room_code">
 		            <div class="card card-product col-xs-12">
 		            	<h3 class="title">
-		            		<small class="pull-right">From $<?= $room['weekly_rate'] ?>/night</small>
+		            		<small class="pull-right">From $<?= $room['room_daily_tax'] ?>/night</small>
 		            	</h3>
 		            	<div class="clearfix"></div>
 						<div class="input-group">
@@ -407,7 +405,7 @@ $meta = $room['meta'];
 								</span>
 								<select class="selectpicker" name="number_of_guests" data-style="select-with-transition" id="number_of_guests" title="Number of guests?" data-size="7" required>
 									<option value="1" selected="">1 guest</option>
-									<?php for ($i = 2; $i <= intval($room['number_of_guests']); $i++): ?>
+									<?php for ($i = 2; $i <= intval($meta['number_of_guests']); $i++): ?>
 				                    	<option value="<?= $i ?>"><?= $i ?> guests</option>
 				                    <?php endfor; ?>
 				                </select>
@@ -437,7 +435,7 @@ $meta = $room['meta'];
 						<div class="row">
 							<div role="separator" class="divider"></div>
 							<div class="col-xs-9">Total</div>
-							<div class="col-xs-3 text-right">$ <span id="total_fee"><?= $room['weekly_rate'] ?></span></div>
+							<div class="col-xs-3 text-right">$ <span id="total_fee"><?= $room['room_daily_tax'] ?></span></div>
 						</div>
 						<button class="btn btn-info btn-round form-control" type="submit">Instant Book </button>
 		            </div>
@@ -451,8 +449,8 @@ $meta = $room['meta'];
 	            <div class="row">
 					<div class="col-md-4">
 						<div class="info">
-							<div class="icon icon-info">
-								<i class="material-icons">local_shipping</i>
+							<div class="icon" >
+								<img src="assets/img/truck.png" width="60" alt="">
 							</div>
 							<h4 class="info-title">2 Days Delivery </h4>
 							<p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
@@ -461,8 +459,8 @@ $meta = $room['meta'];
 
 					<div class="col-md-4">
 						<div class="info">
-							<div class="icon icon-success">
-								<i class="material-icons">verified_user</i>
+							<div class="icon">
+								<img src="assets/img/shield.png" width="60" alt="">
 							</div>
 							<h4 class="info-title">Refundable Policy</h4>
 							<p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
@@ -471,8 +469,8 @@ $meta = $room['meta'];
 
 					<div class="col-md-4">
 						<div class="info">
-							<div class="icon icon-rose">
-								<i class="material-icons">favorite</i>
+							<div class="icon">
+								<img src="assets/img/heart.png" width="60" alt="">
 							</div>
 							<h4 class="info-title">Popular Item</h4>
 							<p>Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough.</p>
@@ -507,20 +505,20 @@ $meta = $room['meta'];
 								<div class="card-content">
 									<h6 class="category text-rose">Trending</h6>
 									<h4 class="card-title">
-										<a href="room/<?= $relate_room['room_id'] ?>">
-											<?= $relate_room['name'] ?>
+										<a href="room/<?= $relate_room['id'] ?>">
+											<?= $relate_room['room_no'] ?>
 										</a>
 									</h4>
-									<div class="card-description">
+									<!-- <div class="card-description">
 										<?= $relate_room['short_description'] ?>
-									</div>
+									</div> -->
 									<div class="footer">
 		                                <div class="price">
-											<h4>$<?= $relate_room['weekly_rate'] ?></h4>
+											<h4>$<?= $relate_room['room_daily_tax'] ?></h4>
 										</div>
 		                            	<div class="stats">
 											<button type="button" rel="tooltip" title="Saved to Wishlist" class="btn btn-just-icon btn-simple btn-rose">
-												<i class="material-icons">favorite</i>
+												<i class="fa fa-heart"></i>
 											</button>
 		                            	</div>
 		                            </div>
@@ -535,114 +533,5 @@ $meta = $room['meta'];
 		</div>
 	</div>
 </div>
-<?php list($lat, $lng) = explode(',', $room['address']); ?>
-<script type="text/javascript">
-	function initAutocomplete() {
-    var map = new google.maps.Map(document.getElementById('room_location'), 
-    {
-        center: {lat:<?= $lat ?>, lng: <?= $lng ?>}, 
-        zoom: 15,
-        scrollwheel: false,
-        navigationControl: false,
-        mapTypeControl: false,
-        scaleControl: false,
-        draggable: false,
-        styles: [
-            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
-            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
-            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
-            {
-              featureType: 'administrative.locality',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'poi',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'poi.park',
-              elementType: 'geometry',
-              stylers: [{color: '#263c3f'}]
-            },
-            {
-              featureType: 'poi.park',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#6b9a76'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'geometry',
-              stylers: [{color: '#38414e'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'geometry.stroke',
-              stylers: [{color: '#212a37'}]
-            },
-            {
-              featureType: 'road',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#9ca5b3'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'geometry',
-              stylers: [{color: '#746855'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'geometry.stroke',
-              stylers: [{color: '#1f2835'}]
-            },
-            {
-              featureType: 'road.highway',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#f3d19c'}]
-            },
-            {
-              featureType: 'transit',
-              elementType: 'geometry',
-              stylers: [{color: '#2f3948'}]
-            },
-            {
-              featureType: 'transit.station',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#d59563'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'geometry',
-              stylers: [{color: '#17263c'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'labels.text.fill',
-              stylers: [{color: '#515c6d'}]
-            },
-            {
-              featureType: 'water',
-              elementType: 'labels.text.stroke',
-              stylers: [{color: '#17263c'}]
-            }
-          ]
 
-    });
 
-    var marker = new google.maps.Marker({
-        map: map,
-        icon: 'disable',
-        title: "<?= $room['name'] ?>",
-        position: {lat:<?= $lat ?>, lng: <?= $lng ?>}
-    });
-    var circle = new google.maps.Circle({
-	  	map: map,
-	  	radius: 200,    // 50 metres
-	  	fillColor: '#00bcd4'
-	});
-	circle.bindTo('center', marker, 'position');
-}
-
-initAutocomplete();
-</script>

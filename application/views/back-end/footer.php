@@ -83,6 +83,9 @@ jQuery(document).ready(function() {
             <script src="assets/glocal-admin/pages/scripts/ui-tree.js" type="text/javascript"></script>
             <script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyCBERPYtfHY9yx-gQoLMbEN5PeuLHcKChU&libraries=places&callback=initAutocomplete" async defer></script>';
             break;
+        case 'chat';
+            echo '<script src="assets/glocal-admin/pages/scripts/chat.js" type="text/javascript"></script>';
+            break;
         default:
             
             break;

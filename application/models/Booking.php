@@ -12,16 +12,15 @@ class Booking extends CI_Model {
 	}
 
 
-	public function get_cities($room){
-		
-		$local = $this->db->where(['city_id' => $room['location']])->get(CITIES_TABLE)->result_array()[0];
-		$room['ville'] = $local;
-		if ($local['parent_id'] != "#") {
-			$local = $this->db->where(['city_id' => $local['parent_id']])->get(CITIES_TABLE)->result_array()[0];
-			$room['city'] = $local;
+	public function get_room_gallery($room_id){
+		$metas = $this->db->where(['meta_key' => 'gallery', 'room_id' => $room_id])->get(ROOM_META_TABLE)->result_array();
+		$result = [];
+		if (count($metas)) {
+			foreach ($metas as $item) {
+				$result[] = $item['meta_value'];
+			}
 		}
-		
-		return $room;
+		return $result;
 	}
 
 	public function get_related_rooms($room){
@@ -33,8 +32,8 @@ class Booking extends CI_Model {
 		$result = $this->db->where($where)->get(ROOM_META_TABLE)->result_array();
 		$metas = [];
 		foreach ($result as $meta) {
-			if ($meta['meta_key'] == 'room-photos') {
-				$metas['photos'][] = $meta;
+			if ($meta['meta_key'] == 'gallery') {
+				$metas['gallery'][] = $meta;
 			}else{
 				$metas[$meta['meta_key']] = $meta['meta_value'];
 			}

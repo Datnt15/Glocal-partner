@@ -4,6 +4,7 @@ class MY_Controller extends CI_Controller {
 
 	protected $ci_nonce;
 	protected $user_data;
+    protected $messages;
 	public function __construct(){
 		parent::__construct();
 		// Nếu chưa khởi tạo access token\
@@ -48,11 +49,16 @@ class MY_Controller extends CI_Controller {
             $this->session->set_flashdata('type', 'warning');
             $this->session->set_flashdata('msg', 'You forgot to login. PLease fill these fields and let us know who you are.');
             $this->session->set_flashdata('title', 'Oops!');
-            redirect(HOST.'login');
+            redirect(base_url().'login');
         }
+        $this->load->model('chat_model');
+        $this->messages = $this->chat_model->get_messages("state=0 AND to_IP='".$_SERVER['SERVER_ADDR']."'");
+    }
 
-	}
-
+    protected function get_messages(){
+        $client_id = self::get_client_ip();
+        return $this->chat_model->get_messages("IP='".$client_id."' OR to_IP='".$client_id."'");
+    }
 
     // protected function cleanString($text, $remove_space = true, $word = '') {
     //     $text = str_replace('/', '-', $text);
@@ -87,6 +93,25 @@ class MY_Controller extends CI_Controller {
 
     //     return preg_replace(array_keys($utf8), array_values($utf8), $text);
     // }
+    // 
+    protected function get_client_ip() {
+        $ipaddress = '';
+        if (getenv('HTTP_CLIENT_IP'))
+            $ipaddress = getenv('HTTP_CLIENT_IP');
+        else if(getenv('HTTP_X_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+        else if(getenv('HTTP_X_FORWARDED'))
+            $ipaddress = getenv('HTTP_X_FORWARDED');
+        else if(getenv('HTTP_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_FORWARDED_FOR');
+        else if(getenv('HTTP_FORWARDED'))
+           $ipaddress = getenv('HTTP_FORWARDED');
+        else if(getenv('REMOTE_ADDR'))
+            $ipaddress = getenv('REMOTE_ADDR');
+        else
+            $ipaddress = 'UNKNOWN';
+        return $ipaddress;
+    }
 
 }
 
@@ -94,8 +119,7 @@ class Front_base extends CI_Controller {
 
     protected $ci_nonce;
     protected $user_data;
-    public function __construct()
-    {
+    public function __construct(){
         parent::__construct();
         // Nếu chưa khởi tạo access token\
         if (is_null( $this->session->ci_nonce) ) {
@@ -115,6 +139,12 @@ class Front_base extends CI_Controller {
         if ($this->session->userdata("is_logged_in")) {
             $this->user_data = $this->user->get_user(['uid' => $this->session->uid, 'type' => $this->session->user_type])[0];
         }
+        $this->load->model('chat_model');
+    }
+
+    protected function get_messages(){
+        $client_id = self::get_client_ip();
+        return $this->chat_model->get_messages("IP='".$client_id."' OR to_IP='".$client_id."'");
     }
 
     protected function cleanString($text, $remove_space = true, $word = '') {
@@ -149,6 +179,25 @@ class Front_base extends CI_Controller {
         }
 
         return preg_replace(array_keys($utf8), array_values($utf8), $text);
+    }
+
+    protected function get_client_ip() {
+        $ipaddress = '';
+        if (getenv('HTTP_CLIENT_IP'))
+            $ipaddress = getenv('HTTP_CLIENT_IP');
+        else if(getenv('HTTP_X_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+        else if(getenv('HTTP_X_FORWARDED'))
+            $ipaddress = getenv('HTTP_X_FORWARDED');
+        else if(getenv('HTTP_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_FORWARDED_FOR');
+        else if(getenv('HTTP_FORWARDED'))
+           $ipaddress = getenv('HTTP_FORWARDED');
+        else if(getenv('REMOTE_ADDR'))
+            $ipaddress = getenv('REMOTE_ADDR');
+        else
+            $ipaddress = 'UNKNOWN';
+        return $ipaddress;
     }
 
 }

@@ -14,7 +14,7 @@ class Home extends Front_base {
 		$data = [
 			'title' => 'Home - Glocal partner',
 			'user' => $this->user_data,
-			'locations' => $this->location_model->get_locations('parent="#"')
+			'locations' => $this->location_model->get_available_location()
 		];
 		$this->load->view('front-end/header', $data, FALSE);
 		$this->load->view('front-end/home');

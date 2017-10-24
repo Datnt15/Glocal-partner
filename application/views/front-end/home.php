@@ -1,4 +1,4 @@
-<div class="page-header header-filter" data-parallax="true" style="background-image: url('assets/img/bg11.jpg'); transform: translate3d(0px, 0px, 0px);">
+<div class="page-header header-filter" style="background-image: url('assets/img/bg11.jpg');">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2 text-center">
@@ -8,7 +8,7 @@
 				</a>
 			</div>
 			<div class="clearfix"></div>
-			<div class="search search-form">
+			<!-- <div class="search search-form">
 				<form class="form" action="search" method="GET" class="form">
 					<div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
 						<div class="input-group">
@@ -67,7 +67,7 @@
 					</div>
 				</form>
 				<div class="clearfix"></div>
-			</div>
+			</div> -->
 			<div class="clearfix"></div>
 		</div>
 	</div>
@@ -194,7 +194,7 @@
 										Quick Actions...
 									</h5>
 									<div class="footer text-center">
-										<a href="location/128-au-co" class="btn btn-sm btn-round btn-white">
+										<a href="location/124-au-co" class="btn btn-sm btn-round btn-white">
 											<i class="fa fa-home"></i> View
 										</a>
 										<a href="#" class="btn btn-sm btn-round btn-rose">
@@ -205,13 +205,13 @@
 									<p class="card-description">
 										Share with your friends...
 									</p>
-									<a href="http://twitter.com/share?url=<?= base_url() ?>location/128-au-co" target="_blank" class="btn btn-just-icon btn-round btn-white btn-twitter twitter-share">
+									<a href="http://twitter.com/share?url=<?= base_url() ?>location/124-au-co" target="_blank" class="btn btn-just-icon btn-round btn-white btn-twitter twitter-share">
 										<i class="fa fa-twitter"></i>
 									</a>
-									<a href="<?= base_url() ?>location/128-au-co" class="btn btn-just-icon btn-round btn-white btn-google google-share">
+									<a href="<?= base_url() ?>location/124-au-co" class="btn btn-just-icon btn-round btn-white btn-google google-share">
 										<i class="fa fa-google"></i>
 									</a>
-									<a href="<?= base_url() ?>location/128-au-co" class="btn btn-just-icon btn-round btn-white btn-facebook facebook-share">
+									<a href="<?= base_url() ?>location/124-au-co" class="btn btn-just-icon btn-round btn-white btn-facebook facebook-share">
 										<i class="fa fa-facebook"></i>
 									</a>
 								</div>
@@ -221,7 +221,7 @@
 
 					<div class="card-content">
 						<h4 class="card-title">
-							<h4 class="card-title"><a href="location/128-au-co" title="124 Âu cơ">124 Âu cơ</a></h4>
+							<h4 class="card-title"><a href="location/124-au-co" title="124 Âu cơ">124 Âu cơ</a></h4>
 						</h4>
 						<div class="card-description">
 							<i class="fa fa-map-marker"></i> Quận Tây Hồ - Hà Nội

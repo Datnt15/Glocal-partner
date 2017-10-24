@@ -9,8 +9,7 @@ class Location extends Front_base {
 		$this->load->model('room');
 		$this->load->library('pagination');
 	}
-	public function index($location = null)
-	{
+	public function index($location = null){
 		if ($location == null) {
 			$data = [
 				'title' 		=> 'Locations - Glocal partner',
@@ -22,7 +21,20 @@ class Location extends Front_base {
 			$this->load->view('front-end/location/all');
 			$this->load->view('front-end/footer');
 		}else{
-
+			$location = $this->location_model->get_locations(['location_slug' => $location]);
+			if (count($location)) {
+				$data = [
+					'title' 		=> 'Locations - Glocal partner',
+					'user' 			=> $this->user_data,
+					'location' 		=> $location,
+					'accessToken' 	=> $this->ci_nonce
+				];
+				$this->load->view('front-end/header', $data, FALSE);
+				$this->load->view('front-end/location/single-location');
+				$this->load->view('front-end/footer');
+			}else{
+				
+			}
 		}
 	}
 

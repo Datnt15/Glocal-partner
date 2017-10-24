@@ -9,15 +9,16 @@
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 	<!--     Fonts and icons     -->
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/material.icon.css" />
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
 
 	<!-- CSS Files -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/material-kit.min.css" rel="stylesheet"/>
     <link href="assets/css/vertical-nav.css" rel="stylesheet" />
     <link href="assets/css/toastr.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="assets/css/jquery-ui.css" rel="stylesheet">
+	<script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyCBERPYtfHY9yx-gQoLMbEN5PeuLHcKChU&libraries=places" async defer></script>
 </head>
 
 <body>

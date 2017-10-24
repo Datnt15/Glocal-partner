@@ -26,12 +26,12 @@
                     </a>
                     <ul class="sub-menu">
                         <li class="nav-item  ">
-                            <a href="glocal_admin/room" class="nav-link ">
+                            <a href="glocal_admin/all-homestay" class="nav-link ">
                                 <span class="title">All Rooms</span>
                             </a>
                         </li>
                         <li class="nav-item  ">
-                            <a href="glocal_admin/add_new_room" class="nav-link ">
+                            <a href="glocal_admin/add_new_home" class="nav-link ">
                                 <span class="title">Add new</span>
                             </a>
                         </li>

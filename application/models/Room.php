@@ -26,6 +26,19 @@ class Room extends CI_Model {
 		}
 		return $result;
 	}
+	
+	public function get_room_meta($where){
+		$result = $this->db->where($where)->get(ROOM_META_TABLE)->result_array();
+		$metas = [];
+		foreach ($result as $meta) {
+			if ($meta['meta_key'] == 'gallery') {
+				$metas['gallery'][] = $meta;
+			}else{
+				$metas[$meta['meta_key']] = $meta['meta_value'];
+			}
+		}
+		return $metas;
+	}
 
 	public function run_query($query){
 		return $this->db->query($query)->result_array();

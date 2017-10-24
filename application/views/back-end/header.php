@@ -36,6 +36,7 @@
                     break;
             } 
         endif;?>
+        <link href="assets/glocal-admin/apps/css/inbox.css" rel="stylesheet" type="text/css" />
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="assets/glocal-admin/global/css/components.min.css" rel="stylesheet" type="text/css" />
@@ -176,74 +177,42 @@
                             <li class="dropdown dropdown-extended dropdown-inbox" id="header_inbox_bar">
                                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                     <i class="icon-envelope-open"></i>
-                                    <span class="badge badge-default"> 4 </span>
+                                    <span class="badge badge-default"> <?php echo count($messages); ?> </span>
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li class="external">
-                                        <h3>You have
-                                            <span class="bold">7 New</span> Messages</h3>
-                                        <a href="#">view all</a>
-                                    </li>
-                                    <li>
-                                        <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
-                                            <li>
-                                                <a href="#">
-                                                    <span class="photo">
-                                                        <img src="assets/img/placeholder.jpg" class="img-circle" alt=""> </span>
-                                                    <span class="subject">
-                                                        <span class="from"> Lisa Wong </span>
-                                                        <span class="time">Just Now </span>
-                                                    </span>
-                                                    <span class="message"> Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <span class="photo">
-                                                        <img src="assets/img/placeholder.jpg" class="img-circle" alt=""> </span>
-                                                    <span class="subject">
-                                                        <span class="from"> Richard Doe </span>
-                                                        <span class="time">16 mins </span>
-                                                    </span>
-                                                    <span class="message"> Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <span class="photo">
-                                                        <img src="assets/img/placeholder.jpg" class="img-circle" alt=""> </span>
-                                                    <span class="subject">
-                                                        <span class="from"> Bob Nilson </span>
-                                                        <span class="time">2 hrs </span>
-                                                    </span>
-                                                    <span class="message"> Vivamus sed nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <span class="photo">
-                                                        <img src="assets/img/placeholder.jpg" class="img-circle" alt=""> </span>
-                                                    <span class="subject">
-                                                        <span class="from"> Lisa Wong </span>
-                                                        <span class="time">40 mins </span>
-                                                    </span>
-                                                    <span class="message"> Vivamus sed auctor 40% nibh congue nibh... </span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <span class="photo">
-                                                        <img src="assets/img/placeholder.jpg" class="img-circle" alt=""> </span>
-                                                    <span class="subject">
-                                                        <span class="from"> Richard Doe </span>
-                                                        <span class="time">46 mins </span>
-                                                    </span>
-                                                    <span class="message"> Vivamus sed congue nibh auctor nibh congue nibh. auctor nibh auctor nibh... </span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                                <?php if (count($messages)): ?>
+                                    
+                                    <ul class="dropdown-menu">
+                                        <li class="external">
+                                            <h3>You have
+                                                <span class="bold"><?php echo count($messages); ?> New</span> Messages</h3>
+                                            <a href="glocal-admin/chat">view all</a>
+                                        </li>
+                                        <li>
+                                            <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
+                                                <?php foreach ($messages as $msg): ?>
+                                                    <li>
+                                                        <a href="chat">
+                                                            <span class="photo">
+                                                                <img src="assets/img/guest.png" class="img-circle" alt=""> 
+                                                            </span>
+                                                            <span class="subject">
+                                                                <span class="from"> <?php echo $msg['IP']; ?> </span>
+                                                                <span class="time"> <?php echo date('D d-m', strtotime($msg['date_create'])); ?></span>
+                                                            </span>
+                                                            <span class="message"> <?php echo $msg['content']; ?> </span>
+                                                        </a>
+                                                    </li>
+                                                <?php endforeach ?>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                <?php else: ?>
+                                    <ul class="dropdown-menu">
+                                        <li class="external">
+                                            <h3>You don't have any new messages</h3>
+                                        </li>
+                                    </ul>
+                                <?php endif ?>
                             </li>
                             <!-- END INBOX DROPDOWN -->
                             <!-- BEGIN USER LOGIN DROPDOWN -->

@@ -6,6 +6,7 @@ class Room extends Front_base {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('booking');
+		$this->load->model('location_model');
 	}
 
 	public function index($room_id){
@@ -20,14 +21,16 @@ class Room extends Front_base {
 				'room'		 	=> $room,
 				'room_code' 	=> $this->encrypt->encode($room_id),
 				'accessToken' 	=> $this->ci_nonce,
-				'relate_rooms' 	=> $this->booking->get_related_rooms($room)
+				'location' 		=> $this->location_model->get_locations(['location_id' => $room['location']])[0],
+				'relate_rooms' 	=> $this->booking->get_related_rooms($room),
+				'is_room_page' 	=> true
 			];
+
 			$this->load->view('front-end/header', $data, FALSE);
 			$this->load->view('front-end/single-room');
 			$this->load->view('front-end/footer');
 		}else{
 			if (gettype($room_id) == "interger") {
-				
 				$this->load->view('errors/html/error_404', [
 					'heading' => '404 Page Not Found', 
 					'message' => 'The page you requested was not found.'

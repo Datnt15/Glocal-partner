@@ -1,369 +1,226 @@
-/* Cubic Bezier Transition */
-/***
-Inbox Page
-***/
-.inbox {
-  margin-bottom: 20px; }
-  .inbox .compose-btn {
-    padding: 8px 14px; }
-  .inbox .inbox-content {
-    min-height: 400px; }
-  .inbox .inbox-nav {
-    margin: 30px 0;
-    padding: 0;
-    list-style: none; }
-    .inbox .inbox-nav > li {
-      padding: 0;
-      margin: 0; }
-      .inbox .inbox-nav > li > a {
-        text-decoration: none !important;
-        display: block;
-        padding: 8px 16px;
-        border-left: 4px solid transparent; }
-        .inbox .inbox-nav > li > a:hover {
-          background: #f1f4f7; }
-        .inbox .inbox-nav > li > a .badge {
-          float: right;
-          margin-top: 1px; }
-      .inbox .inbox-nav > li.active > a {
-        border-left: 4px solid #ed6b75; }
-      .inbox .inbox-nav > li.divider {
-        padding: 0;
-        margin: 4px 16px;
-        border-top: 1px solid #eef1f5; }
-  .inbox .inbox-contacts {
-    margin: 0 0 30px 0;
-    padding: 0;
-    list-style: none; }
-    .inbox .inbox-contacts > li {
-      padding: 0;
-      margin: 0; }
-      .inbox .inbox-contacts > li.divider {
-        padding: 0;
-        margin: 4px 16px;
-        border-top: 1px solid #eef1f5; }
-      .inbox .inbox-contacts > li > a {
-        position: relative;
-        display: block;
-        padding: 8px 16px;
-        color: #3f444a; }
-        .inbox .inbox-contacts > li > a:hover {
-          background: #f1f4f7;
-          text-decoration: none; }
-        .inbox .inbox-contacts > li > a .contact-name {
-          display: inline-block;
-          padding-left: 5px; }
-        .inbox .inbox-contacts > li > a .contact-pic {
-          width: 30px;
-          height: 30px;
-          border-radius: 50% !important; }
-        .inbox .inbox-contacts > li > a .contact-status {
-          position: absolute;
-          width: 10px;
-          height: 10px;
-          border-radius: 50% !important;
-          left: 38px;
-          top: 30px; }
-  .inbox .input-actions .btn {
-    margin-left: 10px; }
-  .inbox .inbox-view-info {
-    color: #666;
-    padding: 5px 0;
-    border-top: solid 1px #eee;
-    border-bottom: solid 1px #eee; }
-    .inbox .inbox-view-info .inbox-author {
-      border-radius: 50% !important;
-      margin-right: 10px; }
-    .inbox .inbox-view-info .inbox-info-btn .btn-group {
-      float: right;
-      margin-top: 5px; }
-  .inbox .inbox-sidebar {
-    padding: 20px;
-    border: 1px solid #e7ecf1;
-    border-radius: 4px; }
-  .inbox .inbox-body {
-    padding: 20px;
-    border: 1px solid #e7ecf1;
-    border-radius: 4px; }
-  .page-container-bg-solid .inbox .inbox-sidebar {
-    background: #ffffff;
-    border: 0; }
-  .page-container-bg-solid .inbox .inbox-body {
-    background: #ffffff;
-    border: 0; }
+.chat-box {
+  /* display:none; */
+  background: #efefef;
+  /* position:fixed; */
+  /* right:30px; */
+  /* bottom:50px;   */
+  width: 100%;
+  /* max-width: 85vw; */
+  max-height: 100vh;
+  border-radius: 5px;
+  /*   box-shadow: 0px 5px 35px 9px #464a92; */
+  /* box-shadow: 0px 5px 35px 9px #ccc; */
+}
 
-.inbox .inbox {
-  margin-bottom: 0px; }
-
-.inbox .tab-content {
-  overflow: inherit; }
-
-.inbox .inbox-loading {
-  display: none;
-  font-size: 22px;
-  font-weight: 300; }
-
-/*Inbox Content*/
-.inbox .inbox-header {
-  overflow: hidden; }
-
-.inbox .inbox-header h1 {
-  margin: 0;
-  color: #666;
-  margin-bottom: 20px; }
-
-.inbox .pagination-control {
-  text-align: right; }
-
-.inbox .pagination-control .pagination-info {
-  display: inline-block;
-  padding-right: 10px;
-  font-size: 14px;
-  line-height: 14px; }
-
-.inbox tr {
-  color: #777;
-  font-size: 13px; }
-
-.inbox tr label {
-  display: inline-block; }
-
-.inbox tr.unread td {
-  font-weight: 600; }
-
-.inbox td i.icon-paper-clip {
-  top: 2px;
-  color: #d8e0e5;
-  font-size: 17px;
-  position: relative; }
-
-.inbox tr i.icon-star,
-.inbox tr i.icon-trash {
-  cursor: pointer; }
-
-.inbox tr i.icon-star {
-  color: #eceef0; }
-
-.inbox tr i.icon-star:hover {
-  color: #fd7b12; }
-
-.inbox tr i.inbox-started {
-  color: #fd7b12; }
-
-.inbox .table th,
-.inbox .table td {
-  border: none; }
-
-.inbox .table th {
-  background: #eef4f7;
-  border-bottom: solid 5px #fff; }
-
-.inbox th.text-right {
-  text-align: right; }
-
-.inbox th label.inbox-select-all {
-  color: #828f97;
-  font-size: 13px;
-  padding: 1px 4px 0; }
-
-.inbox td.text-right {
-  width: 100px;
-  text-align: right; }
-
-.inbox td.inbox-small-cells {
-  width: 10px; }
-
-.inbox .table-hover tbody tr:hover > td,
-.inbox .table-hover tbody tr:hover > th,
-.inbox .table-striped tbody > tr:nth-child(odd) > td,
-.inbox .table-striped tbody > tr:nth-child(odd) > th {
-  background: #f8fbfd;
-  cursor: pointer; }
-
-.inbox .table-hover tbody tr:hover > td,
-.inbox .table-hover tbody tr:hover > th {
-  background: #eef4f7; }
-
-/*Inbox Drafts*/
-.inbox .inbox-drafts {
-  padding: 8px 0;
-  text-align: center;
-  border-top: solid 1px #eee;
-  border-bottom: solid 1px #eee; }
-
-/*Inbox View*/
-.inbox-view-header {
-  margin-bottom: 20px; }
-
-.inbox-view-header h1 {
-  color: #666;
-  font-size: 22px;
-  line-height: 24px;
-  margin-bottom: 0 !important; }
-
-.inbox-view-header h1 a {
-  top: -2px;
-  color: #fff;
-  cursor: pointer;
-  font-size: 13px;
-  padding: 2px 7px;
-  line-height: 16px;
+.chat-box-body {
   position: relative;
-  background: #b0bcc4;
-  display: inline-block; }
-
-.inbox-view-header h1 a:hover {
-  background: #aab5bc;
-  text-decoration: none; }
-
-.inbox-view-header i.icon-print {
-  color: #94a4ab;
-  cursor: pointer;
-  font-size: 14px;
-  display: inline-block;
-  padding: 6px 8px !important;
-  background: #edf1f4 !important; }
-
-.inbox-view-header i.icon-print:hover {
-  background: #e7ebef !important; }
-
-.inbox-view-info strong {
-  color: #666;
-  margin: 0 10px 0 5px; }
-
-.inbox-view {
-  color: #666;
-  padding: 10px 0 0; }
-
-.inbox-view a {
-  color: #169ce9; }
-
-.inbox-attached {
-  line-height: 16px; }
-
-.inbox-attached a {
-  margin: 0 2px; }
-
-.inbox-attached img {
+  height: 370px;
   height: auto;
-  max-width: 250px;
-  margin-bottom: 5px; }
+  border: 1px solid #ccc;
+  overflow: hidden;
+}
 
-.inbox-attached span {
-  margin-right: 3px; }
-
-.inbox-attached strong {
-  color: #555;
-  display: block;
-  font-size: 13px; }
-
-.inbox-attached .margin-bottom-25 {
-  margin-bottom: 25px; }
-
-.inbox-attached .margin-bottom-15 {
-  margin-bottom: 15px; }
-
-/*Inbox Compose*/
-.inbox-compose {
-  margin-top: 1px;
-  border: solid 1px #eee; }
-
-.inbox-compose-btn {
-  padding: 12px 12px;
-  background: #f0f6fa; }
-
-.inbox-compose-attachment {
-  padding: 8px 8px; }
-
-.inbox-compose-attachment .btn {
-  padding: 4px 10px; }
-
-.inbox-compose .inbox-form-group {
-  margin-bottom: 0;
+#chat-input {
+  background: #f4f7f9;
+  width: 100%;
   position: relative;
-  border-bottom: solid 1px #eee; }
+  height: 47px;
+  padding-top: 10px;
+  padding-right: 50px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  border: none;
+  resize: none;
+  outline: none;
+  border: 1px solid #ccc;
+  color: #888;
+  border-top: none;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  overflow: hidden;
+}
 
-.inbox-compose .controls {
-  margin-left: 85px; }
+.chat-input>form {
+  margin-bottom: 0;
+}
 
-.inbox-compose .inbox-form-group > label {
-  width: 80px;
+#chat-input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #ccc;
+}
+
+#chat-input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #ccc;
+}
+
+#chat-input:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #ccc;
+}
+
+#chat-input:-moz-placeholder {
+  /* Firefox 18- */
+  color: #ccc;
+}
+
+.chat-submit {
+  position: absolute;
+  bottom: 3px;
+  right: 20px;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  border-radius: 50%;
+  color: #00bcd4;
+  width: 35px;
+  height: 35px;
+}
+
+.chat-logs {
+  padding: 15px;
+  height: 500px;
+  overflow-y: scroll;
+  z-index: 10;
+}
+
+.chat-logs::before {
+    content: '';
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    background-color: rgba(0,0,0,.3);
+    filter: blur(3px);
+    top: 0;
+    left: 0;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAgOCkiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PGNpcmNsZSBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIgY3g9IjE3NiIgY3k9IjEyIiByPSI0Ii8+PHBhdGggZD0iTTIwLjUuNWwyMyAxMW0tMjkgODRsLTMuNzkgMTAuMzc3TTI3LjAzNyAxMzEuNGw1Ljg5OCAyLjIwMy0zLjQ2IDUuOTQ3IDYuMDcyIDIuMzkyLTMuOTMzIDUuNzU4bTEyOC43MzMgMzUuMzdsLjY5My05LjMxNiAxMC4yOTIuMDUyLjQxNi05LjIyMiA5LjI3NC4zMzJNLjUgNDguNXM2LjEzMSA2LjQxMyA2Ljg0NyAxNC44MDVjLjcxNSA4LjM5My0yLjUyIDE0LjgwNi0yLjUyIDE0LjgwNk0xMjQuNTU1IDkwcy03LjQ0NCAwLTEzLjY3IDYuMTkyYy02LjIyNyA2LjE5Mi00LjgzOCAxMi4wMTItNC44MzggMTIuMDEybTIuMjQgNjguNjI2cy00LjAyNi05LjAyNS0xOC4xNDUtOS4wMjUtMTguMTQ1IDUuNy0xOC4xNDUgNS43IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PHBhdGggZD0iTTg1LjcxNiAzNi4xNDZsNS4yNDMtOS41MjFoMTEuMDkzbDUuNDE2IDkuNTIxLTUuNDEgOS4xODVIOTAuOTUzbC01LjIzNy05LjE4NXptNjMuOTA5IDE1LjQ3OWgxMC43NXYxMC43NWgtMTAuNzV6IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIvPjxjaXJjbGUgZmlsbD0iIzAwMCIgY3g9IjcxLjUiIGN5PSI3LjUiIHI9IjEuNSIvPjxjaXJjbGUgZmlsbD0iIzAwMCIgY3g9IjE3MC41IiBjeT0iOTUuNSIgcj0iMS41Ii8+PGNpcmNsZSBmaWxsPSIjMDAwIiBjeD0iODEuNSIgY3k9IjEzNC41IiByPSIxLjUiLz48Y2lyY2xlIGZpbGw9IiMwMDAiIGN4PSIxMy41IiBjeT0iMjMuNSIgcj0iMS41Ii8+PHBhdGggZmlsbD0iIzAwMCIgZD0iTTkzIDcxaDN2M2gtM3ptMzMgODRoM3YzaC0zem0tODUgMThoM3YzaC0zeiIvPjxwYXRoIGQ9Ik0zOS4zODQgNTEuMTIybDUuNzU4LTQuNDU0IDYuNDUzIDQuMjA1LTIuMjk0IDcuMzYzaC03Ljc5bC0yLjEyNy03LjExNHpNMTMwLjE5NSA0LjAzbDEzLjgzIDUuMDYyLTEwLjA5IDcuMDQ4LTMuNzQtMTIuMTF6bS04MyA5NWwxNC44MyA1LjQyOS0xMC44MiA3LjU1Ny00LjAxLTEyLjk4N3pNNS4yMTMgMTYxLjQ5NWwxMS4zMjggMjAuODk3TDIuMjY1IDE4MGwyLjk0OC0xOC41MDV6IiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iMS4yNSIvPjxwYXRoIGQ9Ik0xNDkuMDUgMTI3LjQ2OHMtLjUxIDIuMTgzLjk5NSAzLjM2NmMxLjU2IDEuMjI2IDguNjQyLTEuODk1IDMuOTY3LTcuNzg1LTIuMzY3LTIuNDc3LTYuNS0zLjIyNi05LjMzIDAtNS4yMDggNS45MzYgMCAxNy41MSAxMS42MSAxMy43MyAxMi40NTgtNi4yNTcgNS42MzMtMjEuNjU2LTUuMDczLTIyLjY1NC02LjYwMi0uNjA2LTE0LjA0MyAxLjc1Ni0xNi4xNTcgMTAuMjY4LTEuNzE4IDYuOTIgMS41ODQgMTcuMzg3IDEyLjQ1IDIwLjQ3NiAxMC44NjYgMy4wOSAxOS4zMzEtNC4zMSAxOS4zMzEtNC4zMSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjEuMjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvZz48L3N2Zz4=');
+}
+
+@media only screen and (max-width: 500px) {
+  .chat-logs {
+    height: 40vh;
+  }
+}
+
+.chat-msg.user>.msg-avatar img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
   float: left;
-  color: #979797;
-  text-align: right; }
+}
 
-.inbox-compose .controls > input {
-  border: none !important; }
+.chat-msg.self>.msg-avatar img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  float: right;
+}
 
-.inbox-compose .controls-to {
-  padding-right: 55px; }
+.cm-msg-text {
+  background: white;
+  padding: 10px 15px 10px 15px;
+  color: #666;
+  max-width: 75%;
+  float: left;
+  margin-left: 10px;
+  position: relative;
+  margin-bottom: 20px;
+  border-radius: 30px;
+}
 
-.inbox-compose .controls-cc {
-  padding-right: 20px; }
+.chat-msg {
+  clear: both;
+}
 
-.inbox-compose .controls-bcc {
-  padding-right: 20px; }
+.chat-msg.self>.cm-msg-text {
+  float: right;
+  margin-right: 10px;
+  background: #00bcd4;
+  color: white;
+  z-index: +10;
+}
 
-.inbox-compose .inbox-form-group a.close {
-  top: 13px;
-  right: 10px;
-  position: absolute; }
+.cm-msg-button>ul>li {
+  list-style: none;
+  float: left;
+  width: 50%;
+}
 
-.inbox-compose .mail-to .inbox-cc-bcc {
+.cm-msg-button {
+  clear: both;
+  margin-bottom: 70px;
+}
+
+*::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+*::-webkit-scrollbar {
+  width: 4px;
+  background-color: #F5F5F5;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  background-color: #00bcd4;
+}
+
+.inbox .inbox-contacts {
+  margin: 0 0 30px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.inbox .inbox-contacts>li {
+  padding: 0;
+  margin: 0;
+}
+
+.inbox .inbox-contacts>li.divider {
+  padding: 0;
+  margin: 4px 16px;
+  border-top: 1px solid #eef1f5;
+}
+
+.inbox .inbox-contacts>li>a {
+  position: relative;
+  display: block;
+  padding: 8px 16px;
+  color: #3f444a;
+}
+
+.inbox .inbox-contacts>li>a:hover {
+  background: #f1f4f7;
+  text-decoration: none;
+}
+
+.inbox .inbox-contacts>li.active {
+  background: #f1f4f7;
+  text-decoration: none;
+}
+.inbox .inbox-contacts>li>a:focus {
+  text-decoration: none;
+}
+
+.inbox .inbox-contacts>li>a .contact-name {
   display: inline-block;
-  top: 7px;
-  right: 10px;
-  color: #979797;
-  font-size: 14px;
-  cursor: pointer;
-  position: absolute; }
+  padding-left: 5px;
+}
 
-.inbox-compose .mail-to .inbox-bcc {
-  margin-left: 5px; }
+.inbox .inbox-contacts>li>a .contact-pic {
+  width: 30px;
+  height: 30px;
+  border-radius: 50% !important;
+}
 
-.inbox-compose .mail-to inbox-cc:hover,
-.inbox-compose .mail-to inbox-bcc:hover {
-  color: #777; }
-
-.inbox-compose .wysihtml5 {
-  padding: 0px !important;
-  margin: 0px !important;
-  border: 0 !important; }
-
-.inbox-compose .wysihtml5-sandbox {
-  padding: 0px !important;
-  margin: 0px !important;
-  display: block !important;
-  border: 0 !important;
-  margin-top: 5px;
-  width: 100% !important;
-  border-left: none;
-  border-right: none;
-  border-color: #eee; }
-
-.inbox-compose .wysihtml5-toolbar {
-  border: 0;
-  border-bottom: 1px solid #eee; }
-
-.inbox-compose .wysihtml5-toolbar > li {
-  height: 34px;
-  margin-right: 0;
-  margin-bottom: 0; }
-
-.inbox-compose .wysihtml5-toolbar > li > a,
-.inbox-compose .wysihtml5-toolbar > li > div > a {
-  background: #fff !important;
-  border-color: #fff !important; }
-  .inbox-compose .wysihtml5-toolbar > li > a:hover,
-  .inbox-compose .wysihtml5-toolbar > li > div > a:hover {
-    background: #f1f1f1 !important;
-    border-color: #f1f1f1 !important;
-    border-radius: 0; }
-
-.inbox-compose .wysihtml5-toolbar .dropdown.open .dropdown-toggle,
-ul.wysihtml5-toolbar a.btn.wysihtml5-command-active {
-  background: #eee !important; }
-
-@media (max-width: 480px) {
-  .inbox-compose .inbox-form-group > label {
-    margin-top: 7px; } }
+.inbox .inbox-contacts>li>a .contact-status {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50% !important;
+  left: 38px;
+  top: 30px;
+}

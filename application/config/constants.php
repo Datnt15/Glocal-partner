@@ -90,6 +90,7 @@ define('ROOM_META_TABLE', 'glocal_94_room_meta');
 define('USER_TABLE', 'glocal_94_user');
 define('BOOK_TABLE', 'glocal_94_book');
 define('LOCATION_TABLE', 'glocal_94_location');
+define('CHAT_TABLE', 'glocal_94_chat');
 
 // User type
 define('USER_TYPE', 1);
@@ -106,6 +107,11 @@ define('FILLED_INFO', 1);
 define('PAID', 2);
 define('DONE', 3);
 define('CANCEL', 4);
+
+// Message status
+define('SENT', 0);
+define('READ', 1);
+
 
 // Room type
 define('HOUSE', 1);

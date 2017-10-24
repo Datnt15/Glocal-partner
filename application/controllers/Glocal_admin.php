@@ -15,26 +15,28 @@ class Glocal_admin extends MY_Controller {
 
 	public function index()
 	{
-		$data = array( 
-			'title' => 'Admin area',
-			'user' => $this->user_data,
-		);
-		$this->load->view('back-end/header', $data);
-		$this->load->view('back-end/admin-sidebar');
+		self::load_header('Admin area');
 		$this->load->view('back-end/footer');
 	}
 
-	public function locations()
-	{
+	private function load_header($title = 'Admin area', $page = 'page'){
 		$data = array( 
-			'title' 	=> 'Admin area',
-			'user' 		=> $this->user_data,
+			'title' => $title,
+			'user' => $this->user_data,
 			'accessToken' => $this->ci_nonce,
-			'locations' => $this->location_model->get_all_locations()
+			'messages' => $this->messages,
+			'page' => $page
 		);
 		$this->load->view('back-end/header', $data);
 		$this->load->view('back-end/admin-sidebar');
-		$this->load->view('back-end/location/all');
+	}
+
+	public function locations(){
+		$data = array( 
+			'locations' => $this->location_model->get_all_locations()
+		);
+		self::load_header('Admin area');
+		$this->load->view('back-end/location/all', $data);
 		$this->load->view('back-end/footer');
 	}
 
@@ -65,18 +67,24 @@ class Glocal_admin extends MY_Controller {
         return preg_replace(array_keys($utf8), array_values($utf8), $text);
     }
 
-	public function all_homestay(){
-		$data = array( 
-			'title' => 'All Homestay ',
-			'accessToken' => $this->ci_nonce,
-			'rooms' => $this->room->get_all_rooms(),
-			'page' => 'all-homestay',
-			'user' => $this->user_data
 
-		);
-		$this->load->view('back-end/header', $data);
-		$this->load->view('back-end/admin-sidebar');
-		$this->load->view('back-end/homestay/all');
+    public function chat(){
+    	self::load_header('User support','chat');
+
+    	$data=[
+    		'all_messages' => $this->chat_model->run_query("SELECT chat.IP, IFNULL(latest.new_msg, 0) as new_msg FROM ".CHAT_TABLE." as chat LEFT OUTER JOIN (SELECT IP, COUNT(*) as new_msg FROM ".CHAT_TABLE." WHERE state=0 AND to_IP='".$_SERVER['SERVER_ADDR']."' GROUP by IP) as latest ON (chat.IP=latest.IP) WHERE chat.IP<>'".$_SERVER['SERVER_ADDR']."' GROUP BY chat.IP;")
+    	];
+    	$this->load->view('back-end/chat/chat', $data);
+    	$this->load->view('back-end/footer');
+    }
+
+	public function all_homestay(){
+		$rooms =  $this->room->get_all_rooms();
+		foreach ($rooms as &$room) {
+			$room['meta'] = $this->room->get_room_meta(['room_id' => $room['id']]);
+		}
+		self::load_header("All Homestay",'all-homestay');
+		$this->load->view('back-end/homestay/all', ['rooms' => $rooms]);
 		$this->load->view('back-end/footer');
 	}
 
@@ -208,14 +216,7 @@ class Glocal_admin extends MY_Controller {
 	}
 	
 	public function add_new_home(){
-		$data = array( 
-			'title' => 'Adding new Homestay ',
-			'accessToken' => $this->ci_nonce,
-			'page' => 'add-new-home',
-			'user' => $this->user_data
-		);
-		$this->load->view('back-end/header', $data);
-		$this->load->view('back-end/admin-sidebar');
+		self::load_header('Admin area','Adding new Homestay');
 		$this->load->view('back-end/homestay/add-new-home');
 		$this->check_room_adding_data();
 		$this->load->view('back-end/footer');
@@ -248,14 +249,12 @@ class Glocal_admin extends MY_Controller {
 		// Load and show data in view
 		$data['room'] = $this->room->get_specifix_room(['room_id' => $room_id]);
 		$data['meta'] = $this->room->get_room_meta(['room_id' => $room_id]);
-		$data['title'] = count($data['room']) ? "Editting " . $data['room'][0]['name'] : "404 - Nothing Found";
-		$data['page'] = count($data['room']) ? 'add-new-home' : '404';
-		$data['accessToken'] = $this->ci_nonce;
-		$data['user'] = $this->user_data;
-		$this->load->view('back-end/header', $data);
-		$this->load->view('back-end/admin-sidebar');
+		$page = count($data['room']) ? 'add-new-home' : '404';
+		$title = count($data['room']) ? "Editting " . $data['room'][0]['name'] : "404 - Nothing Found";
+
+		self::load_header($title, $page);
 		if (count($data['room'])) {
-			$this->load->view('back-end/homestay/edit-home');
+			$this->load->view('back-end/homestay/edit-home', $data);
 		}else{
 			$this->load->view('back-end/404');
 		}

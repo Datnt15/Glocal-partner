@@ -10,8 +10,8 @@
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
 	<!--     Fonts and icons     -->
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/material.icon.css" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
 
 	<!-- CSS Files -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -138,13 +138,14 @@
 
 </body>
 	<!--   Core JS Files   -->
+    <script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyCBERPYtfHY9yx-gQoLMbEN5PeuLHcKChU&libraries=places" async defer></script>
 	<script src="assets/js/jquery.min.js" type="text/javascript"></script>
 	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
 	<script src="assets/js/material.min.js"></script>
     <script src="assets/js/bootstrap-tagsinput.js"></script>
 	<script src="assets/js/atv-img-animation.js" type="text/javascript"></script>
     <script src="assets/js/toastr.min.js" type="text/javascript"></script>
-	<script src="assets/js/material-kit.min.js" type="text/javascript"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="assets/js/material-kit.min.js" type="text/javascript"></script>
     <script src="assets/js/login.js" type="text/javascript"></script>
 </html>

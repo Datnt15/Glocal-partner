@@ -24,11 +24,12 @@
                             <th>Thumbnail</th>
                             <th>Name</th>
                             <th>Type</th>
-                            <th>Weekly Rate</th>
-                            <th>Weekend Rate</th>
-                            <th><img data-original-title="Number of Guests" data-placement="bottom" class="tooltips"  src="assets/img/icon/guest.png"></th>
+                            <th>Daily Tax</th>
+                            <th>Weekly Tax</th>
+                            <th>Monthly Tax</th>
+                            <!-- <th><img data-original-title="Number of Guests" data-placement="bottom" class="tooltips"  src="assets/img/icon/guest.png"></th> -->
                             <th><img data-original-title="Number of Bedrooms" data-placement="bottom" class="tooltips"  src="assets/img/icon/bed.png"></th>
-                            <th><img data-original-title="Number of Bathrooms" data-placement="bottom" class="tooltips"  src="assets/img/icon/bathroom.png"></th>
+                            <!-- <th><img data-original-title="Number of Bathrooms" data-placement="bottom" class="tooltips"  src="assets/img/icon/bathroom.png"></th> -->
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -37,11 +38,12 @@
                             <th>Thumbnail</th>
                             <th width="200">Name</th>
                             <th>Type</th>
-                            <th>Weekly Rate</th>
-                            <th>Weekend Rate</th>
-                            <th><img data-original-title="Number of Guests" class="tooltips"  src="assets/img/icon/guest.png"></th>
-                            <th><img data-original-title="Number of Bedrooms" class="tooltips"  src="assets/img/icon/bedroom.png"></th>
-                            <th><img data-original-title="Number of Bathrooms" class="tooltips"  src="assets/img/icon/bathroom.png"></th>
+                            <th>Daily Tax</th>
+                            <th>Weekly Tax</th>
+                            <th>Monthly Tax</th>
+                            <!-- <th><img data-original-title="Number of Guests" class="tooltips"  src="assets/img/icon/guest.png"></th> -->
+                            <th><img data-original-title="Number of Bedrooms" class="tooltips"  src="assets/img/icon/bed.png"></th>
+                            <!-- <th><img data-original-title="Number of Bathrooms" class="tooltips"  src="assets/img/icon/bathroom.png"></th> -->
                             <th>Action</th>
                         </tr>
                     </tfoot>
@@ -51,13 +53,13 @@
                                 
                                 <td><img src="<?= $room['room_thumbnail'] ?>" width="100"></td>
                                 <td>
-                                    <a href="javascript:;" class="text-editable" data-field="name" data-type="text" data-id="<?= $room['room_id'] ?>" data-original-title="Enter the homestay name">
-                                        <?= $room['name'] ?>
+                                    <a href="javascript:;" class="text-editable" data-field="name" data-type="text" data-id="<?= $room['id'] ?>" data-original-title="Enter the homestay name">
+                                        <?= $room['room_no'] ?>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="javascript:;" class="select-editable" data-field="type" data-type="select" data-id="<?= $room['room_id'] ?>" data-original-title="Choose other type" data-value="<?= $room['type'] ?>">
-                                    <?php switch (intval($room['type'])) {
+                                    <a href="javascript:;" class="select-editable" data-field="type" data-type="select" data-id="<?= $room['id'] ?>" data-original-title="Choose other type" data-value="<?= $room['room_type'] ?>">
+                                    <?php switch (intval($room['room_type'])) {
                                         case STUDIO:
                                             echo "Studio";
                                             break;
@@ -80,35 +82,30 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="javascript:;" class="text-editable" data-field="weekly_rate" data-type="number" data-id="<?= $room['room_id'] ?>" data-original-title="Enter other rate">
-                                        <?= $room['weekly_rate'] ?>
+                                    <a href="javascript:;" class="text-editable" data-field="room_daily_tax" data-type="number" data-id="<?= $room['id'] ?>" data-original-title="Enter other rate">
+                                        <?= $room['room_daily_tax'] ?>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="javascript:;" class="text-editable" data-field="weekend_rate" data-type="number" data-id="<?= $room['room_id'] ?>" data-original-title="Enter other rate">
-                                        <?= $room['weekend_rate'] ?>
+                                    <a href="javascript:;" class="text-editable" data-field="room_weekly_tax" data-type="number" data-id="<?= $room['id'] ?>" data-original-title="Enter other rate">
+                                        <?= $room['room_weekly_tax'] ?>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="javascript:;" class="text-editable" data-field="number_of_guests" data-type="number" data-id="<?= $room['room_id'] ?>" data-original-title="Enter number of guests">
-                                        <?= $room['number_of_guests'] ?>
+                                    <a href="javascript:;" class="text-editable" data-field="room_monthly_tax" data-type="number" data-id="<?= $room['id'] ?>" data-original-title="Enter other rate">
+                                        <?= $room['room_monthly_tax'] ?>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="javascript:;" class="text-editable" data-field="number_of_bedroom" data-type="number" data-id="<?= $room['room_id'] ?>" data-original-title="Enter number of bedrooms">
-                                        <?= $room['number_of_bedroom'] ?>
+                                    <a href="javascript:;" class="text-editable" data-field="room_beds" data-type="number" data-id="<?= $room['id'] ?>" data-original-title="Enter number of guests">
+                                        <?= $room['room_beds'] ?>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="javascript:;" class="text-editable" data-field="number_of_bathroom" data-type="number" data-id="<?= $room['room_id'] ?>" data-original-title="Enter number of bathrooms">
-                                        <?= $room['number_of_bathroom'] ?>
-                                    </a>
-                                </td>
-                                <td>
-                                    <button class="delete_room btn btn-outline red tooltips" data-original-title="Delete this room" data-id="<?= $room['room_id'] ?>">
+                                    <button class="delete_room btn btn-outline red tooltips" data-original-title="Delete this room" data-id="<?= $room['id'] ?>">
                                         <i class="fa fa-trash fa-lg"></i>
                                     </button>
-                                    <a class="btn btn-outline green tooltips" data-original-title="More editable content" href="glocal_admin/edit_room/<?= $room['room_id'] ?>">
+                                    <a class="btn btn-outline green tooltips" data-original-title="More editable content" href="glocal_admin/edit_room/<?= $room['id'] ?>">
                                         <i class="fa fa-edit fa-lg"></i>
                                     </a>
                                 </td>
