@@ -19,7 +19,7 @@ class Payment extends Front_base {
             die("<title>Error</title><h1>You are trying to rich personal area. Please login to do so.</h1>");
 		}
 		$post = $this->input->post();
-		$room_id = $this->encrypt->decode($this->session->room_booking_data['room_code']);
+		$room_id = $this->encryption->decrypt($this->session->room_booking_data['room_code']);
 		$booking_request = $this->booking->get_booking_request(['book_code' => $book_code ]);
 		if ( isset($post['accessToken']) && $post['accessToken'] == $this->ci_nonce && count($booking_request) ) {
 			$booking_request = $booking_request[0];

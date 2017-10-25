@@ -19,7 +19,7 @@ class Room extends Front_base {
 				'title' 		=> $room['room_no'].' - Detail Informations',
 				'user' 			=> $this->user_data,
 				'room'		 	=> $room,
-				'room_code' 	=> $this->encrypt->encode($room_id),
+				'room_code' 	=> $this->encryption->encrypt($room_id),
 				'accessToken' 	=> $this->ci_nonce,
 				'location' 		=> $this->location_model->get_locations(['location_id' => $room['location']])[0],
 				'relate_rooms' 	=> $this->booking->get_related_rooms($room),

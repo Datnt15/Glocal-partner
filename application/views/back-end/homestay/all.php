@@ -21,6 +21,7 @@
                 <table class="table table-striped table-bordered table-hover" id="sample_1">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Thumbnail</th>
                             <th>Name</th>
                             <th>Type</th>
@@ -35,6 +36,7 @@
                     </thead>
                     <tfoot>
                         <tr>
+                            <th>ID</th>
                             <th>Thumbnail</th>
                             <th width="200">Name</th>
                             <th>Type</th>
@@ -50,7 +52,7 @@
                     <tbody>
                         <?php foreach ($rooms as $room): ?>
                             <tr>
-                                
+                                <td><?php echo $room['id']; ?></td>
                                 <td><img src="<?= $room['room_thumbnail'] ?>" width="100"></td>
                                 <td>
                                     <a href="javascript:;" class="text-editable" data-field="room_no" data-type="text" data-id="<?= $room['id'] ?>" data-original-title="Enter the homestay name">

@@ -14,8 +14,8 @@ class Login extends CI_Controller {
         $this->load->model('user');
 
         if(!is_null($this->input->cookie('remember_me')) ){
-            $uid = $this->encrypt->decode($this->input->cookie('uid'));
-            $user_type = $this->encrypt->decode($this->input->cookie('password'));
+            $uid = $this->encryption->decrypt($this->input->cookie('uid'));
+            $user_type = $this->encryption->decrypt($this->input->cookie('password'));
             $user = $this->user->get_user(['uid' => $uid, 'type' => $user_type]);
             if ( count($user) ) {
                 self::redirect_page($user_type);
@@ -76,13 +76,13 @@ class Login extends CI_Controller {
                     ));
                     $this->input->set_cookie(array(
                         'name'   => 'uid',
-                        'value'  => $this->encrypt->encode(intval($user[0]['uid'])),                            
+                        'value'  => $this->encryption->encrypt(intval($user[0]['uid'])),                            
                         'expire' => 2592000,
                         'secure' => TRUE
                     ));
                     $this->input->set_cookie(array(
                         'name'   => 'password',
-                        'value'  => $this->encrypt->encode(intval($user[0]['type'])),                            
+                        'value'  => $this->encryption->encrypt(intval($user[0]['type'])),                            
                         'expire' => 2592000,
                         'secure' => TRUE
                     ));
@@ -93,7 +93,7 @@ class Login extends CI_Controller {
                 // Cài đặt thông báo
                 $this->session->set_flashdata('type', 'danger');
                 $this->session->set_flashdata('msg', 'Tên đăng nhập hoặc mật khẩu không đúng');
-                redirect('/login');
+                redirect('login');
             }
 		}
 	}

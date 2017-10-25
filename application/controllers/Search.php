@@ -102,11 +102,10 @@ class Search extends Front_base {
 		if (isset($post['room_type']) || !is_null($this->session->userdata('room_type'))) {
 			$room_type = isset($post['room_type']) ? $post['room_type'] : $this->session->userdata('room_type');
 			$this->session->set_userdata('room_type', $room_type);
-			if ($room_type == '') {
-				break;
+			if ($room_type != '') {
+				$where .= ($where !== '') ? " AND " : '';
+				$where .= "(".ROOM_TABLE.".room_type IN (".$room_type."))" ;
 			}
-			$where .= ($where !== '') ? " AND " : '';
-			$where .= "(".ROOM_TABLE.".room_type IN (".$room_type."))" ;
 		}
 
 		// Checking room meta

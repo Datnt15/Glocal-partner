@@ -21,6 +21,8 @@ class Location extends Front_base {
 			$this->load->view('front-end/location/all');
 			$this->load->view('front-end/footer');
 		}else{
+			$location = str_replace('_', '-', $location);
+
 			$location = $this->location_model->get_locations(['location_slug' => $location]);
 			if (count($location)) {
 
@@ -38,13 +40,14 @@ class Location extends Front_base {
 				$config['pre_tag_open'] = '<li>';
 				$config['pre_tag_close'] = '</li>';
 				$config['next_tag_open'] = '<li>';
-				$config['next_tagl_close'] = '</li>';
+				$config['next_tag_close'] = '</li>';
 				$config['last_tag_open'] = '<li>';
-				$config['last_tagl_close'] = '</li>';
+				$config['last_tag_close'] = '</li>';
 				$config['first_tag_open'] = '<li>';
-				$config['first_tagl_close'] = '</li>';
+				$config['first_tag_close'] = '</li>';
 				$config['next_link'] = 'Next';
 				$config['prev_link'] = 'Previous';
+				$config['last_link'] = 'Last';
 				$this->pagination->initialize($config);
 				if ($page > ceil($config['total_rows']/PER_PAGE)) {
 					$page = ceil($config['total_rows']/PER_PAGE);
@@ -66,12 +69,25 @@ class Location extends Front_base {
 				$this->load->view('front-end/location/single-location');
 				$this->load->view('front-end/footer');
 			}else{
-				show_404();
+				// show_404();
 			}
 		}
 	}
 
-
+	function _remap($method){
+	    $param_offset = 2;
+	    // Default to index
+	    if ( ! method_exists($this, $method))
+	    {
+	        // We need one more param
+	        $param_offset = 1;
+	        $method = 'index';
+	    }
+	    // Since all we get is $method, load up everything else in the URI
+	    $params = array_slice($this->uri->rsegment_array(), $param_offset);
+	    // Call the determined method with all params
+	    call_user_func_array(array($this, $method), $params);
+	} 
 
 }
 

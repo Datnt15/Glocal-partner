@@ -13,8 +13,8 @@ class Register extends CI_Controller {
 
         $this->ci_nonce = $this->session->ci_nonce;
         if(!is_null($this->input->cookie('remember_me')) ){
-            $uid = $this->encrypt->decode($this->input->cookie('uid'));
-            $user_type = $this->encrypt->decode($this->input->cookie('password'));
+            $uid = $this->encryption->decrypt($this->input->cookie('uid'));
+            $user_type = $this->encryption->decrypt($this->input->cookie('password'));
             $user = $this->user->get_user(['uid' => $uid, 'type' => $user_type]);
             if ( count($user) ) {
                 self::redirect_page($user_type);
@@ -22,7 +22,7 @@ class Register extends CI_Controller {
         }
 
         if ($this->session->is_logged_in) {
-            redirect(base_url('profile'),'refresh');
+            redirect('profile','refresh');
         }
         // Load libraries
         $this->load->library('form_validation');
@@ -31,9 +31,9 @@ class Register extends CI_Controller {
 	public function index()
 	{
 		// Đặt các luật kiểm tra các trường của form
-        $this->form_validation->set_rules('username', 'Tên đăng nhập', 'required|trim|is_unique[_ci_94_user.username]|regex_match[/^[A-Za-z0-9\s-]{4,}$/i]');
+        $this->form_validation->set_rules('username', 'Tên đăng nhập', 'required|trim|is_unique[glocal_94_user.username]|regex_match[/^[A-Za-z0-9\s-]{4,}$/i]');
         $this->form_validation->set_rules("password', 'Mật khẩu', 'required|regex_match[/^[A-Za-z_0-9-]{4,15}[^'\x22\s@!]+$/]");
-        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[_ci_94_user.email]');
+        $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[glocal_94_user.email]');
         $this->form_validation->set_rules( 'access_token', 'Access Token', 'required|callback_is_match_access_token');
 
         // Đặt thông báo khi các trường không thỏa mãn điều kiện đầu vào
@@ -63,7 +63,7 @@ class Register extends CI_Controller {
                 // Cài đặt thông báo
                 $this->session->set_flashdata('type', 'success');
                 $this->session->set_flashdata('msg', 'Đăng ký thành công, vui lòng đăng nhập');
-                redirect(HOST.'login');
+                redirect('login');
                 
             }
 

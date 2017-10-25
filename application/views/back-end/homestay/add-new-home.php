@@ -190,7 +190,6 @@
                                                     <div class="col-md-6  form-group">
                                                         <label for="" class="col-md-4 control-label">
                                                             <img src="assets/img/icon/checkout.png" class="pull-left"> Checkout time: 
-                                                            <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-md-8">
                                                             <input type="text" class="form-control input-medium timepicker timepicker-no-seconds" name="meta[checkout_time]">

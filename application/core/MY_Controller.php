@@ -14,8 +14,8 @@ class MY_Controller extends CI_Controller {
         $this->ci_nonce = $this->session->ci_nonce;
         $this->load->model('user');
         $is_remember = $this->input->cookie('remember_me');
-        $uid_cookie = $this->encrypt->decode($this->input->cookie('uid'));
-        $user_type_cookie = $this->encrypt->decode($this->input->cookie('password'));
+        $uid_cookie = $this->encryption->decrypt($this->input->cookie('uid'));
+        $user_type_cookie = $this->encryption->decrypt($this->input->cookie('password'));
         $is_logged_in = $this->session->userdata("is_logged_in");
         $uid_session = $this->session->uid;
         $user_type_session = $this->session->user_type;
@@ -129,8 +129,8 @@ class Front_base extends CI_Controller {
         $this->load->model('user');
         $this->user_data = [];
         if(!is_null($this->input->cookie('remember_me')) ){
-            $uid = $this->encrypt->decode($this->input->cookie('uid'));
-            $user_type = $this->encrypt->decode($this->input->cookie('password'));
+            $uid = $this->encryption->decrypt($this->input->cookie('uid'));
+            $user_type = $this->encryption->decrypt($this->input->cookie('password'));
             $user = $this->user->get_user(['uid' => $uid, 'type' => $user_type]);
             if ( count($user) ) {
                 $this->user_data = $user[0];

@@ -41,7 +41,7 @@ FB.login(function(response) {
 		      			})
 		      			.done(function(data) {
 		      				if (data.type == 'login_success') {
-		      					window.location = $('base').attr('href')+'/profile/';
+		      					window.location = $('base').attr('href')+'profile/';
 		      				}
 		      			});
 			      	}

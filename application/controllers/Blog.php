@@ -17,7 +17,6 @@ class Blog extends Front_base {
 		$this->load->view('front-end/blog-content');
 		$this->load->view('front-end/footer');
 	}
-
 }
 
 /* End of file Blog.php */

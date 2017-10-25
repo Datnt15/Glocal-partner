@@ -227,12 +227,12 @@ class Glocal_admin extends MY_Controller {
 		// Handles changes data
 		$post = $this->input->post();
 		if (isset($post['home'])) {
-			$this->room->update_room_data(['room_id' => $room_id],$post['home']);
+			$this->room->update_room_data(['id' => $room_id],$post['home']);
 			$this->session->set_flashdata('type', 'success');
 			$this->session->set_flashdata('title', 'Changes saved');
 			$this->session->set_flashdata('msg', 'Your changes is saved! Check it out at view home button!');
 			$this->room->delete_room_meta_data(array(
-				'meta_key<>' => 'room-photos',
+				'meta_key<>' => 'gallery',
 				'room_id' => $room_id
 			));
 			foreach ($post['meta'] as $key => $value) {
@@ -249,6 +249,7 @@ class Glocal_admin extends MY_Controller {
 		// Load and show data in view
 		$data['room'] = $this->room->get_specifix_room(['id' => $room_id]);
 		$data['meta'] = $this->room->get_room_meta(['room_id' => $room_id]);
+		$data['locations'] = $this->location_model->get_all_parent_locations();
 		$page = count($data['room']) ? 'add-new-home' : '404';
 		$title = count($data['room']) ? "Editting " . $data['room'][0]['room_no'] : "404 - Nothing Found";
 
@@ -414,7 +415,7 @@ class Glocal_admin extends MY_Controller {
 
 					// Upload image
 				    if (move_uploaded_file($image["tmp_name"], $target_file)) {
-				    	list($width_origin, $height_origin) = getimagesize(HOST . $target_file);
+				    	list($width_origin, $height_origin) = getimagesize(base_url(). $target_file);
 				    	if ($width_origin > $config['width']) {
 					    	$config['source_image'] = $target_file;
 					    	$this->load->library('image_lib');
@@ -422,12 +423,12 @@ class Glocal_admin extends MY_Controller {
 							$this->image_lib->resize();
 							$this->image_lib->clear(); 
 				    	}
-						list($width, $height) = getimagesize(HOST . $target_file);
+						list($width, $height) = getimagesize(base_url(). $target_file);
 						if ( ($height > $width * 0.54) && ($width > $height)) {
-							$this->room->update_room_data(['room_id' => $room_id],['room_thumbnail' => $target_file]);
+							$this->room->update_room_data(['id' => $room_id],['room_thumbnail' => $target_file]);
 						}
 				    	$this->room->add_room_meta_data([
-							'meta_key' 	=> 'room-photos',
+							'meta_key' 	=> 'gallery',
 							'meta_value'=> $target_file,
 							'room_id' 	=> $room_id
 						]);

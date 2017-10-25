@@ -11,7 +11,7 @@ class BookingRoom extends Front_base {
 
 	public function index()	{
 		$post = $this->input->post();
-		$room_id = $this->encrypt->decode($this->session->room_booking_data['room_code']);
+		$room_id = $this->encryption->decrypt($this->session->room_booking_data['room_code']);
 		if (isset($post['accessToken']) && $post['accessToken'] == $this->ci_nonce) {
 			$booking_data = $this->session->room_booking_data;
 
