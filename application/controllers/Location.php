@@ -33,8 +33,8 @@ class Location extends Front_base {
 				$config['full_tag_close'] = '</ul>';
 				$config['num_tag_open'] = '<li>';
 				$config['num_tag_close'] = '</li>';
-				$config['cur_tag_open'] = '<li class="active">';
-				$config['cur_tag_close'] = '</li>';
+				$config['cur_tag_open'] = '<li class="active"><a href="javascript:void();">';
+				$config['cur_tag_close'] = '</a></li>';
 				$config['pre_tag_open'] = '<li>';
 				$config['pre_tag_close'] = '</li>';
 				$config['next_tag_open'] = '<li>';
