@@ -37,7 +37,7 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item  ">
+                <!-- <li class="nav-item  ">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="icon-pointer"></i>
                         <span class="title">Locations</span>
@@ -55,8 +55,8 @@
                             </a>
                         </li>
                     </ul>
-                </li>
-                <li class="nav-item  ">
+                </li> -->
+                <!-- <li class="nav-item  ">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="icon-pencil"></i>
                         <span class="title">Blog</span>
@@ -84,8 +84,8 @@
                             </a>
                         </li>
                     </ul>
-                </li>
-                <li class="nav-item  ">
+                </li> -->
+                <!-- <li class="nav-item  ">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="icon-users"></i>
                         <span class="title">Users</span>
@@ -103,8 +103,8 @@
                             </a>
                         </li>
                     </ul>
-                </li>
-                <li class="nav-item  ">
+                </li> -->
+                <!-- <li class="nav-item  ">
                     <a href="javascript:;" class="nav-link nav-toggle">
                         <i class="icon-directions"></i>
                         <span class="title">Reservation</span>
@@ -127,8 +127,14 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
                 <li class="nav-item  ">
+                    <a href="glocal_admin/chat" class="nav-link">
+                        <i class="icon-support"></i>
+                        <span class="title">Chat</span>
+                    </a>
+                </li>
+                <!-- <li class="nav-item  ">
                     <a href="glocal_admin/web_config" class="nav-link">
                         <i class="icon-settings"></i>
                         <span class="title">Web config</span>
@@ -139,7 +145,7 @@
                         <i class="icon-graph"></i>
                         <span class="title">Statistic</span>
                     </a>
-                </li>
+                </li> -->
                 
             </ul>
             <!-- END SIDEBAR MENU -->

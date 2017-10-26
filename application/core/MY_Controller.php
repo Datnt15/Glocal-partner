@@ -60,40 +60,40 @@ class MY_Controller extends CI_Controller {
         return $this->chat_model->get_messages("IP='".$client_id."' OR to_IP='".$client_id."'");
     }
 
-    // protected function cleanString($text, $remove_space = true, $word = '') {
-    //     $text = str_replace('/', '-', $text);
-    //     $text = str_replace('"', '', $text);
-    //     $utf8 = array(
-    //         '/[áàâãªäăạảắẳẵằặấầẩẫậ]/u' => 'a',
-    //         '/[ÁÀÂÃÄĂẠẢẴẮẲẶẰẦẤẬẨ]/u'   => 'a',
-    //         '/[ÍÌÎÏỊĨỈ]/u'             => 'i',
-    //         '/[íìîïịĩỉ]/u'             => 'i',
-    //         '/[éèêëẹẽếềễệẻể]/u'        => 'e',
-    //         '/[ÉÈÊËẸẼẺẾỀỂỄỆ]/u'        => 'e',
-    //         '/[óòôõºöọỏơờởớợỡồổốộ]/u'  => 'o',
-    //         '/[ÓÒÔÕÖỎỌƠỞỢỚỜỠỒỔỐỖỘ]/u'  => 'o',
-    //         '/[úùûüũụủưứừửữự]/u'       => 'u',
-    //         '/[ÚÙÛÜŨỤỦƯỨỪỬỮỰ]/u'       => 'u',
-    //         '/[Đđ]/u'                  => 'd',
-    //         '/ç/'                      => 'c',
-    //         '/Ç/'                      => 'c',
-    //         '/ñ/'                      => 'n',
-    //         '/Ñ/'                      => 'n',
-    //         '/–/'                      => '-', // UTF-8 hyphen to "normal" hyphen
-    //         '/[’‘‹›‚]/u'               => '', // Literally a single quote
-    //         '/[“”«»„]/u'               => '' // Double quote
+    protected function cleanString($text, $remove_space = true, $word = '') {
+        $text = str_replace('/', '-', $text);
+        $text = str_replace('"', '', $text);
+        $utf8 = array(
+            '/[áàâãªäăạảắẳẵằặấầẩẫậ]/u' => 'a',
+            '/[ÁÀÂÃÄĂẠẢẴẮẲẶẰẦẤẬẨ]/u'   => 'a',
+            '/[ÍÌÎÏỊĨỈ]/u'             => 'i',
+            '/[íìîïịĩỉ]/u'             => 'i',
+            '/[éèêëẹẽếềễệẻể]/u'        => 'e',
+            '/[ÉÈÊËẸẼẺẾỀỂỄỆ]/u'        => 'e',
+            '/[óòôõºöọỏơờởớợỡồổốộ]/u'  => 'o',
+            '/[ÓÒÔÕÖỎỌƠỞỢỚỜỠỒỔỐỖỘ]/u'  => 'o',
+            '/[úùûüũụủưứừửữự]/u'       => 'u',
+            '/[ÚÙÛÜŨỤỦƯỨỪỬỮỰ]/u'       => 'u',
+            '/[Đđ]/u'                  => 'd',
+            '/ç/'                      => 'c',
+            '/Ç/'                      => 'c',
+            '/ñ/'                      => 'n',
+            '/Ñ/'                      => 'n',
+            '/–/'                      => '-', // UTF-8 hyphen to "normal" hyphen
+            '/[’‘‹›‚]/u'               => '', // Literally a single quote
+            '/[“”«»„]/u'               => '' // Double quote
             
-    //     );
-    //     if ($remove_space) {
-    //         $utf8['/ /'] = '-';
-    //     }
-    //     if ($word != '') {
-    //         $utf8[$word] = '';
-    //     }
+        );
+        if ($remove_space) {
+            $utf8['/ /'] = '-';
+        }
+        if ($word != '') {
+            $utf8[$word] = '';
+        }
 
-    //     return preg_replace(array_keys($utf8), array_values($utf8), $text);
-    // }
-    // 
+        return preg_replace(array_keys($utf8), array_values($utf8), $text);
+    }
+    
     protected function get_client_ip() {
         $ipaddress = '';
         if (getenv('HTTP_CLIENT_IP'))

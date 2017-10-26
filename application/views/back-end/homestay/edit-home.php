@@ -5,6 +5,7 @@
 <div class="row">
     <div class="col-md-12">
         <form class="form-horizontal form-row-seperated" action="" method="POST">
+            <input type="hidden" name="accessToken" id="accessToken" value="<?php echo $accessToken; ?>">
             <div class="portlet">
                 <div class="portlet-title">
                     <div class="actions btn-set">
@@ -146,6 +147,7 @@
                                                     <div class="col-md-6  form-group">
                                                         <label for="" class="col-md-4 control-label">
                                                             <img src="assets/img/icon/size.png" class="pull-left" style="width: 20px;"> Floor size (m<sup>2</sup>): 
+                                                            <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-md-8">
                                                             <input type="number" class="form-control input-medium" name="home[room_size]" min="15" placeholder="m2 only..." value="<?php echo $room['room_size']; ?>">
@@ -462,37 +464,40 @@
                             <!-- Gallery -->
                             <div class="tab-pane" id="tab_images">
                                 <div class="row fileupload-buttonbar">
-                                    <div id="gallery" class="col-xs-12">
-                                        <span class="help-block"> Click on image to choose thumbnail </span>
-                                        <?php foreach ($meta['gallery'] as $img): ?>
-                                            <div class="mt-element-overlay">
-                                                <div class="mt-overlay-3 mt-overlay-3-icons" style="width: auto; height: 200px; margin: 5px">
-                                                    <?php if ($room['room_thumbnail']==$img['meta_value']): ?>
-                                                        <div class="mt-element-ribbon">
-                                                            <div class="ribbon ribbon-left ribbon-shadow ribbon-border-dash-hor ribbon-color-success">
-                                                                <div class="ribbon-sub ribbon-clip ribbon-left"></div> Thumbnail
+                                    <?php if (isset($meta['gallery'])): ?>
+                                        <div id="gallery" class="col-xs-12">
+                                            <span class="help-block"> Click on image to choose thumbnail </span>
+                                            
+                                            <?php foreach ($meta['gallery'] as $img): ?>
+                                                <div class="mt-element-overlay">
+                                                    <div class="mt-overlay-3 mt-overlay-3-icons" style="width: auto; height: 200px; margin: 5px">
+                                                        <?php if ($room['room_thumbnail']==$img['meta_value']): ?>
+                                                            <div class="mt-element-ribbon">
+                                                                <div class="ribbon ribbon-left ribbon-shadow ribbon-border-dash-hor ribbon-color-success">
+                                                                    <div class="ribbon-sub ribbon-clip ribbon-left"></div> Thumbnail
+                                                                </div>
                                                             </div>
+                                                        <?php endif ?>
+                                                        <img src="<?= $img['meta_value'] ?>" style="width: auto; height: 200px">
+                                                        <div class="mt-overlay no-background">
+                                                            <ul class="mt-info">
+                                                                <li>
+                                                                    <a href="javascript:;" data-id="<?= $img['id'] ?>" data-room="<?= $img['room_id'] ?>" data-value="<?= $img['meta_value'] ?>" class="btn default btn-outline tooltips set_thumbnail" data-original-title="Set as thumbnail">
+                                                                        <i class="fa fa-image"></i>
+                                                                    </a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="javascript:;" data-id="<?= $img['id'] ?>" data-room="<?= $img['room_id'] ?>" data-value="<?= $img['meta_value'] ?>" class="btn default btn-outline tooltips delete_image" data-original-title="Remove this Image">
+                                                                        <i class="fa fa-trash"></i>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
                                                         </div>
-                                                    <?php endif ?>
-                                                    <img src="<?= $img['meta_value'] ?>" style="width: auto; height: 200px">
-                                                    <div class="mt-overlay no-background">
-                                                        <ul class="mt-info">
-                                                            <li>
-                                                                <a href="javascript:;" data-id="<?= $img['id'] ?>" data-room="<?= $img['room_id'] ?>" data-value="<?= $img['meta_value'] ?>" class="btn default btn-outline tooltips set_thumbnail" data-original-title="Set as thumbnail">
-                                                                    <i class="fa fa-image"></i>
-                                                                </a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="javascript:;" data-id="<?= $img['id'] ?>" data-room="<?= $img['room_id'] ?>" data-value="<?= $img['meta_value'] ?>" class="btn default btn-outline tooltips delete_image" data-original-title="Remove this Image">
-                                                                    <i class="fa fa-trash"></i>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        <?php endforeach ?>
-                                    </div>
+                                            <?php endforeach ?>
+                                        </div>
+                                    <?php endif ?>
                                     <div class="clearfix"></div>
                                     <div class="col-lg-7">
                                         <!-- The fileinput-button span is used to style the file input field as button -->

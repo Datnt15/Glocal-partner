@@ -27,8 +27,7 @@
                                 <a href="#tab_images" data-toggle="tab">
                                 <i class="icon-camera fa-lg"></i> Gallery </a>
                             </li>
-                            <li>
-                                <a href="#tab_seo" data-toggle="tab">
+                            <li>                                <a href="#tab_seo" data-toggle="tab">
                                 <i class="icon-globe-alt fa-lg"></i> SEO </a>
                             </li>
                         </ul>
@@ -77,12 +76,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label class="col-md-2 control-label">Address:
-                                            <span class="required"> * </span>
                                         </label>
                                         <div class="col-md-10">
                                             <input id="pac-input" class="form-control" type="text" placeholder="Type your room address ... ">
                                             <div id="map" style="height: 300px; width: 100%"></div>
-                                            <input type="hidden" name="meta[address]" id="home_address" required="">
+                                            <input type="hidden" name="meta[address]" id="home_address">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -139,6 +137,18 @@
                                                         </div>
                                                     </div>
 
+
+                                                    <div class="col-md-6  form-group">
+                                                        <label for="" class="col-md-4 control-label">
+                                                            <img src="assets/img/icon/size.png" class="pull-left" style="width: 20px;"> Floor size (m<sup>2</sup>):
+                                                            <span class="required"> * </span> 
+                                                        </label>
+                                                        <div class="col-md-8">
+                                                            <input type="number" class="form-control input-medium" name="home[room_size]" min="15" placeholder="m2 only..." required>
+                                                        </div>
+                                                    </div>
+                                                    
+
                                                     <div class="col-md-6  form-group">
                                                         <label for="" class="col-md-4 control-label">
                                                             <img src="assets/img/icon/guest.png" class="pull-left"> Guests: 
@@ -151,17 +161,15 @@
                                                     <div class="col-md-6  form-group">
                                                         <label for="" class="col-md-4 control-label">
                                                             <img class="pull-left" src="assets/img/icon/bedroom.png"> Bedrooms: 
-                                                            <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-md-8">
-                                                            <input type="number" class="form-control input-medium" name="meta[number_of_bedroom]" min="1" placeholder="Number of Bedrooms" required>
+                                                            <input type="number" class="form-control input-medium" name="meta[number_of_bedroom]" min="1" placeholder="Number of Bedrooms">
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6  form-group">
                                                         <label for="" class="col-md-4 control-label">
                                                             <img class="pull-left" src="assets/img/icon/bed.png"> Beds: 
-                                                            <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-md-8">
                                                             <input type="number" class="form-control input-medium" name="home[room_beds]" min="1" placeholder="Number of Beds" required>
@@ -171,10 +179,9 @@
                                                     <div class="col-md-6  form-group">
                                                         <label for="" class="col-md-4 control-label">
                                                             <img class="pull-left" src="assets/img/icon/bathroom.png"> Bathrooms: 
-                                                            <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-md-8">
-                                                            <input type="number" class="form-control input-medium" name="meta[number_of_bathroom]" min="1" placeholder="Number of Bathroomsbed" required>
+                                                            <input type="number" class="form-control input-medium" name="meta[number_of_bathroom]" min="1" placeholder="Number of Bathroomsbed">
                                                         </div>
                                                     </div>
 

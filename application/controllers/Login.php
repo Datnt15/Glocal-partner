@@ -146,7 +146,7 @@ class Login extends CI_Controller {
                 redirect('profile');
                 break;
             case ADMIN_TYPE:
-                redirect('glocal_admin');
+                redirect('glocal-admin/all-homestay');
                 break;
             
             default:

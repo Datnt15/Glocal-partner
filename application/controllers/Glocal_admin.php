@@ -40,33 +40,6 @@ class Glocal_admin extends MY_Controller {
 		$this->load->view('back-end/footer');
 	}
 
-	protected function cleanString($text) {
-        $text = str_replace('/', '-', $text);
-        $text = str_replace('"', '', $text);
-        $utf8 = array(
-            '/[áàâãªäăạảắẳẵằặấầẩẫậ]/u'      =>   'a',
-            '/[ÁÀÂÃÄĂẠẢẴẮẲẶẰẦẤẬẨ]/u'        =>   'a',
-            '/[ÍÌÎÏỊĨỈ]/u'                  =>   'i',
-            '/[íìîïịĩỉ]/u'                  =>   'i',
-            '/[éèêëẹẽếềễệẻể]/u'             =>   'e',
-            '/[ÉÈÊËẸẼẺẾỀỂỄỆ]/u'             =>   'e',
-            '/[óòôõºöọỏơờởớợỡồổốộ]/u'       =>   'o',
-            '/[ÓÒÔÕÖỎỌƠỞỢỚỜỠỒỔỐỖỘ]/u'       =>   'o',
-            '/[úùûüũụủưứừửữự]/u'            =>   'u',
-            '/[ÚÙÛÜŨỤỦƯỨỪỬỮỰ]/u'            =>   'u',
-            '/[Đđ]/u'            			=>   'd',
-            '/ç/'                           =>   'c',
-            '/Ç/'                           =>   'c',
-            '/ñ/'                           =>   'n',
-            '/Ñ/'                           =>   'n',
-            '/–/'                           =>   '-', // UTF-8 hyphen to "normal" hyphen
-            '/[’‘‹›‚]/u'                    =>   '', // Literally a single quote
-            '/[“”«»„]/u'                    =>   '', // Double quote
-            '/ /'                           =>   '-', // nonbreaking space (equiv. to 0x160)
-        );
-        return preg_replace(array_keys($utf8), array_values($utf8), $text);
-    }
-    
     public function chat(){
     	self::load_header('User support','chat');
 
@@ -93,7 +66,7 @@ class Glocal_admin extends MY_Controller {
 		if ($post['accessToken'] == $this->ci_nonce) {
 			if (
 				$post['field'] == 'delete_room' && 
-				$this->room->delete_room(['room_id' => $post['id']])
+				$this->room->delete_room(['id' => $post['id']])
 			){
 				echo json_encode([
 					'type' => 'success',
@@ -136,30 +109,30 @@ class Glocal_admin extends MY_Controller {
 		$post = $this->input->post();
 		if (!isset($post['room'])) die;
 		if ($post['accessToken'] == $this->ci_nonce) {
-			
 			if(
 				count($this->room->get_specifix_room(
-					['room_id' => $post['room'], 
-					'room_thumbnail' => $post['value']]
+					[
+						'id' 				=> $post['room'], 
+						'room_thumbnail' 	=> $post['value']
+					]
 				))
 			){
-
 				echo json_encode([
-					'type' => 'warning',
-					'msg' => 'This image is room thumbnail! Please select other image to delete!',
+					'type' 	=> 'warning',
+					'msg' 	=> 'This image is room thumbnail! Please select other image to delete!',
 					'title' => 'Oops!'
 				]);
 			}
 			else{
 				if ($this->room->delete_room_meta_data([
-					'room_id' => $post['room'], 
-					'meta_value' => $post['value'],
-					'meta_id' => $post['id']
+					'room_id' 		=> $post['room'], 
+					'meta_value' 	=> $post['value'],
+					'id' 			=> $post['id']
 				])) {
 					unlink($post['value']);
 					echo json_encode([
-						'type' => 'success',
-						'msg' => 'This image has been remove!!!',
+						'type' 	=> 'success',
+						'msg' 	=> 'This image has been remove!!!',
 						'title' => 'Whooo!'
 					]);
 				}else{
@@ -186,7 +159,7 @@ class Glocal_admin extends MY_Controller {
 			if(
 				$this->room->update_room_data(
 					[
-						'room_id' => $post['id'],
+						'id' => $post['id'],
 					], 
 					[$post['field'] => $post['value']]
 				)
@@ -286,26 +259,20 @@ class Glocal_admin extends MY_Controller {
 			$html = '';
 			
 			foreach ($images as $image) {
-				$target_file = $target_dir . $this->cleanString($image['name']);
 				$uploadOk = 1;
-				$imageFileType = pathinfo($image['name'],PATHINFO_EXTENSION);
+				$imageFileType = strtolower(pathinfo($image['name'],PATHINFO_EXTENSION));
+				$target_file = $target_dir . substr(md5(microtime()),0,30).'.'.$imageFileType;
 
 				// Check if image file is a actual image or fake image
-			    $check = @getimagesize($image["tmp_name"]);
-			    if($check !== false) {
-			        $uploadOk = 1;
-			    } else {
-			    	
-			    	$msg .= "The file ". basename( $image["name"]). " is not an image.<br/>";
-			        $uploadOk = 0;
-			    }
+			    
 				// Allow certain file formats
 				if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 				&& $imageFileType != "gif" ) {
 				    $msg .= "Sorry, only JPG, JPEG, PNG & GIF files are allowed.<br/>";
 				    $uploadOk = 0;
 				}
-				// Check if $uploadOk is set to 0 by an error
+				// Check if $upload
+				// Ok is set to 0 by an error
 				if ($uploadOk == 0) {
 				    $msg .= "Sorry, the file ". basename( $image["name"]). " was not uploaded.<br/>";
 	                
@@ -314,18 +281,18 @@ class Glocal_admin extends MY_Controller {
 
 					// Upload image
 				    if (move_uploaded_file($image["tmp_name"], $target_file)) {
-				    	list($width_origin, $height_origin) = getimagesize(HOST . $target_file);
-				    	if ($width_origin > $config['width']) {
+				    	list($width, $height) = getimagesize(base_url($target_file));
+				    	if ($width > $config['width']) {
 					    	$config['source_image'] = $target_file;
 					    	$this->load->library('image_lib');
 							$this->image_lib->initialize($config);
 							$this->image_lib->resize();
 							$this->image_lib->clear(); 
 				    	}
-						list($width, $height) = getimagesize(HOST . $target_file);
+						list($width, $height) = getimagesize(base_url($target_file));
 					
 				    	$meta_id = $this->room->add_room_meta_data([
-							'meta_key' 	=> 'room-photos',
+							'meta_key' 	=> 'gallery',
 							'meta_value'=> $target_file,
 							'room_id' 	=> $room_id
 						]);
@@ -364,78 +331,74 @@ class Glocal_admin extends MY_Controller {
 	protected function check_room_adding_data(){
 		$post = $this->input->post();
 		if (isset($post['home'])) {
-			$this->session->set_flashdata('type', 'info');
 			$post['home']['uid'] = $this->session->uid;
 			$room_id = $this->room->add_room($post['home']);
-			foreach ($post['meta'] as $key => $value) {
-				if (!empty($value)) {
-					$this->room->add_room_meta_data(array(
-						'meta_key' => $key,
-						'meta_value' => $value,
-						'room_id' => $room_id
-					));
+			if ($room_id) {
+				$this->session->set_flashdata('type', 'info');
+				foreach ($post['meta'] as $key => $value) {
+					if (!empty($value)) {
+						$this->room->add_room_meta_data(array(
+							'meta_key' => $key,
+							'meta_value' => $value,
+							'room_id' => $room_id
+						));
+					}
 				}
-			}
-			
-			$images = self::reArrayFiles( $_FILES['files'] );
-			$target_dir = "uploads/";
-			// Config to resize image
-			$config['image_library'] = 'gd2';
-			$config['create_thumb'] = false;
-			$config['maintain_ratio'] = TRUE;
-			$config['width']         = 1024;
-			$msg = 'Room Created!!! <br/>';
-			
-			foreach ($images as $image) {
-				$target_file = $target_dir . $this->cleanString($image['name']);
-				$uploadOk = 1;
-				$imageFileType = pathinfo($image['name'],PATHINFO_EXTENSION);
+				
+				$images = self::reArrayFiles( $_FILES['files'] );
+				$target_dir = "uploads/";
+				// Config to resize image
+				$config['image_library'] = 'gd2';
+				$config['create_thumb'] = false;
+				$config['maintain_ratio'] = TRUE;
+				$config['width']         = 1024;
+				$msg = 'Room Created!!! <br/>';
+				
+				foreach ($images as $image) {
+					$uploadOk = 1;
+					$imageFileType = strtolower(pathinfo($image['name'],PATHINFO_EXTENSION));
+					$target_file = $target_dir . substr(md5(microtime()),0,30).'.'.$imageFileType;
 
-				// Check if image file is a actual image or fake image
-			    $check = @getimagesize($image["tmp_name"]);
-			    if($check !== false) {
-			        $uploadOk = 1;
-			    } else {
-			    	
-			    	$msg .= "The file ". basename( $image["name"]). " is not an image.<br/>";
-			        $uploadOk = 0;
-			    }
-				// Allow certain file formats
-				if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-				&& $imageFileType != "gif" ) {
-				    $msg .= "Sorry, only JPG, JPEG, PNG & GIF files are allowed.<br/>";
-				    $uploadOk = 0;
-				}
-				// Check if $uploadOk is set to 0 by an error
-				if ($uploadOk == 0) {
-				    $msg .= "Sorry, the file ". basename( $image["name"]). " was not uploaded.<br/>";
-	                
-				// if everything is ok, try to upload file
-				} else {
+					// Allow certain file formats
+					if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+					&& $imageFileType != "gif" ) {
+					    $msg .= "Sorry, only JPG, JPEG, PNG & GIF files are allowed.<br/>";
+					    $uploadOk = 0;
+					}
+					// Check if $uploadOk is set to 0 by an error
+					if ($uploadOk == 0) {
+					    $msg .= "Sorry, the file ". basename( $image["name"]). " was not uploaded.<br/>";
+		                
+					// if everything is ok, try to upload file
+					} else {
 
-					// Upload image
-				    if (move_uploaded_file($image["tmp_name"], $target_file)) {
-				    	list($width_origin, $height_origin) = getimagesize(base_url(). $target_file);
-				    	if ($width_origin > $config['width']) {
-					    	$config['source_image'] = $target_file;
-					    	$this->load->library('image_lib');
-							$this->image_lib->initialize($config);
-							$this->image_lib->resize();
-							$this->image_lib->clear(); 
-				    	}
-						list($width, $height) = getimagesize(base_url(). $target_file);
-						if ( ($height > $width * 0.54) && ($width > $height)) {
-							$this->room->update_room_data(['id' => $room_id],['room_thumbnail' => $target_file]);
-						}
-				    	$this->room->add_room_meta_data([
-							'meta_key' 	=> 'gallery',
-							'meta_value'=> $target_file,
-							'room_id' 	=> $room_id
-						]);
-		                $this->session->set_flashdata('msg', $msg);
-				    }
+						// Upload image
+					    if (move_uploaded_file($image["tmp_name"], $target_file)) {
+					    	list($width, $height) = getimagesize( base_url($target_file) );
+					    	if ($width > $config['width']) {
+						    	$config['source_image'] = $target_file;
+						    	$this->load->library('image_lib');
+								$this->image_lib->initialize($config);
+								$this->image_lib->resize();
+								$this->image_lib->clear(); 
+					    	}
+							list($width, $height) = getimagesize( base_url($target_file) );
+							if ( ($height > $width * 0.54) && ($width > $height)) {
+								$this->room->update_room_data(['id' => $room_id],['room_thumbnail' => $target_file]);
+							}
+					    	$this->room->add_room_meta_data([
+								'meta_key' 	=> 'gallery',
+								'meta_value'=> $target_file,
+								'room_id' 	=> $room_id
+							]);
+			                $this->session->set_flashdata('msg', $msg);
+					    }
+					}
+					$this->session->set_flashdata('msg', $msg);
 				}
-				$this->session->set_flashdata('msg', $msg);
+			}else{
+				$this->session->set_flashdata('type', 'error');
+				$this->session->set_flashdata('msg', "Cannot create room");
 			}
 			
 		}

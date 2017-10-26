@@ -120,6 +120,12 @@
                     </ul>
                 </li>
                 <li class="nav-item  ">
+                    <a href="glocal_admin/chat" class="nav-link">
+                        <i class="icon-chat"></i>
+                        <span class="title">Chat</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
                     <a href="glocal_admin/web_config" class="nav-link">
                         <i class="icon-settings"></i>
                         <span class="title">Web config</span>
