@@ -1,7 +1,3 @@
-<?php 
-$meta = $room['meta'];
-
- ?>
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 	<div class="carousel slide" data-ride="carousel">
 
@@ -20,25 +16,6 @@ $meta = $room['meta'];
 						<div class="container">
 							<div class="row">
 								<div class="col-md-6 text-left">
-									<h1 class="title">Material Kit PRO</h1>
-									<h4>Dolce & Gabbana is a luxury Italian fashion house founded in 1985 in Legnano by Italian designers Domenico Dolce and Stefano Gabbana. The two met in Milan in 1980 and designed for the same fashion house.</h4>
-									<br />
-
-									<div class="buttons">
-										<a href="" class="btn btn-primary btn-lg">
-											Read More
-										</a>
-										<a href="" class="btn btn-just-icon btn-white btn-simple btn-lg">
-											<i class="fa fa-twitter"></i>
-										</a>
-										<a href="" class="btn btn-just-icon btn-white btn-simple btn-lg">
-											<i class="fa fa-facebook-square"></i>
-										</a>
-										<a href="" class="btn btn-just-icon btn-white btn-simple btn-lg">
-											<i class="fa fa-get-pocket"></i>
-										</a>
-									</div>
-
 								</div>
 							</div>
 						</div>
@@ -78,7 +55,7 @@ $meta = $room['meta'];
 		                    </div>
 		                    <div id="collapseOne" class="panel-collapse collapse in">
 		                      <div class="panel-body">
-		                        <p><?= (isset($meta['description'])) ? $meta['description'] : "" ?></p>
+		                        <p><?= isset($meta['description']) ? $meta['description'] : "" ?></p>
 		                      </div>
 		                    </div>
 		                </div>

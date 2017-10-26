@@ -14,11 +14,11 @@ class Room extends Front_base {
 		$room = $this->booking->get_room(['id' => $room_id ]);
 		if (count($room)) {
 			$room = $room[0];
-			$room['meta'] = $this->booking->get_room_meta(['id' => $room_id ]);
 			$data = [
 				'title' 		=> $room['room_no'].' - Detail Informations',
 				'user' 			=> $this->user_data,
 				'room'		 	=> $room,
+				'meta' 			=> $this->booking->get_room_meta(['room_id' => $room_id ]),
 				'room_code' 	=> $this->encryption->encrypt($room_id),
 				'accessToken' 	=> $this->ci_nonce,
 				'location' 		=> $this->location_model->get_locations(['location_id' => $room['location']])[0],
@@ -29,13 +29,17 @@ class Room extends Front_base {
 			$this->load->view('front-end/header', $data, FALSE);
 			$this->load->view('front-end/single-room');
 			$this->load->view('front-end/footer');
-		}else{
+		}
+		// Không tìm thấy kết quả
+		else{
+			// Nếu là số
 			if (gettype($room_id) == "interger") {
 				$this->load->view('errors/html/error_404', [
 					'heading' => '404 Page Not Found', 
 					'message' => 'The page you requested was not found.'
 				]);
 			}else{
+				// Nếu là chuỗi thì đây là method
 				$this->{$room_id}();
 			}
 		}
