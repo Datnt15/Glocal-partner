@@ -18,6 +18,7 @@
     <link href="assets/css/vertical-nav.css" rel="stylesheet" />
     <link href="assets/css/toastr.min.css" rel="stylesheet" />
     <link href="assets/css/jquery-ui.css" rel="stylesheet">
+    <link href="assets/glocal-admin/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet">
 	<script src="https://maps.googleapis.com/maps/api/js?key= AIzaSyCBERPYtfHY9yx-gQoLMbEN5PeuLHcKChU&libraries=places" async defer></script>
 </head>
 
@@ -40,8 +41,8 @@
         	<div class="collapse navbar-collapse">
         		<ul class="nav navbar-nav navbar-right">
     				<li>
-						<a href="tel:+841662727846">
-							<i class="fa fa-phone"></i> (+84) 166 2727 846
+						<a href="tel:02466509169">
+							<i class="fa fa-phone"></i> 024 66 50 91 69
 						</a>
 					</li>
 

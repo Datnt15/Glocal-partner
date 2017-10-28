@@ -23,7 +23,9 @@ class Room extends Front_base {
 				'accessToken' 	=> $this->ci_nonce,
 				'location' 		=> $this->location_model->get_locations(['location_id' => $room['location']])[0],
 				'relate_rooms' 	=> $this->booking->get_related_rooms($room),
-				'is_room_page' 	=> true
+				'invalidDates' 	=> $this->booking->get_booked_dates($room['room_no'], $room['location']),
+				'is_room_page' 	=> true,
+				'currency' 		=> 'USD'
 			];
 
 			$this->load->view('front-end/header', $data, FALSE);
@@ -33,15 +35,7 @@ class Room extends Front_base {
 		// Không tìm thấy kết quả
 		else{
 			// Nếu là số
-			if (gettype($room_id) == "interger") {
-				$this->load->view('errors/html/error_404', [
-					'heading' => '404 Page Not Found', 
-					'message' => 'The page you requested was not found.'
-				]);
-			}else{
-				// Nếu là chuỗi thì đây là method
-				$this->{$room_id}();
-			}
+			show_404();
 		}
 	}
 
@@ -49,51 +43,18 @@ class Room extends Front_base {
 		$post = $this->input->post();
 		if ($this->ci_nonce == $post['accessToken']) {
 			$result['type'] = 'success';
-			$room_id = $this->encrypt->decode($post['room_code']);
-			$room = $this->booking->get_room(['room_id' => $room_id ]);
+			$room_id = $post['room_no'];
+			$room = $this->booking->get_room(['id' => $room_id ]);
 			if (count($room)) {
 				$room = $room[0];
-				$post['weekendDays'] = intval($post['weekendDays']);
-				$post['normalDays'] = intval($post['normalDays']);
-				$check_out_day = intval( date("w", strtotime( $post['endDate'] ) ) );
 				
-				if ($check_out_day == 0 || $check_out_day == 6) {
-					$post['weekendDays']--;
-				}else{
-					$post['normalDays']--;
-				}
-
-				$result['total_night'] = $post['weekendDays'] + $post['normalDays'];
-				$result['total_rent_rate'] = (intval( $room['weekly_rate'] ) * $post['normalDays']) + (intval( $room['weekend_rate'] ) * $post['weekendDays']);
-				
-				// Store booking info
-				$post['total_night'] = $result['total_night'];
-				$post['total_rent_rate'] = $result['total_rent_rate'];
-				$this->session->set_userdata('room_booking_data', $post);
-				
-				// return html to alert customer
-				$result['html'] = "<table class='table table-striped'>
-							<tr>
-								<td><span class='text-muted'>Monday-Thursday</span></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>".$room['weekly_rate']." x ".$post['normalDays']." night</td>
-								<td>$ ".intval($room['weekly_rate'])*$post['normalDays']."</td>
-							</tr>
-							<tr>
-								<td><span class='text-muted'>Saturday-Sunday</span></td>
-								<td></td>
-							</tr>
-							<tr>
-								<td>".$room['weekend_rate']." x ".$post['weekendDays']." night</td>
-								<td>$ ".intval($room['weekend_rate'])*$post['weekendDays']."</td>
-							</tr>
-							<tr>
-								<td><b>Total price base</b></td>
-								<td>$ ".$result['total_rent_rate']."</td>
-							</tr>
-						</table>";
+				$months_fee = $post['months']*$room['room_monthly_tax'];
+				$weeks_fee = $post['weeks']*$room['room_weekly_tax'];
+				$days_fee = $post['days']*$room['room_daily_tax'];
+				$result['html'] = "<table class='table table-striped'><tr><td><span class='text-muted'>Monthly Tax</span></td><td></td></tr><tr><td>".number_format($room['room_monthly_tax'], 0, '.', ' ') ."<sup>USD</sup> x ".$post['months']." month</td><td>".$months_fee." <sup>USD</sup></td></tr><tr><td><span class='text-muted'>Weekly Tax</span></td><td></td></tr><tr><td>".number_format($room['room_weekly_tax'], 0, '.', ' ') ."<sup>USD</sup> x ".$post['weeks']." week</td><td>".$weeks_fee." <sup>USD</sup></td></tr><tr><td><span class='text-muted'>Daily Tax</span></td><td></td></tr><tr><td>".number_format($room['room_daily_tax'], 0, '.', ' ') ."<sup>USD</sup> x ".$post['days']." day</td><td>".$days_fee." <sup>USD</sup></td></tr><tr><td><b>Total Rent</b></td><td>".($days_fee + $weeks_fee + $months_fee)." <sup>USD</sup></td></tr></table>";
+				// Đặt session data khi tạo yêu cầu thuê phòng
+				$this->session->set_userdata('total_fee', $days_fee + $weeks_fee + $months_fee);
+				$result['total_fee'] = $days_fee + $weeks_fee + $months_fee;
 				echo json_encode($result);
 			}else{
 				echo json_encode([
@@ -110,10 +71,6 @@ class Room extends Front_base {
 				'title' => 'Access Token is invalid!'
 			]);
 		}
-	}
-
-	function _remap($param){
-		$this->index($param);
 	}
 
 }

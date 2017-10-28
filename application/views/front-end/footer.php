@@ -140,6 +140,7 @@
 <script src="assets/js/bootstrap-tagsinput.js"></script>
 <script src="assets/js/moment.min.js"></script>
 <script src="assets/js/bootstrap-selectpicker.js" type="text/javascript"></script>
+<script src="assets/glocal-admin/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap-datetimepicker.js" type="text/javascript"></script>
 <script src="assets/js/nouislider.min.js" type="text/javascript"></script>
 <script src="assets/js/toastr.min.js" type="text/javascript"></script>

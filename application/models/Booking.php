@@ -24,8 +24,8 @@ class Booking extends CI_Model {
 	}
 
 	public function get_related_rooms($room){
-		$relateds = $this->get_room('room_monthly_tax>' . (intval($room['room_monthly_tax']) - 20) . ' AND room_monthly_tax<' . (intval($room['room_monthly_tax']) + 20) . ' AND id<>' .$room['id']. ' OR location=' . $room['location'] . " AND id<>" .$room['id'], 4);
-		return count($relateds) ? $relateds : $this->get_room('id<>' .$room['id'], 4) ;
+		$relateds = $this->get_room('room_monthly_tax>' . (intval($room['room_monthly_tax']) - 20) . ' AND room_monthly_tax<' . (intval($room['room_monthly_tax']) + 20) . ' AND id<>' .$room['id']. ' OR location=' . $room['location'] . " AND id<>" .$room['id'], 3);
+		return count($relateds) ? $relateds : $this->get_room('id<>' .$room['id'], 3) ;
 	}
 
 	public function get_room_meta($where){
@@ -48,17 +48,22 @@ class Booking extends CI_Model {
 
 
 	public function add_book($data){
-		return $this->db->insert(BOOKING_TABLE, $data) ? $this->db->insert_id() : 0;
+		return $this->db->insert(BOOK_TABLE, $data) ? $this->db->insert_id() : 0;
 	}
 
 
 	public function update_room_data($where, $data){
-		return $this->db->where($where)->update(BOOKING_TABLE, $data);
+		return $this->db->where($where)->update(BOOK_TABLE, $data);
 	}
 
 
 	public function get_booking_request($where, $limit = 1){
-		return $this->db->where($where)->limit($limit)->get(BOOKING_TABLE)->result_array();
+		return $this->db->where($where)->limit($limit)->get(BOOK_TABLE)->result_array();
+	}
+
+
+	public function get_booked_dates($room_no, $location){
+		return $this->db->select('date_range')->where(['room_no' => $room_no, 'status' => 2, 'location' => $location])->get(BOOK_TABLE)->result_array();
 	}
 
 }

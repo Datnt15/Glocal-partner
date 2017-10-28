@@ -167,7 +167,7 @@ class Search extends Front_base {
 		$total_room = count($this->room->run_query($query));
 
 		// Pagination
-		$query .= " LIMIT 6";
+		$query .= " ORDER BY ".ROOM_TABLE.".id DESC LIMIT 6";
 		$page = is_null($this->session->userdata('page')) ? 1 : $this->session->userdata('page');
 		if (isset($post['page']) ) {
 			$page = $post['page'];
@@ -265,7 +265,7 @@ class Search extends Front_base {
 		}else{
 			$template = '<div id="iw-container"><div class="iw-title">Room Infomations</div><div class="iw-content">';
 			foreach ($rooms as $room) {
-				$template .= $this->load->view('front-end/room-template/room-info-window', ['room' => $room], TRUE);
+				$template .= $this->load->view('front-end/room-template/room-info-window', ['room' => $room, 'location' => $this->location_model->get_locations(['location_id' => $room['location']])], TRUE);
 			}
 			$template .= '</div></div>';
 			echo json_encode(['type' => 'success', 'template' => $template]);

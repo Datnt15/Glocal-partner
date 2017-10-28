@@ -2,6 +2,7 @@ var cur_url = window.location.href,
     home_url = document.getElementsByTagName('base')[0].getAttribute('href'),
     map = null,
     infowindow = null,
+    bounds = null,
     markers = [], 
     circles = [], 
     marker_icon = home_url+'assets/img/map_marker.png';
@@ -77,6 +78,7 @@ $(document).ready(function() {
 
     // Define map view
     if ($("#map-view").length) {
+        bounds = new google.maps.LatLngBounds();
         initMap();
     }
 
@@ -93,7 +95,6 @@ $(document).ready(function() {
                 data = JSON.parse(data);
                 if (data.type == 'success') {
                     deleteMarkers();
-                    var bounds = new google.maps.LatLngBounds();
                     for (var i = 0; i < data.positions.length; i++) {
                         var marker = new google.maps.Marker({
                             position: {lat: parseFloat(data.positions[i].address.split(',')[0]), lng: parseFloat(data.positions[i].address.split(',')[1]) },
@@ -103,16 +104,16 @@ $(document).ready(function() {
                             title: data.positions[i].name
                         });
                         bounds.extend(marker.position);
-                        var circle = new google.maps.Circle({
-                            map: map,
-                            radius: 200,    // 100 metres
-                            fillColor: '#00bcd4',
-                            strokeColor: '#00bcd5',
-                            strokeWeight: 1
-                        });
-                        circle.bindTo('center', marker, 'position');
+                        // var circle = new google.maps.Circle({
+                        //     map: map,
+                        //     radius: 200,    // 100 metres
+                        //     fillColor: '#00bcd4',
+                        //     strokeColor: '#00bcd5',
+                        //     strokeWeight: 1
+                        // });
+                        // circle.bindTo('center', marker, 'position');
                         markers.push(marker);
-                        circles.push(circle);
+                        // circles.push(circle);
                         marker.addListener('click', function(e) {
                             get_room_info_windows(this.title, map, this);
                         });

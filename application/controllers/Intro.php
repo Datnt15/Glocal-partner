@@ -29,7 +29,7 @@ class Intro extends  Front_base {
 	// Render results html from query
 	private function render_search_results($post = null){
 		$locations = $this->location_model->get_available_location();
-		$query = "SELECT * FROM ".ROOM_TABLE;
+		$query = "SELECT * FROM ".ROOM_TABLE." ORDER BY id DESC";
 		$total_room = count($this->room->run_query($query));
 
 		// Pagination

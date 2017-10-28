@@ -2,16 +2,15 @@
 	<div class="carousel slide" data-ride="carousel">
 
 		<ol class="carousel-indicators">
-			<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-			<?php for($i = 1; $i < 7; $i++): ?>
+			<?php for($i = 1; $i < count($meta['gallery'])+1; $i++): ?>
 				<li data-target="#carousel-example-generic" data-slide-to="<?= $i ?>"></li>
 			<?php endfor; ?>
 		</ol>
 
 		<div class="carousel-inner">
-			<?php for($i = 1; $i < 8; $i++): ?>
+			<?php for($i = 1; $i < count($meta['gallery'])+1; $i++): ?>
 				<div class="item <?= $i == 1 ? 'active' : '' ?>">
-					<div class="page-header header-filter" style="background-image: url('assets/img/room-<?= $i ?>.jpg');">
+					<div class="page-header header-filter" style="background-image: url(<?php echo $meta['gallery'][$i-1]['meta_value']; ?>);">
 
 						<div class="container">
 							<div class="row">
@@ -23,12 +22,12 @@
 				</div>
 			<?php endfor; ?>
 		</div>
-		<a class="left carousel-control" href="carousel-example-generic" data-slide="prev">
+		<!-- <a class="left carousel-control" href="carousel-example-generic" data-slide="prev">
 			<i class="fa fa-3x fa-angle-left"></i>
 		</a>
 		<a class="right carousel-control" href="carousel-example-generic" data-slide="next">
 			<i class="fa fa-3x fa-angle-right"></i>
-		</a>
+		</a> -->
 	</div>
 </div>
 <div class="section section-gray">
@@ -364,15 +363,7 @@
 								<i class="fa fa-calendar-check-o fa-lg"></i>
 							</span>
 							<div class="form-group">
-								<input class="form-control datepicker" name="check-in" placeholder="Check In" type="text" required>
-							</div>
-						</div>
-						<div class="input-group">
-							<span class="input-group-addon">
-								<i class="fa fa-calendar-check-o fa-lg"></i>
-							</span>
-							<div class="form-group">
-								<input class="form-control datepicker" name="check-out" placeholder="Check out" type="text" required>
+								<input class="form-control input-daterange" name="book_date_range" placeholder="How long do you stay?" type="text" required>
 							</div>
 						</div>
 						<div class="input-group">
@@ -391,8 +382,8 @@
 						<br>
 						
 						<div class="row">
-							<div class="col-xs-9" id="fee_explaination" data-toggle="popover" data-trigger="hover" title="Split price base" data-placement="top" data-html="true" data-content="<table class='table table-striped'><tr><td><span class='text-muted'>Monday-Thursday</span></td><td></td></tr><tr><td>0 x 0 night</td><td>$0</td></tr><tr><td><span class='text-muted'>Saturday-Sunday</span></td><td></td></tr><tr><td>0 x 0 night</td><td>$0</td></tr><tr><td><b>Total price base</b></td><td>$0</td></tr></table>">
-								Rent fees 0 night 
+							<div class="col-xs-9" id="fee_explaination" data-toggle="popover" data-trigger="hover" title="Split price base" data-placement="top" data-html="true" data-content="<table class='table table-striped'><tr><td><span class='text-muted'>Monthly Tax</span></td><td></td></tr><tr><td><?= number_format($room['room_monthly_tax'], 0, '.', ' ') ?><sup><?= $currency ?></sup> x 0 month</td><td>0 <sup><?= $currency ?></sup></td></tr><tr><td><span class='text-muted'>Weekly Tax</span></td><td></td></tr><tr><td><?= number_format($room['room_weekly_tax'], 0, '.', ' ') ?><sup><?= $currency ?></sup> x 0 week</td><td>0 <sup><?= $currency ?></sup></td></tr><tr><td><span class='text-muted'>Daily Tax</span></td><td></td></tr><tr><td><?= number_format($room['room_daily_tax'], 0, '.', ' ') ?><sup><?= $currency ?></sup> x 0 day</td><td>0 <sup><?= $currency ?></sup></td></tr><tr><td><b>Total rent</b></td><td>0 <sup><?= $currency ?></sup></td></tr></table>">
+								Rent fees
 								<i class="fa fa-question-circle" aria-hidden="true"></i>
 							</div>
 							<div class="col-xs-3 text-right">
@@ -420,7 +411,7 @@
             </div>
 
 
-            <!-- Typical Features -->
+            <!-- Typical Features
             <div class="clearfix"></div>
 			<div class="features text-center">
 	            <div class="row">
@@ -455,7 +446,7 @@
 					</div>
 
 	            </div>
-	        </div>
+	        </div> -->
 			
 
 			<!-- Room location -->
@@ -471,7 +462,7 @@
 				<div class="row">
 					<?php foreach ($relate_rooms as $relate_room): ?>
 						
-						<div class="col-sm-6 col-md-3">
+						<div class="col-sm-6 col-md-4">
 							<div class="card card-product">
 								<div class="card-image">
 									<a href="#">
@@ -486,9 +477,6 @@
 											<?= $relate_room['room_no'] ?>
 										</a>
 									</h4>
-									<!-- <div class="card-description">
-										<?= $relate_room['short_description'] ?>
-									</div> -->
 									<div class="footer">
 		                                <div class="price">
 											<h4>$<?= $relate_room['room_daily_tax'] ?></h4>
@@ -512,3 +500,11 @@
 </div>
 
 
+<script type="text/javascript">
+    var _invalidDate = [];
+    <?php if (count($invalidDates)): ?>
+        <?php foreach ($invalidDates as $booked_date): ?>
+            _invalidDate.push("<?= $booked_date['date_range'] ?>");
+        <?php endforeach ?>
+    <?php endif ?>
+</script>

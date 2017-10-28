@@ -8,7 +8,7 @@ class Room extends CI_Model {
 	}
 
 	public function get_all_rooms($limit = 6){
-		return $this->db->limit($limit)->get(ROOM_TABLE)->result_array();
+		return $this->db->order_by('id', 'DESC')->limit($limit)->get(ROOM_TABLE)->result_array();
 	}
 
 	public function get_room($where, $limit = 1, $offset = 0){
