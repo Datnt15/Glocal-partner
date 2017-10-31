@@ -87,9 +87,142 @@
 		</div>
 		<div class="clearfix"></div>
 	</section>
+	
+	<!-- Au Co -->
+	<section class="section intro">
+		<div class="container text-center">
+			<h2><b><?php echo $auCo['location_name_en']; ?></b></h2>
+			<h5 class="text-justify" style="line-height: 20px; font-size: 16px;"><?php echo $auCo['location_des']; ?></h5>
+		</div>
+		<br>
+		<div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2 text-center">
+			<div class="row  bg-white">
+				<div class="col-xs-12 col-md-6 col-sm-6 product">
+					<div class="product-img">
+						<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
+						  	<!-- Wrapper for slides -->
+						  	<div class="carousel-inner" role="listbox">
+						    	<?php $i = 0; foreach ($auco_rooms[0]['meta']['gallery'] as $img): ?>
+							    	<div class="item <?php echo $i++ == 0 ? 'active' : ''; ?>">
+							      		<img src="<?php echo $img['meta_value'] ?>" alt="<?php echo $auCo['location_name_en']; ?> room no gallery">
+							    	</div>
+						    	<?php endforeach ?>
+						  	</div>
+						</div>
+					</div>
+					<div class="product-content">
+						<h3>Room no: <b><?php echo $auco_rooms[0]['room_no']; ?></b></h3>
+						<div class="row has-hr">
+							<div class="col-xs-4">
+								<img src="assets/img/daily.png" class="img-20" alt="<?php echo $auco_rooms[0]['room_no']; ?> daily tax">
+								<strong><?php echo $auco_rooms[0]['room_daily_tax']; ?> <sup>USD</sup></strong>
+								/night
+							</div>
+							<div class="col-xs-4">
+								<img src="assets/img/weekly.png" class="img-20" alt="<?php echo $auco_rooms[0]['room_no']; ?> weekly tax">
+								<strong><?php echo $auco_rooms[0]['room_weekly_tax']; ?> <sup>USD</sup></strong>
+								/week
+							</div>
+							<div class="col-xs-4">
+								<img src="assets/img/monthly.png" class="img-20" alt="<?php echo $auco_rooms[0]['room_no']; ?> monthly tax">
+								<strong><?php echo $auco_rooms[0]['room_monthly_tax']; ?> <sup>USD</sup></strong>
+								/month
+							</div>
+						</div>
+						<p class="hidden-xs hidden-sm text-justify" style="padding: 0 10px;"><?php echo $auco_rooms[0]['meta']['short_description']; ?></p>
+						<a href="room/<?php echo $auco_rooms[0]['id'] ?>" class="btn form-control-boxed btn-dark">View detail</a>
+					</div>
+				</div>
+				<div class="col-xs-12 col-md-6 col-sm-6 product">
+					
+					<div class="product-content">
+						<h3>Room no: <b><?php echo $auco_rooms[1]['room_no']; ?></b></h3>
+						<div class="row has-hr">
+							<div class="col-xs-4">
+								<img src="assets/img/daily.png" class="img-20" alt="<?php echo $auco_rooms[1]['room_no']; ?> daily tax">
+								<strong><?php echo $auco_rooms[1]['room_daily_tax']; ?> <sup>USD</sup></strong>
+								/night
+							</div>
+							<div class="col-xs-4">
+								<img src="assets/img/weekly.png" class="img-20" alt="<?php echo $auco_rooms[1]['room_no']; ?> weekly tax">
+								<strong><?php echo $auco_rooms[1]['room_weekly_tax']; ?> <sup>USD</sup></strong>
+								/week
+							</div>
+							<div class="col-xs-4">
+								<img src="assets/img/monthly.png" class="img-20" alt="<?php echo $auco_rooms[1]['room_no']; ?> monthly tax">
+								<strong><?php echo $auco_rooms[1]['room_monthly_tax']; ?> <sup>USD</sup></strong>
+								/month
+							</div>
+						</div>
+						<p class="hidden-xs hidden-sm text-justify" style="padding: 0 10px;"><?php echo $auco_rooms[1]['meta']['short_description']; ?></p>
+						<a href="room/<?php echo $auco_rooms[1]['id'] ?>" class="btn form-control-boxed btn-dark">View detail</a>
+					</div>
+					<div class="product-img">
+						<div id="carousel-example-generic-2" class="carousel slide" data-ride="carousel" data-interval="3000">
+						  	<!-- Wrapper for slides -->
+						  	<div class="carousel-inner" role="listbox">
+						    	<?php $i = 0; foreach ($auco_rooms[1]['meta']['gallery'] as $img): ?>
+							    	<div class="item <?php echo $i++ == 0 ? 'active' : ''; ?>">
+							      		<img src="<?php echo $img['meta_value'] ?>" alt="<?php echo $auCo['location_name_en']; ?> room no gallery">
+							    	</div>
+						    	<?php endforeach ?>
+						  	</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+		<div class="clearfix"></div>
+	</section>
 
+	<section class="section bg-white">
+		<div class="slider-container">
+  			<div class="slider-control left inactive">    </div>
+  			<div class="slider-control right"></div>
+  			<ul class="slider-pagi"></ul>
+		  	<div class="slider">
+		  		<?php $i = 0; foreach ($to_ngoc_van as $room): ?>
+			    	<div class="slide slide-<?php echo $i++; ?> <?php echo $i == 1 ? 'active' : ''; ?>">
+			      		<div class="slide__bg" >
+			      			<img src="<?php echo $room['room_thumbnail']; ?>" alt="<?php echo '88 To Ngoc Van room no '.$room['room_no'] ?> gallery">
+			      			<img src="<?php echo $room['room_thumbnail']; ?>" alt="<?php echo '88 To Ngoc Van room no '.$room['room_no'] ?> gallery">
+			      		</div>
+			      		<div class="slide__content">
+			        		<svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
+			          			<path class="slide__overlay-path" d="M0,0 120,0 500,405 0,405" />
+			        		</svg>
+			        		<div class="slide__text">
+			          			<h3 class="slide__text-heading"><i class="fa fa-map-marker"></i> 88 To Ngoc Van - Room no <?php echo $room['room_no']; ?> </h3>
+			          			<p class="slide__text-desc text-justify"><?php echo $room['meta']['short_description']; ?></p>
+			          			<div class="row">
+			          				<div class="col-xs-4">
+			          					<img src="assets/img/daily.png" alt="<?php echo '88 To Ngoc Van room no '.$room['room_no'] ?> tax for day" class="img-20">
+			          					<strong><?php echo $room['room_daily_tax'] ?> <sup>USD</sup>/night</strong>
+			          				</div>
+			          				<div class="col-xs-4">
+			          					<img src="assets/img/weekly.png" alt="<?php echo '88 To Ngoc Van room no '.$room['room_no'] ?> tax for week" class="img-20">
+			          					<strong><?php echo $room['room_weekly_tax'] ?> <sup>USD</sup>/week</strong>
+			          				</div>
+			          				<div class="col-xs-4">
+			          					<img src="assets/img/monthly.png" alt="<?php echo '88 To Ngoc Van room no '.$room['room_no'] ?> tax for month" class="img-20">
+			          					<strong><?php echo $room['room_monthly_tax'] ?> <sup>USD</sup>/month</strong>
+			          				</div>
+			          			</div>
+			          			<br>
+			          			<p class="slide__text-desc">Including Services: AC | Wifi | TV | Cleaning | More</p>
+			          			<a class="btn form-control-boxed" href="room/<?php echo $room['room_no']; ?>">View detail</a>
+			        		</div>
+			      		</div>
+			    	</div>
+		  		<?php endforeach ?>
+		  	</div>
+		</div>
+		<div class="clearfix"></div>
+	</section>
+	
 	<!-- List of available rooms -->
-	<section class="section">
+	<section class="section bg-white intro">
 		<div class="container text-center">
 			<h2><b>List of available rooms</b></h2>
 			<div class="action-bar container">

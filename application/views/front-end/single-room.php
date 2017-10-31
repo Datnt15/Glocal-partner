@@ -350,7 +350,7 @@
 
             <!-- Booking this room -->
             <div class="col-xs-12 col-md-4 col-sm-4">
-            	<form method="POST" action="<?= base_url('booking') ?>" id="book-form">
+            	<!-- <form method="POST" action="<?= base_url('booking') ?>" id="book-form"> -->
 					<input type="hidden" name="accessToken" value="<?= $accessToken ?>" id="accessToken">
 					<input type="hidden" name="room_code" value="<?= $room_code ?>" id="room_code">
 		            <div class="card card-product col-xs-12">
@@ -405,9 +405,9 @@
 							<div class="col-xs-9">Total</div>
 							<div class="col-xs-3 text-right">$ <span id="total_fee"><?= $room['room_daily_tax'] ?></span></div>
 						</div>
-						<button class="btn btn-info btn-round form-control" type="submit">Instant Book </button>
+						<a href="mailto:joe@example.com?subject=feedback">email me</a>
 		            </div>
-            	</form>
+            	<!-- </form> -->
             </div>
 
 

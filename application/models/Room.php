@@ -15,6 +15,14 @@ class Room extends CI_Model {
 		return $this->db->where($where)->get(ROOM_TABLE, $limit, $offset)->result_array();
 	}
 
+	public function get_room_with_meta($where, $limit = 1, $offset=0){
+		$rooms = self::get_room($where, $limit, $offset);
+		foreach ($rooms as &$room) {
+			$room['meta'] = self::get_room_meta(['room_id' => $room['id']]);
+		}
+		return $rooms;
+	}
+
 	public function get_room_in_location($where, $limit = 1){
 		return $this->db->where($where)->limit($limit)->get(ROOM_TABLE)->result_array();
 	}

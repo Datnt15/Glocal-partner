@@ -81,6 +81,11 @@ jQuery(document).ready(function() {
                             $("#gallery").append(res.html);
                             App.unblockUI('#tab_images');
                             add_alert(res.type, res.msg, res.title);
+                            input.value='';
+                            for (var key of formData.keys()) {
+                                // here you can add filtering conditions
+                                formdata.delete(key)
+                            }
                         }
                     });
                 }

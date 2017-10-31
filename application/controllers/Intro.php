@@ -15,8 +15,11 @@ class Intro extends  Front_base {
 		$data = [
 			'title' 		=> 'Glocal Partner',
 			'user' 			=> $this->user_data,
-			'accessToken' 	=> $this->ci_nonce
+			'accessToken' 	=> $this->ci_nonce,
+			'auCo' 			=> $this->location_model->get_locations(['location_slug' => '124-au-co'])[0],
+			'to_ngoc_van' 	=> $this->room->get_room_with_meta(['location' => 1423], 6, 0)
 		];
+		$data['auco_rooms'] = $this->room->get_room_with_meta(['location' => $data['auCo']['location_id']], 2, 0);
 		$rooms = self::render_search_results();
 		if ($rooms['type'] == 'success') {
 			$data['rooms_view_grid'] = $rooms['data']['rooms_view_grid'];
